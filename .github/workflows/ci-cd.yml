@@ -21,9 +21,14 @@ jobs:
 
       - name: Install validation tools
         run: |
-          sudo apt-get update
+          # Use cache to speed up package installation
+          sudo apt-get update -qq
           sudo apt-get install -y libxml2-utils yamllint
           npm install -g markdownlint-cli
+        env:
+          # Speed up npm installation
+          NPM_CONFIG_PROGRESS: false
+          NPM_CONFIG_SPIN: false
 
       - name: Make scripts executable
         run: |
