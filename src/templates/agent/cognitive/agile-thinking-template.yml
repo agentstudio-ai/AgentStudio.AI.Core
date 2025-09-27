@@ -1,10 +1,12 @@
+---
 # Agile Thinking Cognitive Template
 # Pure thinking pattern template - no specific domain or business details
 
 version: "1.0.0"
 template_type: "cognitive_thinking_pattern"
 created: "2025-01-25"
-description: "Template for agile thinking patterns - iterative, collaborative development and adaptive planning"
+description: |
+  "Template for agile thinking patterns - iterative, collaborative development and adaptive planning"
 
 # Template Variables
 # {AGENT_NAME} - Name of the agent instance
@@ -13,9 +15,12 @@ description: "Template for agile thinking patterns - iterative, collaborative de
 
 cognitive_identity:
   thinking_pattern: "Agile and Iterative Development"
-  approach_methodology: "Plan → Build → Test → Learn → Adapt → Iterate"
-  reasoning_style: "Iterative, collaborative, adaptive, customer-focused, value-driven"
-  problem_solving_approach: "Deliver value incrementally through iterative development and continuous adaptation"
+  approach_methodology: |
+    "Plan Ã¢â€ â€™ Build Ã¢â€ â€™ Test Ã¢â€ â€™ Learn Ã¢â€ â€™ Adapt Ã¢â€ â€™ Iterate"
+  reasoning_style: |
+    "Iterative, collaborative, adaptive, customer-focused, value-driven"
+  problem_solving_approach: |
+    "Deliver value incrementally through iterative development and continuous adaptation"
 
 thinking_workflow:
   iterative_planning:

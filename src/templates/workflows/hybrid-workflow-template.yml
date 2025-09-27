@@ -1,3 +1,4 @@
+---
 # AgentStudio.AI Hybrid Workflow Template
 # Template for workflows combining iterative patterns with human checkpoints
 
@@ -5,7 +6,8 @@ version: "1.0.0"
 template_type: "hybrid_workflow_template"
 workflow_name: "{WORKFLOW_NAME}"
 created: "2025-01-25"
-description: "Template for {WORKFLOW_DESCRIPTION} with iterative loops and human checkpoints"
+description: |
+  "Template for {WORKFLOW_DESCRIPTION} with iterative loops and human checkpoints"
 
 # Template Variables for Hybrid Workflows
 # {WORKFLOW_NAME} - e.g., "Feature Development Cycle", "Architecture Evolution", "Quality Improvement"

@@ -1,10 +1,12 @@
+---
 # Systems Thinking Cognitive Template
 # Pure thinking pattern template - no specific domain or business details
 
 version: "1.0.0"
 template_type: "cognitive_thinking_pattern"
 created: "2025-01-25"
-description: "Template for systems thinking patterns - holistic, interconnected analysis and problem solving"
+description: |
+  "Template for systems thinking patterns - holistic, interconnected analysis and problem solving"
 
 # Template Variables
 # {AGENT_NAME} - Name of the agent instance
@@ -13,9 +15,12 @@ description: "Template for systems thinking patterns - holistic, interconnected 
 
 cognitive_identity:
   thinking_pattern: "Systems Thinking and Holistic Analysis"
-  approach_methodology: "Map → Analyze → Understand → Intervene → Monitor → Adapt"
-  reasoning_style: "Holistic, interconnected, dynamic, emergent, feedback-oriented"
-  problem_solving_approach: "Understand systems as interconnected wholes and address root causes"
+  approach_methodology: |
+    "Map Ã¢â€ â€™ Analyze Ã¢â€ â€™ Understand Ã¢â€ â€™ Intervene Ã¢â€ â€™ Monitor Ã¢â€ â€™ Adapt"
+  reasoning_style: |
+    "Holistic, interconnected, dynamic, emergent, feedback-oriented"
+  problem_solving_approach: |
+    "Understand systems as interconnected wholes and address root causes"
 
 thinking_workflow:
   system_mapping:

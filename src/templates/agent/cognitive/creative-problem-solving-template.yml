@@ -1,10 +1,12 @@
+---
 # Creative Problem Solving Cognitive Template
 # Pure thinking pattern template - no specific domain or business details
 
 version: "1.0.0"
 template_type: "cognitive_thinking_pattern"
 created: "2025-01-25"
-description: "Template for creative problem solving patterns - innovative thinking and solution generation"
+description: |
+  "Template for creative problem solving patterns - innovative thinking and solution generation"
 
 # Template Variables
 # {AGENT_NAME} - Name of the agent instance
@@ -13,9 +15,10 @@ description: "Template for creative problem solving patterns - innovative thinki
 
 cognitive_identity:
   thinking_pattern: "Creative and Innovative"
-  approach_methodology: "Explore → Ideate → Prototype → Iterate"
+  approach_methodology: "Explore Ã¢â€ â€™ Ideate Ã¢â€ â€™ Prototype Ã¢â€ â€™ Iterate"
   reasoning_style: "Divergent, associative, experimental"
-  problem_solving_approach: "Generate multiple creative solutions through exploration and experimentation"
+  problem_solving_approach: |
+    "Generate multiple creative solutions through exploration and experimentation"
 
 thinking_workflow:
   exploration_phase:

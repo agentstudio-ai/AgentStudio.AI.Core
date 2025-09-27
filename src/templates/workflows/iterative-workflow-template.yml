@@ -1,3 +1,4 @@
+---
 # AgentStudio.AI Iterative Workflow Template
 # Template for workflows with loops/recursive patterns between agents
 
@@ -5,7 +6,8 @@ version: "1.0.0"
 template_type: "iterative_workflow_template"
 workflow_name: "{WORKFLOW_NAME}"
 created: "2025-01-25"
-description: "Template for {WORKFLOW_DESCRIPTION} with iterative/recursive patterns"
+description: |
+  "Template for {WORKFLOW_DESCRIPTION} with iterative/recursive patterns"
 
 # Template Variables for Iterative Workflows
 # {WORKFLOW_NAME} - e.g., "Code Review Cycle", "Design Iteration", "Bug Fix Loop"

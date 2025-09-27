@@ -1,3 +1,4 @@
+---
 # AgentStudio.AI Agent Context Save Template
 # Template for structured agent context saving
 
@@ -5,7 +6,8 @@ version: "1.0.0"
 template_type: "agent_context_save_template"
 created: "2025-01-25"
 modified: "2025-01-25"
-description: "Structured template for agent context saving to ensure consistent state management"
+description: |
+  "Structured template for agent context saving to ensure consistent state management"
 
 # Template Variables for Context Saving
 # {AGENT_ID} - Unique identifier for this agent instance
