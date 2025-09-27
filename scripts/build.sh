@@ -100,10 +100,11 @@ else
     
     # Download NuGet CLI directly (most reliable method)
     if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-        # Install NuGet CLI for Linux
+        # Install NuGet CLI for Linux using the official GitHub release
         if [ ! -f "tools/nuget" ]; then
             echo -e "${CYAN}Installing NuGet CLI for Linux...${NC}"
-            curl -L -o tools/nuget "https://dist.nuget.org/linux-x64-commandline/latest/nuget"
+            # Use the official NuGet CLI release from GitHub
+            curl -L -o tools/nuget "https://github.com/NuGet/NuGet.Client/releases/download/v6.8.0.123/nuget.exe"
             chmod +x tools/nuget
         fi
         NUGET_CMD="tools/nuget"
@@ -122,7 +123,16 @@ fi
 
 # Build NuGet package
 echo -e "${CYAN}Using NuGet command: $NUGET_CMD${NC}"
-$NUGET_CMD pack "src/AgentStudio.AI.Core.nuspec" -OutputDirectory "$OUTPUT_DIR" -Version "$VERSION"
+if ! $NUGET_CMD pack "src/AgentStudio.AI.Core.nuspec" -OutputDirectory "$OUTPUT_DIR" -Version "$VERSION"; then
+    echo -e "${RED}❌ NuGet pack failed${NC}"
+    exit 1
+fi
+
+# Verify package was created
+if [ ! -f "$OUTPUT_DIR/AgentStudio.AI.Core.$VERSION.nupkg" ]; then
+    echo -e "${RED}❌ Package file not found: $OUTPUT_DIR/AgentStudio.AI.Core.$VERSION.nupkg${NC}"
+    exit 1
+fi
 
 echo -e "${GREEN}Build complete! Package created in $OUTPUT_DIR${NC}"
 echo -e "${CYAN}Package: AgentStudio.AI.Core.$VERSION.nupkg${NC}"
