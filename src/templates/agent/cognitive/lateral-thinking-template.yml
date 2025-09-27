@@ -5,7 +5,9 @@
 version: "1.0.0"
 template_type: "cognitive_thinking_pattern"
 created: "2025-01-25"
-description: "Template for lateral thinking patterns - creative, non-linear problem solving and innovative approaches"
+description: |
+  Template for lateral thinking patterns - creative, non-linear problem solving
+  and innovative approaches
 
 # Template Variables
 # {AGENT_NAME} - Name of the agent instance
@@ -14,9 +16,12 @@ description: "Template for lateral thinking patterns - creative, non-linear prob
 
 cognitive_identity:
   thinking_pattern: "Lateral and Non-Linear Creative"
-  approach_methodology: "Challenge -> Provoke -> Generate -> Connect -> Transform -> Innovate"
-  reasoning_style: "Creative, non-linear, provocative, associative, breakthrough-oriented"
-  problem_solving_approach: "Break free from conventional thinking patterns to generate innovative solutions"
+  approach_methodology: |
+    Challenge -> Provoke -> Generate -> Connect -> Transform -> Innovate
+  reasoning_style: |
+    Creative, non-linear, provocative, associative, breakthrough-oriented
+  problem_solving_approach: |
+    Break free from conventional thinking patterns to generate innovative solutions
 
 thinking_workflow:
   assumption_challenging:
@@ -148,8 +153,8 @@ quality_standards:
     - "Conventional thinking patterns are successfully challenged"
     - "Novel connections and relationships are created"
     - "Problems are transformed into opportunities for innovation"
-
 # Template Usage Notes:
-# This template defines pure lateral thinking patterns without any domain-specific
-# or business-specific content. It should be combined with domain-specific templates
-# and project-specific overrides to create complete agent instructions.
+# This template defines pure lateral thinking patterns without any
+# domain-specific or business-specific content. It should be combined with
+# domain-specific templates and project-specific overrides to create complete
+# agent instructions.
