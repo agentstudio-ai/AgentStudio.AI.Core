@@ -64,10 +64,7 @@ if (-not (Test-Path "src/templates") -and -not (Test-Path "src/workflows") -and 
 Copy-Item "README.md" -Destination "$contentDir/README.md"
 Copy-Item "LICENSE" -Destination "$contentDir/LICENSE"
 
-# Update version in csproj
-$csprojContent = Get-Content "src/AgentStudio.AI.Core.csproj" -Raw
-$csprojContent = $csprojContent -replace '<Version>0\.2\.0-beta</Version>', "<Version>$Version</Version>"
-Set-Content -Path "src/AgentStudio.AI.Core.csproj" -Value $csprojContent
+# Note: Version updates are handled by update-version-changelog command
 
 # Build NuGet package
 Write-Host "Building NuGet package..." -ForegroundColor Yellow
