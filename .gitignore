@@ -15,3 +15,16 @@ temp-validation/
 
 # Build tools
 tools/
+
+# .NET build artifacts
+src/bin/
+src/obj/
+*.user
+*.suo
+*.cache
+*.dll
+*.exe
+*.pdb
+*.log
+*.nupkg
+*.snupkg
