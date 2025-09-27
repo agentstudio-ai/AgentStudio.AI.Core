@@ -99,31 +99,19 @@ else
     mkdir -p tools
     
     # Download NuGet CLI directly (most reliable method)
-    if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-        # Use dotnet nuget for Linux
-        NUGET_CMD="dotnet nuget"
-    else
-        # Download Windows nuget.exe for other platforms
-        if [ ! -f "tools/nuget.exe" ]; then
-            echo -e "${CYAN}Downloading NuGet CLI...${NC}"
-            curl -L -o tools/nuget.exe "https://dist.nuget.org/win-x86-commandline/latest/nuget.exe"
-            chmod +x tools/nuget.exe
-        fi
-        NUGET_CMD="tools/nuget.exe"
+    if [ ! -f "tools/nuget.exe" ]; then
+        echo -e "${CYAN}Downloading NuGet CLI...${NC}"
+        curl -L -o tools/nuget.exe "https://dist.nuget.org/win-x86-commandline/latest/nuget.exe"
+        chmod +x tools/nuget.exe
     fi
+    NUGET_CMD="tools/nuget.exe"
     
     # NUGET_CMD is already set above based on platform
 fi
 
 # Build NuGet package
 echo -e "${CYAN}Using NuGet command: $NUGET_CMD${NC}"
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    # Use dotnet pack for Linux
-    dotnet pack "src/AgentStudio.AI.Core.nuspec" --output "$OUTPUT_DIR" --configuration Release
-else
-    # Use nuget.exe for Windows
-    $NUGET_CMD pack "src/AgentStudio.AI.Core.nuspec" -OutputDirectory "$OUTPUT_DIR" -Version "$VERSION"
-fi
+$NUGET_CMD pack "src/AgentStudio.AI.Core.nuspec" -OutputDirectory "$OUTPUT_DIR" -Version "$VERSION"
 
 echo -e "${GREEN}Build complete! Package created in $OUTPUT_DIR${NC}"
 echo -e "${CYAN}Package: AgentStudio.AI.Core.$VERSION.nupkg${NC}"

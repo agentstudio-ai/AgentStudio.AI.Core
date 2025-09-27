@@ -24,11 +24,13 @@ jobs:
           # Use cache to speed up package installation
           sudo apt-get update -qq
           sudo apt-get install -y libxml2-utils yamllint
-          npm install -g markdownlint-cli
+          # Use npm cache and install markdownlint-cli
+          npm install -g markdownlint-cli --cache /tmp/.npm
         env:
           # Speed up npm installation
           NPM_CONFIG_PROGRESS: false
           NPM_CONFIG_SPIN: false
+          NPM_CONFIG_CACHE: /tmp/.npm
 
       - name: Make scripts executable
         run: |
