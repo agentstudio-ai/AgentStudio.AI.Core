@@ -7,68 +7,37 @@ on:
     branches: [main]
 
 jobs:
-  validate:
+  build-and-validate:
     runs-on: ubuntu-latest
     
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         
-      - name: Validate YAML files
+      - name: Make scripts executable
         run: |
-          echo "Validating YAML files..."
-          # Add YAML validation here when templates are ready
-          
-      - name: Check project structure
-        run: |
-          echo "Checking project structure..."
-          test -f VERSION
-          test -f scripts/build.ps1
-          test -f scripts/build.sh
-          test -d src
-          test -d tests
-          test -d docs
-          test -d scripts
-          
-      - name: Validate NuGet package spec
-        run: |
-          echo "Validating NuGet package specification..."
-          test -f src/AgentStudio.AI.Core.nuspec
-
-  build:
-    needs: validate
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-    
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-        
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v3
-        with:
-          dotnet-version: '8.0.x'
-          
-      - name: Install NuGet CLI
-        run: |
-          curl -o nuget.exe https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
-          chmod +x nuget.exe
-          sudo mv nuget.exe /usr/local/bin/nuget
+          chmod +x scripts/build.sh
+          chmod +x scripts/validate.sh
           
       - name: Build NuGet package
         run: |
-          # Convert PowerShell script to bash for Linux
-          echo "Building NuGet package..."
-          # Add build commands here
+          echo "Building NuGet package using build.sh..."
+          ./scripts/build.sh
+          
+      - name: Validate package
+        run: |
+          echo "Validating package using validate.sh..."
+          ./scripts/validate.sh
           
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: nuget-package
           path: dist/
+          retention-days: 7
 
   release:
-    needs: build
+    needs: build-and-validate
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main' && startsWith(github.ref, 'refs/tags/')
     
@@ -77,7 +46,7 @@ jobs:
         uses: actions/checkout@v4
         
       - name: Download build artifacts
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: nuget-package
           path: dist/
