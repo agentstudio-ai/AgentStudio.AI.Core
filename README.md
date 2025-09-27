@@ -45,7 +45,6 @@ domain: "software-development"
 ```text
 AgentStudio.AI.Core/
 ├── src/                    # Source files and package configuration
-├── tests/                  # Test files and validation
 ├── docs/                   # Documentation
 ├── scripts/                # Build and utility scripts
 ├── images/                 # Logo and assets
