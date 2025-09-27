@@ -9,7 +9,7 @@
     
     <!-- Package configuration -->
     <PackageId>AgentStudio.AI.Core</PackageId>
-    <Version>0.2.0-beta</Version>
+    <Version>0.3.0-beta</Version>
     <Authors>AgentStudio.AI</Authors>
     <Company>AgentStudio.AI</Company>
     <Product>AgentStudio.AI Core Framework</Product>
@@ -27,6 +27,10 @@
     <Content Include="templates/**/*.yml;templates/**/*.yaml;templates/**/*.md;templates/**/*.txt">
       <Pack>true</Pack>
       <PackagePath>content/templates/</PackagePath>
+    </Content>
+    <Content Include="shared-knowledge/**/*.yml;shared-knowledge/**/*.yaml;shared-knowledge/**/*.md;shared-knowledge/**/*.txt">
+      <Pack>true</Pack>
+      <PackagePath>content/shared-knowledge/</PackagePath>
     </Content>
     <Content Include="../README.md">
       <Pack>true</Pack>

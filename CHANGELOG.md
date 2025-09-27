@@ -27,6 +27,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Build script compatibility issues on Linux environments
 - Validation script accuracy for package content verification
 
+## [0.3.0-beta] - 2025-09-27
+
+### Added
+
+- **Shared-Knowledge System**: New framework for tool-specific AI agent knowledge
+- **GitHub CLI Knowledge**: Comprehensive shared-knowledge file for GitHub CLI usage
+- **Interactive Command Warnings**: Special handling for commands requiring user input
+- **Cross-Platform Package Structure**: Enhanced NuGet package with shared-knowledge content
+
+### Changed
+
+- **Build System**: Major CI/CD pipeline improvements and stability fixes
+- **Package Structure**: Added shared-knowledge directory to NuGet package content
+- **Validation System**: Enhanced package validation for template-only structure
+
+### Fixed
+
+- **CI/CD Pipeline**: Resolved GitHub Actions build failures and validation issues
+- **NuGet Package**: Fixed DLL inclusion issue - now properly excludes compiled assemblies
+- **Cross-Platform Compatibility**: Fixed PackagePath separators for Linux/Windows compatibility
+- **Validation Scripts**: Removed outdated checks for template-only package structure
+- **Build Process**: Streamlined dotnet pack workflow for better reliability
+
 ## [Unreleased]
 
 ### Added
@@ -98,6 +121,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Version History
 
+- **0.3.0-beta** (2025-09-27): Shared-knowledge system, CI/CD improvements, and stability fixes
+- **0.2.0-beta** (2025-09-27): .NET SDK integration, enhanced validation, and build improvements
 - **0.1.0** (2025-01-25): Initial beta release with project foundation
 - **Unreleased**: Future features and improvements
 
