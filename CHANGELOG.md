@@ -8,17 +8,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.2.0-beta] - 2025-09-27
 
 ### Added
+
 - .csproj file for reliable NuGet package building on Linux
 - Comprehensive YAML linting and validation system
 - Enhanced build scripts with .NET SDK integration
 - Cursor command template for version and changelog management
 
 ### Changed
+
 - Updated build process to use `dotnet pack` instead of `nuget pack`
 - Improved validation scripts to handle missing linters gracefully
 - Enhanced GitHub Actions workflow for better CI/CD reliability
 
 ### Fixed
+
 - YAML line length issues across all cognitive templates
 - YAML comment indentation warnings in agent-message templates
 - Build script compatibility issues on Linux environments
@@ -27,29 +30,36 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+
 - Initial project structure and documentation
 - NuGet package specification and build system
 - GitHub Actions CI/CD pipeline
 - Contributing guidelines and development setup
 
 ### Changed
+
 - N/A
 
 ### Deprecated
+
 - N/A
 
 ### Removed
+
 - N/A
 
 ### Fixed
+
 - N/A
 
 ### Security
+
 - N/A
 
 ## [0.1.0] - 2025-01-25
 
 ### Added
+
 - Initial project setup for AgentStudio.AI Core
 - Standard project structure (src/, tests/, docs/)
 - NuGet package specification (`AgentStudio.AI.Core.nuspec`)
@@ -65,18 +75,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Semantic versioning strategy
 
 ### Changed
+
 - N/A
 
 ### Deprecated
+
 - N/A
 
 ### Removed
+
 - N/A
 
 ### Fixed
+
 - N/A
 
 ### Security
+
 - N/A
 
 ---
