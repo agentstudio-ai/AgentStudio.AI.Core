@@ -70,7 +70,7 @@ Set-Content -Path "src/AgentStudio.AI.Core.nuspec" -Value $nuspecContent
 
 # Build NuGet package
 Write-Host "Building NuGet package..." -ForegroundColor Yellow
-nuget pack "src/AgentStudio.AI.Core.nuspec" -OutputDirectory $OutputDir -Version $Version
+dotnet nuget pack "src/AgentStudio.AI.Core.nuspec" -OutputDirectory $OutputDir -Version $Version
 
 Write-Host "Build complete! Package created in $OutputDir" -ForegroundColor Green
 Write-Host "Package: AgentStudio.AI.Core.$Version.nupkg" -ForegroundColor Cyan
