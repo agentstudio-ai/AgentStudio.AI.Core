@@ -28,31 +28,37 @@ collaboratively with humans rather than replacing them.
 
 ### Installation
 
-```bash
-dotnet add package AgentStudio.AI.Core
-```
+This package is designed as a supporting framework for other AgentStudio.AI packages and tools. It provides the foundational templates and shared-knowledge files that other packages depend on.
 
-### Basic Usage
+**For end users**: Install the [AgentStudio.AI CLI](https://github.com/agentstudio-ai) or other AgentStudio.AI packages, which will automatically include this core framework.
 
-```yaml
-# Example agent configuration
-version: "1.0.0"
-agent_name: "MyAgent"
-cognitive_template: "analytical-thinking"
-domain: "software-development"
-```
+**For developers**: This package is typically installed as a dependency when building AgentStudio.AI extensions or custom agent implementations.
 
 ## Project Structure
 
 ```text
 AgentStudio.AI.Core/
-├── src/                    # Source files and package configuration
-├── docs/                   # Documentation
-├── scripts/                # Build and utility scripts
-├── images/                 # Logo and assets
-├── .github/               # GitHub workflows and configuration
-├── VERSION                # Version tracking
-└── README.md              # This file
+├── .github/                      # GitHub workflows and configuration
+│   └── workflows/ci-cd.yml       # CI/CD pipeline
+├── images/                       # Logo and assets
+├── scripts/                      # Build and utility scripts
+│   ├── build.ps1/.sh             # Package building scripts
+│   ├── cleanup.ps1/.sh           # Build artifact cleanup
+│   ├── full-build-test.ps1/.sh   # Complete build and test pipeline
+│   └── validate.ps1/.sh          # Package validation scripts
+├── src/                          # Source files and package configuration
+│   ├── templates/                # Cognitive and workflow templates
+│   │   ├── agent-messages/       # Agent communication templates
+│   │   ├── cognitive/            # 19 cognitive thinking patterns
+│   │   └── workflows/            # Workflow orchestration patterns
+│   ├── shared-knowledge/         # Tool-specific knowledge files
+│   │   └── github-cli.yml        # GitHub CLI usage knowledge
+│   └── AgentStudio.AI.Core.csproj # NuGet package configuration
+├── CHANGELOG.md                  # Change history
+├── CONTRIBUTING.md               # Contribution guidelines
+├── LICENSE                       # MIT license
+├── README.md                     # This file
+└── VERSION                       # Version tracking
 ```
 
 ## Cognitive Templates
@@ -75,6 +81,30 @@ Pre-defined workflow patterns for common scenarios:
 - **Human Checkpoint Workflows** - Human approval gates
 - **Hybrid Workflows** - Complex multi-pattern orchestration
 
+## Shared-Knowledge System
+
+The framework includes a revolutionary shared-knowledge system designed to prevent AI agent context drift and reduce trial-and-error behavior:
+
+### Purpose
+
+- **Tool-Specific Knowledge**: Comprehensive usage guides for common development tools
+- **Context Preservation**: Prevents agents from forgetting tool usage over time
+- **Reduced Errors**: Eliminates trial-and-error approaches to tool usage
+- **Consistent Behavior**: Ensures agents follow best practices consistently
+
+### Current Knowledge Files
+
+- **GitHub CLI**: Complete usage guide with interactive command warnings and best practices
+- **More coming soon**: Docker, Kubernetes, Git, and other development tools
+
+### Format
+
+Knowledge files use a hybrid YAML + Markdown format:
+
+- **YAML metadata**: Quick reference and structured information
+- **Markdown content**: Detailed usage guides and examples
+- **Interactive warnings**: Special handling for commands requiring user input
+
 ## Development Status
 
 **Current Version**: 0.3.1-beta
@@ -84,13 +114,15 @@ API may change between versions.
 
 ### Roadmap
 
-- [ ] Complete cognitive template library (19 templates)
+- [x] Complete cognitive template library (19 templates)
 - [ ] Basic domain-specific templates (.NET, Python, Java, React, etc.)
-- [ ] Base workflow pattern templates
+- [x] Base workflow pattern templates
 - [ ] Template validation and testing framework
 - [ ] Documentation and examples for all templates
-- [ ] Templates for agent-messages, shared-knowledge, and events
+- [x] Templates for agent-messages, shared-knowledge, and events
 - [ ] Refinement and inclusion of JARVIS (AI/Prompt Expert)
+- [ ] Additional shared-knowledge files (Docker, Kubernetes, Git, etc.)
+- [ ] Enhanced CI/CD pipeline with automated testing
 
 ## Contributing
 
@@ -99,11 +131,39 @@ for details.
 
 ### Development Setup
 
-1. Clone the repository
-2. Review the framework files in `src/`
-3. Test changes using the build script: `./scripts/build.ps1` or
-   `./scripts/build.sh`
-4. Submit a pull request
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/agentstudio-ai/AgentStudio.AI.Core.git
+   cd AgentStudio.AI.Core
+   ```
+
+2. **Review the framework files** in `src/` directory:
+
+   - `templates/` - Cognitive and workflow templates
+   - `shared-knowledge/` - Tool-specific knowledge files
+   - `AgentStudio.AI.Core.csproj` - NuGet package configuration
+
+3. **Available Scripts** (both PowerShell and Bash versions):
+
+   - **`build.ps1/.sh`** - Builds NuGet package from source files
+   - **`validate.ps1/.sh`** - Validates package structure and content
+   - **`cleanup.ps1/.sh`** - Removes build artifacts and temporary files
+   - **`full-build-test.ps1/.sh`** - Complete pipeline: cleanup → build → validate
+
+4. **Test your changes**:
+
+   ```bash
+   # Quick build test
+   ./scripts/build.ps1    # Windows PowerShell
+   ./scripts/build.sh     # Linux/macOS Bash
+
+   # Full pipeline test
+   ./scripts/full-build-test.ps1    # Windows PowerShell
+   ./scripts/full-build-test.sh     # Linux/macOS Bash
+   ```
+
+5. **Submit a pull request** following our [Contributing Guidelines](CONTRIBUTING.md)
 
 ## Changelog
 
@@ -128,13 +188,14 @@ for details.
 For contributors working with this codebase, we recommend installing these VS Code
 extensions:
 
-- **XML** (Red Hat) - For `.nuspec` file validation and IntelliSense
-- **YAML** (Red Hat) - For template file validation and formatting
+- **XML** (Red Hat) - For `.csproj` file validation and IntelliSense
+- **YAML** (Red Hat) - For template and shared-knowledge file validation and formatting
 - **Prettier** - For consistent code formatting across all file types
-- **markdownlint** - For README and documentation validation
+- **markdownlint** - For README, documentation, and agent-generated markdown file validation
 
 These extensions ensure consistent formatting and catch syntax errors early in the
-development process.
+development process. The markdownlint extension is particularly important as many
+agent-generated files and documentation use Markdown format.
 
 ## Support
 

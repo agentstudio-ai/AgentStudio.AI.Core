@@ -61,13 +61,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- **README.md**: Updated version badges and added shared-knowledge system information
+- **README.md**: Comprehensive documentation overhaul with installation clarification, detailed project structure, shared-knowledge system section, updated roadmap, enhanced development setup, and improved VS Code extensions recommendations
 - **Package Configuration**: Enhanced .csproj to include shared-knowledge files in NuGet package
 
 ### Fixed
 
 - **Version Management**: Improved version update process with comprehensive file inclusion
 - **Documentation**: Updated all version references consistently across project files
+- **Repository Structure**: Removed empty tools/ directory and ensured project structure accuracy
 
 ## [Unreleased]
 
