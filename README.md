@@ -4,7 +4,7 @@
 
 ## Human-Centric AI Agent Orchestration Framework
 
-[![Version](https://img.shields.io/badge/version-0.1.0--beta-blue.svg)](https://github.com/agentstudio-ai)
+[![Version](https://img.shields.io/badge/version-0.3.1--beta-blue.svg)](https://github.com/agentstudio-ai)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![NuGet](https://img.shields.io/badge/nuget-AgentStudio.AI.Core-blue.svg)](https://github.com/agentstudio-ai)
 
@@ -19,6 +19,7 @@ collaboratively with humans rather than replacing them.
 
 - **Cognitive Templates**: 19+ thinking patterns for different agent behaviors
 - **Workflow Orchestration**: Pre-defined patterns for multi-agent collaboration
+- **Shared-Knowledge System**: Tool-specific knowledge files to prevent agent context drift
 - **Human-Centric Design**: Built-in human checkpoints and collaboration patterns
 - **Template-Based**: YAML-based configuration for easy customization
 - **Platform Agnostic**: Works across different AI platforms and frameworks
@@ -76,7 +77,7 @@ Pre-defined workflow patterns for common scenarios:
 
 ## Development Status
 
-**Current Version**: 0.1.0 (Beta)
+**Current Version**: 0.3.1-beta
 
 This is an early beta release. The framework is under active development and the
 API may change between versions.

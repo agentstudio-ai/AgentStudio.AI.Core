@@ -50,6 +50,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Validation Scripts**: Removed outdated checks for template-only package structure
 - **Build Process**: Streamlined dotnet pack workflow for better reliability
 
+## [0.3.1-beta] - 2025-09-27
+
+### Added
+
+- **Shared-Knowledge System**: New framework for tool-specific AI agent knowledge
+- **GitHub CLI Knowledge**: Comprehensive shared-knowledge file for GitHub CLI usage
+- **Interactive Command Warnings**: Special handling for commands requiring user input
+- **Enhanced Package Structure**: Updated NuGet package to include shared-knowledge content
+
+### Changed
+
+- **README.md**: Updated version badges and added shared-knowledge system information
+- **Package Configuration**: Enhanced .csproj to include shared-knowledge files in NuGet package
+
+### Fixed
+
+- **Version Management**: Improved version update process with comprehensive file inclusion
+- **Documentation**: Updated all version references consistently across project files
+
 ## [Unreleased]
 
 ### Added
@@ -121,6 +140,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Version History
 
+- **0.3.1-beta** (2025-09-27): Shared-knowledge system implementation and documentation updates
 - **0.3.0-beta** (2025-09-27): Shared-knowledge system, CI/CD improvements, and stability fixes
 - **0.2.0-beta** (2025-09-27): .NET SDK integration, enhanced validation, and build improvements
 - **0.1.0** (2025-01-25): Initial beta release with project foundation
