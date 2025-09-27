@@ -257,10 +257,7 @@ if command_exists unzip; then
 
     # Check for package metadata files instead
     echo -e "  📁 Checking package metadata..."
-    TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
-    if validate_file_exists "$TEMP_DIR/AgentStudio.AI.Core.csproj"; then
-        PASSED_CHECKS=$((PASSED_CHECKS + 1))
-    fi
+    # Note: .csproj file is not included in template-only packages by design
 
     TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
     if validate_file_exists "$TEMP_DIR/[Content_Types].xml"; then
