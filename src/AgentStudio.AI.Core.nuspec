@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>AgentStudio.AI.Core</id>
+    <version>0.1.0</version>
+    <title>AgentStudio.AI Core Framework</title>
+    <authors>AgentStudio.AI</authors>
+    <owners>AgentStudio.AI</owners>
+    <description>Core framework for human-centric AI agent orchestration. Provides templates, workflows, and patterns for building AI agents that work collaboratively with humans.</description>
+    <summary>Human-centric AI agent orchestration framework</summary>
+    <language>en-US</language>
+    <projectUrl>https://github.com/agentstudio-ai/AgentStudio.AI.Core</projectUrl>
+    <license type="expression">MIT</license>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <copyright>Copyright 2025 AgentStudio.AI</copyright>
+    <tags>ai agents orchestration human-centric templates workflows</tags>
+    <repository type="git" url="https://github.com/agentstudio-ai/AgentStudio.AI.Core" />
+    <releaseNotes>Initial beta release of AgentStudio.AI Core framework with cognitive templates, workflow patterns, and agent orchestration capabilities.</releaseNotes>
+  </metadata>
+  <files>
+    <file src="templates/**/*" target="content/templates" />
+    <file src="workflows/**/*" target="content/workflows" />
+    <file src="shared_knowledge/**/*" target="content/shared_knowledge" />
+    <file src="agents/**/*" target="content/agents" />
+    <file src="README.md" target="content" />
+    <file src="LICENSE" target="content" />
+  </files>
+</package>

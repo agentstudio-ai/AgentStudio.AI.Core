@@ -1,0 +1,11 @@
+# Cursor Folder/Files
+.cursor/
+.cursorrules
+.cursorignore
+.cursorconfig
+
+# AgentStudio.AI Folder/Files
+.agentstudio-ai/
+
+# Designer Notes
+.MyNotes/
