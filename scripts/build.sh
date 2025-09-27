@@ -99,12 +99,23 @@ else
     mkdir -p tools
     
     # Download NuGet CLI directly (most reliable method)
-    if [ ! -f "tools/nuget.exe" ]; then
-        echo -e "${CYAN}Downloading NuGet CLI...${NC}"
-        curl -L -o tools/nuget.exe "https://dist.nuget.org/win-x86-commandline/latest/nuget.exe"
-        chmod +x tools/nuget.exe
+    if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+        # Install NuGet CLI for Linux
+        if [ ! -f "tools/nuget" ]; then
+            echo -e "${CYAN}Installing NuGet CLI for Linux...${NC}"
+            curl -L -o tools/nuget "https://dist.nuget.org/linux-x64-commandline/latest/nuget"
+            chmod +x tools/nuget
+        fi
+        NUGET_CMD="tools/nuget"
+    else
+        # Download Windows nuget.exe for other platforms
+        if [ ! -f "tools/nuget.exe" ]; then
+            echo -e "${CYAN}Downloading NuGet CLI...${NC}"
+            curl -L -o tools/nuget.exe "https://dist.nuget.org/win-x86-commandline/latest/nuget.exe"
+            chmod +x tools/nuget.exe
+        fi
+        NUGET_CMD="tools/nuget.exe"
     fi
-    NUGET_CMD="tools/nuget.exe"
     
     # NUGET_CMD is already set above based on platform
 fi
