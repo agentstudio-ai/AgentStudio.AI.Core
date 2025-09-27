@@ -5,6 +5,25 @@ All notable changes to AgentStudio.AI Core will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.0-beta] - 2025-09-27
+
+### Added
+- .csproj file for reliable NuGet package building on Linux
+- Comprehensive YAML linting and validation system
+- Enhanced build scripts with .NET SDK integration
+- Cursor command template for version and changelog management
+
+### Changed
+- Updated build process to use `dotnet pack` instead of `nuget pack`
+- Improved validation scripts to handle missing linters gracefully
+- Enhanced GitHub Actions workflow for better CI/CD reliability
+
+### Fixed
+- YAML line length issues across all cognitive templates
+- YAML comment indentation warnings in agent-message templates
+- Build script compatibility issues on Linux environments
+- Validation script accuracy for package content verification
+
 ## [Unreleased]
 
 ### Added
