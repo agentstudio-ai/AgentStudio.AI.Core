@@ -42,7 +42,7 @@ domain: "software-development"
 
 ## Project Structure
 
-```
+```text
 AgentStudio.AI.Core/
 ├── src/                    # Source files and package configuration
 ├── tests/                  # Test files and validation
@@ -82,11 +82,11 @@ This is an early beta release. The framework is under active development and the
 
 ### Roadmap
 
-- [ ] Complete cognitive template library
-- [ ] Domain-specific templates (.NET, Python, etc.)
-- [ ] CLI tool for agent orchestration
-- [ ] Visual workflow designer
-- [ ] Integration with popular AI platforms
+- [ ] Complete cognitive template library (19 templates)
+- [ ] Domain-specific templates (.NET, Python, Java, React, etc.)
+- [ ] Workflow pattern library expansion
+- [ ] Template validation and testing framework
+- [ ] Documentation and examples for all templates
 
 ## Contributing
 
