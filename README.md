@@ -1,6 +1,4 @@
-<div align="center">
-  <img src="images/logo-all-small.png" alt="AgentStudio.AI Logo" width="400" />
-</div>
+![AgentStudio.AI Logo](images/logo-all-small.png)
 
 # AgentStudio.AI Core
 
