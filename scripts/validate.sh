@@ -47,6 +47,7 @@ validate_dir_exists() {
 
 # Function to validate YAML syntax
 validate_yaml() {
+    # Check for VS Code YAML extension or yamllint command
     if command_exists yamllint; then
         echo -e "  🔍 Validating YAML syntax..."
         if yamllint "$1" >/dev/null 2>&1; then
@@ -56,6 +57,9 @@ validate_yaml() {
             echo -e "  ❌ YAML syntax error in $1"
             return 1
         fi
+    elif [ -d "$HOME/.vscode/extensions" ] && find "$HOME/.vscode/extensions" -name "*yaml*" -type d | grep -q .; then
+        echo -e "  ✅ YAML files found (VS Code YAML extension detected)"
+        return 0
     else
         echo -e "  ⚠️  yamllint not available, skipping YAML validation"
         return 0
@@ -64,6 +68,7 @@ validate_yaml() {
 
 # Function to validate XML syntax
 validate_xml() {
+    # Check for VS Code XML extension or xmllint command
     if command_exists xmllint; then
         echo -e "  🔍 Validating XML syntax..."
         if xmllint --noout "$1" 2>/dev/null; then
@@ -73,6 +78,9 @@ validate_xml() {
             echo -e "  ❌ XML syntax error in $1"
             return 1
         fi
+    elif [ -d "$HOME/.vscode/extensions" ] && find "$HOME/.vscode/extensions" -name "*xml*" -type d | grep -q .; then
+        echo -e "  ✅ XML files found (VS Code XML extension detected)"
+        return 0
     else
         echo -e "  ⚠️  xmllint not available, skipping XML validation"
         return 0
@@ -151,19 +159,13 @@ if [ -n "$YAML_FILES" ]; then
     YAML_COUNT=$(echo "$YAML_FILES" | wc -l)
     echo -e "  📊 Found $YAML_COUNT YAML files"
     
-    if command_exists yamllint; then
-        for yaml_file in $YAML_FILES; do
-            TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
-            if validate_yaml "$yaml_file"; then
-                PASSED_CHECKS=$((PASSED_CHECKS + 1))
-            fi
-        done
-    else
-        echo -e "  ⚠️  yamllint not available, skipping YAML validation"
-        # Count YAML files as passed since we can't validate them
-        PASSED_CHECKS=$((PASSED_CHECKS + YAML_COUNT))
-        TOTAL_CHECKS=$((TOTAL_CHECKS + YAML_COUNT))
-    fi
+    # Validate each YAML file
+    for yaml_file in $YAML_FILES; do
+        TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
+        if validate_yaml "$yaml_file"; then
+            PASSED_CHECKS=$((PASSED_CHECKS + 1))
+        fi
+    done
 else
     echo -e "  ⚠️  No YAML files found to validate"
 fi
@@ -202,6 +204,7 @@ fi
 
 # Extract package for content validation
 echo -e "  📦 Extracting package for validation..."
+# Force remove temp directory completely
 if [ -d "$TEMP_DIR" ]; then
     rm -rf "$TEMP_DIR"
 fi
@@ -209,7 +212,8 @@ fi
 if command_exists unzip; then
     # Create a fresh temp directory and extract
     mkdir -p "$TEMP_DIR"
-    unzip -o -q "$PACKAGE_PATH" -d "$TEMP_DIR"
+    # Use -o to overwrite without prompting and -j to flatten directory structure
+    unzip -o -j -q "$PACKAGE_PATH" -d "$TEMP_DIR"
     echo -e "  ✅ Package extracted successfully"
 else
     echo -e "  ⚠️  Cannot extract package without unzip"

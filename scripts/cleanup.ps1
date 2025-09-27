@@ -25,3 +25,5 @@ if (Test-Path "temp-validation") {
 Write-Host ""
 Write-Host "🎉 Cleanup completed successfully!" -ForegroundColor Green
 Write-Host "All build artifacts and temporary files have been removed." -ForegroundColor Cyan
+
+exit 0

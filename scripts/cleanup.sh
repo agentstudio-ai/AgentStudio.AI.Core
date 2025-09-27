@@ -33,3 +33,5 @@ fi
 echo ""
 echo -e "${GREEN}🎉 Cleanup completed successfully!${NC}"
 echo -e "${CYAN}All build artifacts and temporary files have been removed.${NC}"
+
+exit 0
