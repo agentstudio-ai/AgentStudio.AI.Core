@@ -16,7 +16,7 @@
     <tags>ai agents orchestration human-centric templates workflows</tags>
     <repository type="git" url="https://github.com/agentstudio-ai/AgentStudio.AI.Core" />
     <releaseNotes>Initial beta release of AgentStudio.AI Core framework with cognitive templates, workflow patterns, and agent orchestration capabilities.</releaseNotes>
-    <readme>README.md</readme>
+    <readme>content/README.md</readme>
   </metadata>
   <files>
     <file src="../templates/**/*" target="content/templates" />
