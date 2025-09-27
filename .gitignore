@@ -15,3 +15,6 @@ dist/
 
 # Validation temporary files
 temp-validation/
+
+# Build tools
+tools/

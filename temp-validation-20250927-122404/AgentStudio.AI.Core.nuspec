@@ -9,6 +9,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <license type="expression">MIT</license>
     <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <readme>content/README.md</readme>
     <projectUrl>https://github.com/agentstudio-ai/AgentStudio.AI.Core</projectUrl>
     <description>Core framework for human-centric AI agent orchestration. Provides templates, workflows, and patterns for building AI agents that work collaboratively with humans.</description>
     <summary>Human-centric AI agent orchestration framework</summary>

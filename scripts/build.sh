@@ -86,7 +86,52 @@ sed -i "s/<version>0\.1\.0<\/version>/<version>$VERSION<\/version>/g" "src/Agent
 
 # Build NuGet package
 echo -e "${YELLOW}Building NuGet package...${NC}"
-nuget pack "src/AgentStudio.AI.Core.nuspec" -OutputDirectory "$OUTPUT_DIR" -Version "$VERSION"
+echo -e "${CYAN}Attempting to build package from 'AgentStudio.AI.Core.nuspec'.${NC}"
+
+# Check for NuGet CLI and install if needed
+NUGET_CMD=""
+if command -v nuget >/dev/null 2>&1; then
+    NUGET_CMD="nuget"
+else
+    echo -e "${YELLOW}NuGet CLI not found. Installing NuGet.CommandLine package...${NC}"
+    
+    # Create tools directory if it doesn't exist
+    mkdir -p tools
+    
+    # Install NuGet.CommandLine package
+    if [ ! -d "tools/NuGet.CommandLine" ]; then
+        echo -e "${CYAN}Installing NuGet.CommandLine package...${NC}"
+        
+        # Try different package managers
+        if command -v dotnet >/dev/null 2>&1; then
+            # Use dotnet to install the package
+            dotnet tool install --tool-path tools NuGet.CommandLine
+        elif command -v nuget >/dev/null 2>&1; then
+            # Use existing nuget to install the package
+            nuget install NuGet.CommandLine -OutputDirectory tools
+        else
+            # Download and install manually
+            echo -e "${CYAN}Downloading NuGet.CommandLine package...${NC}"
+            curl -L -o tools/nuget-commandline.zip "https://api.nuget.org/v3-flatcontainer/nuget.commandline/6.8.0/nuget.commandline.6.8.0.nupkg"
+            cd tools && unzip -q nuget-commandline.zip && cd ..
+            rm tools/nuget-commandline.zip
+        fi
+    fi
+    
+    # Set the NuGet command path
+    if [ -f "tools/NuGet.CommandLine/tools/nuget.exe" ]; then
+        NUGET_CMD="tools/NuGet.CommandLine/tools/nuget.exe"
+    elif [ -f "tools/nuget.exe" ]; then
+        NUGET_CMD="tools/nuget.exe"
+    else
+        echo -e "${RED}Error: Failed to install NuGet.CommandLine package${NC}"
+        exit 1
+    fi
+fi
+
+# Build NuGet package
+echo -e "${CYAN}Using NuGet command: $NUGET_CMD${NC}"
+$NUGET_CMD pack "src/AgentStudio.AI.Core.nuspec" -OutputDirectory "$OUTPUT_DIR" -Version "$VERSION"
 
 echo -e "${GREEN}Build complete! Package created in $OUTPUT_DIR${NC}"
 echo -e "${CYAN}Package: AgentStudio.AI.Core.$VERSION.nupkg${NC}"

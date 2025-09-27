@@ -10,7 +10,10 @@
 
 ## Overview
 
-AgentStudio.AI Core is the foundational framework for building human-centric AI agent orchestration systems. It provides cognitive templates, workflow patterns, and agent definitions that enable developers to create AI agents that work collaboratively with humans rather than replacing them.
+AgentStudio.AI Core is the foundational framework for building human-centric AI
+agent orchestration systems. It provides cognitive templates, workflow patterns,
+and agent definitions that enable developers to create AI agents that work
+collaboratively with humans rather than replacing them.
 
 ## Key Features
 
@@ -75,7 +78,8 @@ Pre-defined workflow patterns for common scenarios:
 
 **Current Version**: 0.1.0 (Beta)
 
-This is an early beta release. The framework is under active development and the API may change between versions.
+This is an early beta release. The framework is under active development and the
+API may change between versions.
 
 ### Roadmap
 
@@ -89,22 +93,26 @@ This is an early beta release. The framework is under active development and the
 
 ## Contributing
 
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
+We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md)
+for details.
 
 ### Development Setup
 
 1. Clone the repository
 2. Review the framework files in `src/`
-3. Test changes using the build script: `./scripts/build.ps1`
+3. Test changes using the build script: `./scripts/build.ps1` or
+   `./scripts/build.sh`
 4. Submit a pull request
 
 ## Changelog
 
-See [CHANGELOG.md](CHANGELOG.md) for a detailed list of changes, new features, and bug fixes in each version.
+See [CHANGELOG.md](CHANGELOG.md) for a detailed list of changes, new features,
+and bug fixes in each version.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
+for details.
 
 ## Related Projects
 
@@ -116,14 +124,16 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ### Recommended VS Code Extensions
 
-For contributors working with this codebase, we recommend installing these VS Code extensions:
+For contributors working with this codebase, we recommend installing these VS Code
+extensions:
 
 - **XML** (Red Hat) - For `.nuspec` file validation and IntelliSense
 - **YAML** (Red Hat) - For template file validation and formatting
 - **Prettier** - For consistent code formatting across all file types
 - **markdownlint** - For README and documentation validation
 
-These extensions ensure consistent formatting and catch syntax errors early in the development process.
+These extensions ensure consistent formatting and catch syntax errors early in the
+development process.
 
 ## Support
 

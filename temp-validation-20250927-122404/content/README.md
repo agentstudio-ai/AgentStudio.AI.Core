@@ -1,10 +1,8 @@
-<div align="center">
-  <img src="images/logo-all-small.png" alt="AgentStudio.AI Logo" width="400" />
-</div>
-
 # AgentStudio.AI Core
 
-**Human-Centric AI Agent Orchestration Framework**
+![AgentStudio.AI Logo](images/logo-all-small.png)
+
+## Human-Centric AI Agent Orchestration Framework
 
 [![Version](https://img.shields.io/badge/version-0.1.0--beta-blue.svg)](https://github.com/agentstudio-ai)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
@@ -45,7 +43,6 @@ domain: "software-development"
 ```text
 AgentStudio.AI.Core/
 ├── src/                    # Source files and package configuration
-├── tests/                  # Test files and validation
 ├── docs/                   # Documentation
 ├── scripts/                # Build and utility scripts
 ├── images/                 # Logo and assets
@@ -115,6 +112,19 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [AgentStudio.AI.Agents](https://github.com/agentstudio-ai) - Pre-built agent templates
 - [AgentStudio.AI.Workflows](https://github.com/agentstudio-ai) - Workflow patterns
 
+## Development
+
+### Recommended VS Code Extensions
+
+For contributors working with this codebase, we recommend installing these VS Code extensions:
+
+- **XML** (Red Hat) - For `.nuspec` file validation and IntelliSense
+- **YAML** (Red Hat) - For template file validation and formatting
+- **Prettier** - For consistent code formatting across all file types
+- **markdownlint** - For README and documentation validation
+
+These extensions ensure consistent formatting and catch syntax errors early in the development process.
+
 ## Support
 
 - 📖 [Documentation](docs/)
@@ -123,4 +133,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Built with ❤️ by the AgentStudio.AI team**
+## Built with ❤️ by the AgentStudio.AI team

@@ -71,7 +71,53 @@ Set-Content -Path "src/AgentStudio.AI.Core.nuspec" -Value $nuspecContent
 
 # Build NuGet package
 Write-Host "Building NuGet package..." -ForegroundColor Yellow
-nuget pack "src/AgentStudio.AI.Core.nuspec" -OutputDirectory $OutputDir -Version $Version
+
+# Check for NuGet CLI and install if needed
+$NuGetCmd = ""
+if (Get-Command nuget -ErrorAction SilentlyContinue) {
+    $NuGetCmd = "nuget"
+} else {
+    Write-Host "NuGet CLI not found. Installing NuGet.CommandLine package..." -ForegroundColor Yellow
+    
+    # Create tools directory if it doesn't exist
+    if (-not (Test-Path "tools")) {
+        New-Item -ItemType Directory -Path "tools" | Out-Null
+    }
+    
+    # Install NuGet.CommandLine package
+    if (-not (Test-Path "tools/NuGet.CommandLine")) {
+        Write-Host "Installing NuGet.CommandLine package..." -ForegroundColor Cyan
+        
+        # Try different package managers
+        if (Get-Command dotnet -ErrorAction SilentlyContinue) {
+            # Use dotnet to install the package
+            dotnet tool install --tool-path tools NuGet.CommandLine
+        } elseif (Get-Command nuget -ErrorAction SilentlyContinue) {
+            # Use existing nuget to install the package
+            nuget install NuGet.CommandLine -OutputDirectory tools
+        } else {
+            # Download and install manually
+            Write-Host "Downloading NuGet.CommandLine package..." -ForegroundColor Cyan
+            Invoke-WebRequest -Uri "https://api.nuget.org/v3-flatcontainer/nuget.commandline/6.8.0/nuget.commandline.6.8.0.nupkg" -OutFile "tools/nuget-commandline.zip"
+            Expand-Archive -Path "tools/nuget-commandline.zip" -DestinationPath "tools" -Force
+            Remove-Item "tools/nuget-commandline.zip"
+        }
+    }
+    
+    # Set the NuGet command path
+    if (Test-Path "tools/NuGet.CommandLine/tools/nuget.exe") {
+        $NuGetCmd = "tools/NuGet.CommandLine/tools/nuget.exe"
+    } elseif (Test-Path "tools/nuget.exe") {
+        $NuGetCmd = "tools/nuget.exe"
+    } else {
+        Write-Host "Error: Failed to install NuGet.CommandLine package" -ForegroundColor Red
+        exit 1
+    }
+}
+
+# Build NuGet package
+Write-Host "Using NuGet command: $NuGetCmd" -ForegroundColor Cyan
+& $NuGetCmd pack "src/AgentStudio.AI.Core.nuspec" -OutputDirectory $OutputDir -Version $Version
 
 Write-Host "Build complete! Package created in $OutputDir" -ForegroundColor Green
 Write-Host "Package: AgentStudio.AI.Core.$Version.nupkg" -ForegroundColor Cyan
