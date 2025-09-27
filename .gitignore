@@ -4,11 +4,8 @@
 .cursorignore
 .cursorconfig
 
-# AgentStudio.AI Folder/Files
-.agentstudio-ai/
-
-# Designer Notes
-.MyNotes/
+# Personal Workspace
+.MyWorkspace/
 
 # Build output
 dist/
