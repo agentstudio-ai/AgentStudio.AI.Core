@@ -60,7 +60,7 @@ if (Test-Path ".agentstudio-ai") {
 }
 
 # Copy package files
-Copy-Item "src/README.md" -Destination "$contentDir/README.md"
+Copy-Item "README.md" -Destination "$contentDir/README.md"
 Copy-Item "LICENSE" -Destination "$contentDir/LICENSE"
 
 # Update version in nuspec

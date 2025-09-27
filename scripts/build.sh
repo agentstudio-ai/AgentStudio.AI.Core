@@ -77,7 +77,7 @@ else
 fi
 
 # Copy package files
-cp "src/README.md" "$CONTENT_DIR/README.md"
+cp "README.md" "$CONTENT_DIR/README.md"
 cp "LICENSE" "$CONTENT_DIR/LICENSE"
 
 # Update version in nuspec
