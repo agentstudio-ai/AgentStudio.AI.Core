@@ -121,7 +121,7 @@ echo -e "\n${YELLOW}1. Pre-build Validation${NC}"
 # Check required files exist
 echo -e "  📁 Checking required files..."
 TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
-if validate_file_exists "src/AgentStudio.AI.Core.nuspec"; then
+if validate_file_exists "src/AgentStudio.AI.Core.csproj"; then
     PASSED_CHECKS=$((PASSED_CHECKS + 1))
 fi
 
@@ -150,7 +150,7 @@ fi
 # Validate file syntax
 echo -e "  🔍 Validating file syntax..."
 TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
-if validate_xml "src/AgentStudio.AI.Core.nuspec"; then
+if validate_xml "src/AgentStudio.AI.Core.csproj"; then
     PASSED_CHECKS=$((PASSED_CHECKS + 1))
 fi
 
@@ -248,14 +248,16 @@ if command_exists unzip; then
         PASSED_CHECKS=$((PASSED_CHECKS + 1))
     fi
 
-    # Note: LICENSE is not included in the package by design
-    # The package contains framework templates, not the project LICENSE
-    echo -e "  ℹ️  LICENSE not included in package (by design)"
+    # Check for LICENSE file
+    TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
+    if validate_file_exists "$TEMP_DIR/LICENSE"; then
+        PASSED_CHECKS=$((PASSED_CHECKS + 1))
+    fi
 
     # Check for package metadata files instead
     echo -e "  📁 Checking package metadata..."
     TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
-    if validate_file_exists "$TEMP_DIR/AgentStudio.AI.Core.nuspec"; then
+    if validate_file_exists "$TEMP_DIR/AgentStudio.AI.Core.csproj"; then
         PASSED_CHECKS=$((PASSED_CHECKS + 1))
     fi
 

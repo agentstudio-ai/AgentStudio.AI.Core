@@ -64,60 +64,26 @@ if (-not (Test-Path "src/templates") -and -not (Test-Path "src/workflows") -and 
 Copy-Item "README.md" -Destination "$contentDir/README.md"
 Copy-Item "LICENSE" -Destination "$contentDir/LICENSE"
 
-# Update version in nuspec
-$nuspecContent = Get-Content "src/AgentStudio.AI.Core.nuspec" -Raw
-$nuspecContent = $nuspecContent -replace '<version>0\.1\.0</version>', "<version>$Version</version>"
-Set-Content -Path "src/AgentStudio.AI.Core.nuspec" -Value $nuspecContent
+# Update version in csproj
+$csprojContent = Get-Content "src/AgentStudio.AI.Core.csproj" -Raw
+$csprojContent = $csprojContent -replace '<Version>0\.1\.0</Version>', "<Version>$Version</Version>"
+Set-Content -Path "src/AgentStudio.AI.Core.csproj" -Value $csprojContent
 
 # Build NuGet package
 Write-Host "Building NuGet package..." -ForegroundColor Yellow
 
-# Check for NuGet CLI and install if needed
-$NuGetCmd = ""
-if (Get-Command nuget -ErrorAction SilentlyContinue) {
-    $NuGetCmd = "nuget"
-} else {
-    Write-Host "NuGet CLI not found. Installing NuGet.CommandLine package..." -ForegroundColor Yellow
-    
-    # Create tools directory if it doesn't exist
-    if (-not (Test-Path "tools")) {
-        New-Item -ItemType Directory -Path "tools" | Out-Null
-    }
-    
-    # Install NuGet.CommandLine package
-    if (-not (Test-Path "tools/NuGet.CommandLine")) {
-        Write-Host "Installing NuGet.CommandLine package..." -ForegroundColor Cyan
-        
-        # Try different package managers
-        if (Get-Command dotnet -ErrorAction SilentlyContinue) {
-            # Use dotnet to install the package
-            dotnet tool install --tool-path tools NuGet.CommandLine
-        } elseif (Get-Command nuget -ErrorAction SilentlyContinue) {
-            # Use existing nuget to install the package
-            nuget install NuGet.CommandLine -OutputDirectory tools
-        } else {
-            # Download and install manually
-            Write-Host "Downloading NuGet.CommandLine package..." -ForegroundColor Cyan
-            Invoke-WebRequest -Uri "https://api.nuget.org/v3-flatcontainer/nuget.commandline/6.8.0/nuget.commandline.6.8.0.nupkg" -OutFile "tools/nuget-commandline.zip"
-            Expand-Archive -Path "tools/nuget-commandline.zip" -DestinationPath "tools" -Force
-            Remove-Item "tools/nuget-commandline.zip"
-        }
-    }
-    
-    # Set the NuGet command path
-    if (Test-Path "tools/NuGet.CommandLine/tools/nuget.exe") {
-        $NuGetCmd = "tools/NuGet.CommandLine/tools/nuget.exe"
-    } elseif (Test-Path "tools/nuget.exe") {
-        $NuGetCmd = "tools/nuget.exe"
-    } else {
-        Write-Host "Error: Failed to install NuGet.CommandLine package" -ForegroundColor Red
-        exit 1
-    }
+# Check for .NET SDK (required for dotnet pack)
+if (-not (Get-Command dotnet -ErrorAction SilentlyContinue)) {
+    Write-Host "❌ .NET SDK not found. Please install .NET 8.0 SDK or later." -ForegroundColor Red
+    exit 1
 }
 
-# Build NuGet package
-Write-Host "Using NuGet command: $NuGetCmd" -ForegroundColor Cyan
-& $NuGetCmd pack "src/AgentStudio.AI.Core.nuspec" -OutputDirectory $OutputDir -Version $Version
+$dotnetVersion = dotnet --version
+Write-Host "✅ .NET SDK found: $dotnetVersion" -ForegroundColor Green
+
+# Build NuGet package using dotnet pack
+Write-Host "Using dotnet pack to build package from 'AgentStudio.AI.Core.csproj'." -ForegroundColor Cyan
+dotnet pack "src/AgentStudio.AI.Core.csproj" -c Release -o $OutputDir --no-build
 
 Write-Host "Build complete! Package created in $OutputDir" -ForegroundColor Green
 Write-Host "Package: AgentStudio.AI.Core.$Version.nupkg" -ForegroundColor Cyan

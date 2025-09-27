@@ -81,50 +81,25 @@ fi
 cp "README.md" "$CONTENT_DIR/README.md"
 cp "LICENSE" "$CONTENT_DIR/LICENSE"
 
-# Update version in nuspec
-sed -i "s/<version>0\.1\.0<\/version>/<version>$VERSION<\/version>/g" "src/AgentStudio.AI.Core.nuspec"
+# Update version in csproj
+sed -i "s/<Version>0\.1\.0<\/Version>/<Version>$VERSION<\/Version>/g" "src/AgentStudio.AI.Core.csproj"
 
 # Build NuGet package
 echo -e "${YELLOW}Building NuGet package...${NC}"
-echo -e "${CYAN}Attempting to build package from 'AgentStudio.AI.Core.nuspec'.${NC}"
+echo -e "${CYAN}Attempting to build package from 'AgentStudio.AI.Core.csproj'.${NC}"
 
-# Check for NuGet CLI and install if needed
-NUGET_CMD=""
-if command -v nuget >/dev/null 2>&1; then
-    NUGET_CMD="nuget"
-else
-    echo -e "${YELLOW}NuGet CLI not found. Installing NuGet.CommandLine package...${NC}"
-    
-    # Create tools directory if it doesn't exist
-    mkdir -p tools
-    
-    # Download NuGet CLI directly (most reliable method)
-    if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-        # Install NuGet CLI for Linux using the official GitHub release
-        if [ ! -f "tools/nuget" ]; then
-            echo -e "${CYAN}Installing NuGet CLI for Linux...${NC}"
-            # Use the official NuGet CLI release from GitHub
-            curl -L -o tools/nuget "https://github.com/NuGet/NuGet.Client/releases/download/v6.8.0.123/nuget.exe"
-            chmod +x tools/nuget
-        fi
-        NUGET_CMD="tools/nuget"
-    else
-        # Download Windows nuget.exe for other platforms
-        if [ ! -f "tools/nuget.exe" ]; then
-            echo -e "${CYAN}Downloading NuGet CLI...${NC}"
-            curl -L -o tools/nuget.exe "https://dist.nuget.org/win-x86-commandline/latest/nuget.exe"
-            chmod +x tools/nuget.exe
-        fi
-        NUGET_CMD="tools/nuget.exe"
-    fi
-    
-    # NUGET_CMD is already set above based on platform
+# Check for .NET SDK (required for dotnet pack)
+if ! command -v dotnet >/dev/null 2>&1; then
+    echo -e "${RED}❌ .NET SDK not found. Please install .NET 8.0 SDK or later.${NC}"
+    exit 1
 fi
 
-# Build NuGet package
-echo -e "${CYAN}Using NuGet command: $NUGET_CMD${NC}"
-if ! $NUGET_CMD pack "src/AgentStudio.AI.Core.nuspec" -OutputDirectory "$OUTPUT_DIR" -Version "$VERSION"; then
-    echo -e "${RED}❌ NuGet pack failed${NC}"
+echo -e "${GREEN}✅ .NET SDK found: $(dotnet --version)${NC}"
+
+# Build NuGet package using dotnet pack
+echo -e "${CYAN}Using dotnet pack to build package from 'AgentStudio.AI.Core.csproj'.${NC}"
+if ! dotnet pack "src/AgentStudio.AI.Core.csproj" -c Release -o "$OUTPUT_DIR" --no-build; then
+    echo -e "${RED}❌ dotnet pack failed${NC}"
     exit 1
 fi
 

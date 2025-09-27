@@ -64,7 +64,7 @@ Write-Host "`n1. Pre-build Validation" -ForegroundColor Yellow
 # Check required files exist
 Write-Host "  📁 Checking required files..." -ForegroundColor Cyan
 $TotalChecks++
-if (Test-FileExists "src/AgentStudio.AI.Core.nuspec") { $PassedChecks++ }
+if (Test-FileExists "src/AgentStudio.AI.Core.csproj") { $PassedChecks++ }
 
 $TotalChecks++
 if (Test-FileExists "README.md") { $PassedChecks++ }
@@ -83,7 +83,7 @@ if (Test-DirectoryExists "src") { $PassedChecks++ }
 # Validate file syntax
 Write-Host "  🔍 Validating file syntax..." -ForegroundColor Cyan
 $TotalChecks++
-if (Test-XmlSyntax "src/AgentStudio.AI.Core.nuspec") { $PassedChecks++ }
+if (Test-XmlSyntax "src/AgentStudio.AI.Core.csproj") { $PassedChecks++ }
 
 # 2. Package existence validation
 Write-Host "`n2. Package Existence Validation" -ForegroundColor Yellow
@@ -123,14 +123,14 @@ try {
     $zip = [System.IO.Compression.ZipFile]::OpenRead($PackagePath)
     
     $hasReadme = $false
-    $hasNuspec = $false
+    $hasCsproj = $false
     
     foreach ($entry in $zip.Entries) {
         if ($entry.Name -eq "README.md") {
             $hasReadme = $true
         }
-        if ($entry.Name -like "*.nuspec") {
-            $hasNuspec = $true
+        if ($entry.Name -like "*.csproj") {
+            $hasCsproj = $true
         }
     }
     $zip.Dispose()
@@ -146,7 +146,7 @@ try {
     }
     
     $TotalChecks++
-    if ($hasNuspec) {
+    if ($hasCsproj) {
         Write-Host "  ✅ Package metadata found" -ForegroundColor Green
         $PassedChecks++
     } else {
