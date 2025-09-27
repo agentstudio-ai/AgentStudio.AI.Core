@@ -8,4 +8,7 @@
 .agentstudio-ai/
 
 # Designer Notes
-.MyNotes/dist/
+.MyNotes/
+
+# Build output
+dist/
