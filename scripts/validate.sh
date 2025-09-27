@@ -208,7 +208,7 @@ fi
 mkdir -p "$TEMP_DIR"
 
 if command_exists unzip; then
-    unzip -q "$PACKAGE_PATH" -d "$TEMP_DIR"
+    unzip -o -q "$PACKAGE_PATH" -d "$TEMP_DIR"
     echo -e "  ✅ Package extracted successfully"
 else
     echo -e "  ⚠️  Cannot extract package without unzip"

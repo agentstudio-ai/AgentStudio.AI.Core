@@ -1,8 +1,8 @@
-![AgentStudio.AI Logo](images/logo-all-small.png)
-
 # AgentStudio.AI Core
 
-**Human-Centric AI Agent Orchestration Framework**
+![AgentStudio.AI Logo](images/logo-all-small.png)
+
+## Human-Centric AI Agent Orchestration Framework
 
 [![Version](https://img.shields.io/badge/version-0.1.0--beta-blue.svg)](https://github.com/agentstudio-ai)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
@@ -120,4 +120,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-**Built with ❤️ by the AgentStudio.AI team**
+## Built with ❤️ by the AgentStudio.AI team
