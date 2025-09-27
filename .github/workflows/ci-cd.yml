@@ -19,6 +19,12 @@ jobs:
         with:
           dotnet-version: "8.0.x"
 
+      - name: Install validation tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libxml2-utils yamllint
+          npm install -g markdownlint-cli
+
       - name: Make scripts executable
         run: |
           chmod +x scripts/build.sh

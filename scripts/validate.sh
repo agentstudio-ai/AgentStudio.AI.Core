@@ -168,7 +168,15 @@ if [ -n "$YAML_FILES" ]; then
     
     # Validate YAML files (batch validation to reduce verbosity)
     TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
-    if validate_yaml "$(echo "$YAML_FILES" | head -1)"; then
+    YAML_VALIDATION_FAILED=false
+    for yaml_file in $YAML_FILES; do
+        if ! validate_yaml "$yaml_file"; then
+            YAML_VALIDATION_FAILED=true
+            break
+        fi
+    done
+    
+    if [ "$YAML_VALIDATION_FAILED" = false ]; then
         PASSED_CHECKS=$((PASSED_CHECKS + 1))
         echo -e "  ✅ All $YAML_COUNT YAML files validated"
     else
