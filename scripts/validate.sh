@@ -1,0 +1,284 @@
+#!/bin/bash
+# AgentStudio.AI Core Package Validation Script
+# Validates NuGet package without requiring .NET project
+
+set -e  # Exit on any error
+
+VERSION="0.1.0"
+PACKAGE_NAME="AgentStudio.AI.Core.$VERSION.nupkg"
+PACKAGE_PATH="dist/$PACKAGE_NAME"
+TEMP_DIR="temp-validation"
+
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+CYAN='\033[0;36m'
+NC='\033[0m' # No Color
+
+echo -e "${GREEN}Validating AgentStudio.AI Core Package v$VERSION${NC}"
+
+# Function to check if command exists
+command_exists() {
+    command -v "$1" >/dev/null 2>&1
+}
+
+# Function to validate file exists
+validate_file_exists() {
+    if [ -f "$1" ]; then
+        echo -e "  ✅ $1 exists"
+        return 0
+    else
+        echo -e "  ❌ $1 missing"
+        return 1
+    fi
+}
+
+# Function to validate directory exists
+validate_dir_exists() {
+    if [ -d "$1" ]; then
+        echo -e "  ✅ $1 exists"
+        return 0
+    else
+        echo -e "  ❌ $1 missing"
+        return 1
+    fi
+}
+
+# Function to validate YAML syntax
+validate_yaml() {
+    if command_exists yamllint; then
+        echo -e "  🔍 Validating YAML syntax..."
+        if yamllint "$1" >/dev/null 2>&1; then
+            echo -e "  ✅ YAML syntax valid"
+            return 0
+        else
+            echo -e "  ❌ YAML syntax error in $1"
+            return 1
+        fi
+    else
+        echo -e "  ⚠️  yamllint not available, skipping YAML validation"
+        return 0
+    fi
+}
+
+# Function to validate XML syntax
+validate_xml() {
+    if command_exists xmllint; then
+        echo -e "  🔍 Validating XML syntax..."
+        if xmllint --noout "$1" 2>/dev/null; then
+            echo -e "  ✅ XML syntax valid"
+            return 0
+        else
+            echo -e "  ❌ XML syntax error in $1"
+            return 1
+        fi
+    else
+        echo -e "  ⚠️  xmllint not available, skipping XML validation"
+        return 0
+    fi
+}
+
+# Function to validate Markdown syntax
+validate_markdown() {
+    if command_exists markdownlint; then
+        echo -e "  🔍 Validating Markdown syntax..."
+        if markdownlint "$1" >/dev/null 2>&1; then
+            echo -e "  ✅ Markdown syntax valid"
+            return 0
+        else
+            echo -e "  ❌ Markdown syntax error in $1"
+            return 1
+        fi
+    else
+        echo -e "  ⚠️  markdownlint not available, skipping Markdown validation"
+        return 0
+    fi
+}
+
+# Initialize validation counters
+TOTAL_CHECKS=0
+PASSED_CHECKS=0
+
+# 1. Pre-build validation
+echo -e "\n${YELLOW}1. Pre-build Validation${NC}"
+
+# Check required files exist
+echo -e "  📁 Checking required files..."
+TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
+if validate_file_exists "src/AgentStudio.AI.Core.nuspec"; then
+    PASSED_CHECKS=$((PASSED_CHECKS + 1))
+fi
+
+TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
+if validate_file_exists "README.md"; then
+    PASSED_CHECKS=$((PASSED_CHECKS + 1))
+fi
+
+TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
+if validate_file_exists "LICENSE"; then
+    PASSED_CHECKS=$((PASSED_CHECKS + 1))
+fi
+
+TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
+if validate_file_exists "VERSION"; then
+    PASSED_CHECKS=$((PASSED_CHECKS + 1))
+fi
+
+# Check required directories exist
+echo -e "  📁 Checking required directories..."
+TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
+if validate_dir_exists ".agentstudio-ai"; then
+    PASSED_CHECKS=$((PASSED_CHECKS + 1))
+fi
+
+TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
+if validate_dir_exists ".agentstudio-ai/templates"; then
+    PASSED_CHECKS=$((PASSED_CHECKS + 1))
+fi
+
+# Validate file syntax
+echo -e "  🔍 Validating file syntax..."
+TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
+if validate_xml "src/AgentStudio.AI.Core.nuspec"; then
+    PASSED_CHECKS=$((PASSED_CHECKS + 1))
+fi
+
+TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
+if validate_markdown "README.md"; then
+    PASSED_CHECKS=$((PASSED_CHECKS + 1))
+fi
+
+# Validate YAML files
+echo -e "  🔍 Validating YAML files..."
+YAML_FILES=$(find .agentstudio-ai -name "*.yml" -o -name "*.yaml" 2>/dev/null || true)
+if [ -n "$YAML_FILES" ]; then
+    for yaml_file in $YAML_FILES; do
+        TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
+        if validate_yaml "$yaml_file"; then
+            PASSED_CHECKS=$((PASSED_CHECKS + 1))
+        fi
+    done
+else
+    echo -e "  ⚠️  No YAML files found to validate"
+fi
+
+# 2. Package existence validation
+echo -e "\n${YELLOW}2. Package Existence Validation${NC}"
+
+TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
+if validate_file_exists "$PACKAGE_PATH"; then
+    PASSED_CHECKS=$((PASSED_CHECKS + 1))
+    echo -e "  📦 Package found: $PACKAGE_PATH"
+else
+    echo -e "  ❌ Package not found: $PACKAGE_PATH"
+    echo -e "  💡 Run ./scripts/build.sh first to create the package"
+    exit 1
+fi
+
+# 3. Package structure validation
+echo -e "\n${YELLOW}3. Package Structure Validation${NC}"
+
+# Check if package is a valid ZIP file
+echo -e "  🔍 Validating package format..."
+TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
+if command_exists unzip; then
+    if unzip -t "$PACKAGE_PATH" >/dev/null 2>&1; then
+        echo -e "  ✅ Package is a valid ZIP file"
+        PASSED_CHECKS=$((PASSED_CHECKS + 1))
+    else
+        echo -e "  ❌ Package is not a valid ZIP file"
+        exit 1
+    fi
+else
+    echo -e "  ⚠️  unzip not available, skipping ZIP validation"
+    PASSED_CHECKS=$((PASSED_CHECKS + 1))
+fi
+
+# Extract package for content validation
+echo -e "  📦 Extracting package for validation..."
+if [ -d "$TEMP_DIR" ]; then
+    rm -rf "$TEMP_DIR"
+fi
+mkdir -p "$TEMP_DIR"
+
+if command_exists unzip; then
+    unzip -q "$PACKAGE_PATH" -d "$TEMP_DIR"
+    echo -e "  ✅ Package extracted successfully"
+else
+    echo -e "  ⚠️  Cannot extract package without unzip"
+    exit 1
+fi
+
+# 4. Package content validation
+echo -e "\n${YELLOW}4. Package Content Validation${NC}"
+
+# Check required package structure
+echo -e "  📁 Checking package structure..."
+TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
+if validate_dir_exists "$TEMP_DIR/content"; then
+    PASSED_CHECKS=$((PASSED_CHECKS + 1))
+fi
+
+TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
+if validate_file_exists "$TEMP_DIR/content/README.md"; then
+    PASSED_CHECKS=$((PASSED_CHECKS + 1))
+fi
+
+TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
+if validate_file_exists "$TEMP_DIR/content/LICENSE"; then
+    PASSED_CHECKS=$((PASSED_CHECKS + 1))
+fi
+
+# Check template directories
+echo -e "  📁 Checking template directories..."
+TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
+if validate_dir_exists "$TEMP_DIR/content/templates"; then
+    PASSED_CHECKS=$((PASSED_CHECKS + 1))
+fi
+
+TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
+if validate_dir_exists "$TEMP_DIR/content/workflows"; then
+    PASSED_CHECKS=$((PASSED_CHECKS + 1))
+fi
+
+TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
+if validate_dir_exists "$TEMP_DIR/content/agents"; then
+    PASSED_CHECKS=$((PASSED_CHECKS + 1))
+fi
+
+# 5. Package metadata validation
+echo -e "\n${YELLOW}5. Package Metadata Validation${NC}"
+
+# Check package metadata files
+echo -e "  🔍 Checking package metadata..."
+TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
+if validate_file_exists "$TEMP_DIR/AgentStudio.AI.Core.nuspec"; then
+    PASSED_CHECKS=$((PASSED_CHECKS + 1))
+fi
+
+TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
+if validate_file_exists "$TEMP_DIR/[Content_Types].xml"; then
+    PASSED_CHECKS=$((PASSED_CHECKS + 1))
+fi
+
+# 6. Cleanup
+echo -e "\n${YELLOW}6. Cleanup${NC}"
+if [ -d "$TEMP_DIR" ]; then
+    rm -rf "$TEMP_DIR"
+    echo -e "  🧹 Cleaned up temporary files"
+fi
+
+# 7. Results
+echo -e "\n${YELLOW}Validation Results${NC}"
+echo -e "  📊 Total checks: $TOTAL_CHECKS"
+echo -e "  ✅ Passed: $PASSED_CHECKS"
+echo -e "  ❌ Failed: $((TOTAL_CHECKS - PASSED_CHECKS))"
+
+if [ $PASSED_CHECKS -eq $TOTAL_CHECKS ]; then
+    echo -e "\n${GREEN}🎉 All validations passed! Package is ready for distribution.${NC}"
+    exit 0
+else
+    echo -e "\n${RED}❌ Some validations failed. Please fix the issues above.${NC}"
+    exit 1
+fi
