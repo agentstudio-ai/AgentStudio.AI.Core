@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <PackageId>AgentStudio.AI.Core</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>AgentStudio.AI</Authors>
+    <Company>AgentStudio.AI</Company>
+    <Product>AgentStudio.AI Core Framework</Product>
+    <Description>Human-Centric AI Agent Orchestration Framework - Core templates and patterns for building AI agents</Description>
+    <PackageProjectUrl>https://github.com/agentstudio-ai/AgentStudio.AI.Core</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/agentstudio-ai/AgentStudio.AI.Core</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageTags>ai;agents;orchestration;templates;cognitive;workflow</PackageTags>
+    <PackageReadmeFile>content/README.md</PackageReadmeFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="templates/**/*" Pack="true" PackagePath="content/templates" />
+    <Content Include="../README.md" Pack="true" PackagePath="content" />
+    <Content Include="../LICENSE" Pack="true" PackagePath="content" />
+    <Content Include="../VERSION" Pack="true" PackagePath="content" />
+  </ItemGroup>
+
+</Project>
