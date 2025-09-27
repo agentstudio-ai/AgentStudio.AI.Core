@@ -19,7 +19,8 @@ collaboratively with humans rather than replacing them.
 
 - **Cognitive Templates**: 19+ thinking patterns for different agent behaviors
 - **Workflow Orchestration**: Pre-defined patterns for multi-agent collaboration
-- **Shared-Knowledge System**: Tool-specific knowledge files to prevent agent context drift
+- **Shared-Knowledge System**: Tool-specific knowledge files to prevent agent
+  context drift
 - **Human-Centric Design**: Built-in human checkpoints and collaboration patterns
 - **Template-Based**: YAML-based configuration for easy customization
 - **Platform Agnostic**: Works across different AI platforms and frameworks
@@ -28,11 +29,16 @@ collaboratively with humans rather than replacing them.
 
 ### Installation
 
-This package is designed as a supporting framework for other AgentStudio.AI packages and tools. It provides the foundational templates and shared-knowledge files that other packages depend on.
+This package is designed as a supporting framework for other
+AgentStudio.AI packages and tools. It provides the foundational
+templates and shared-knowledge files that other packages depend on.
 
-**For end users**: Install the [AgentStudio.AI CLI](https://github.com/agentstudio-ai) or other AgentStudio.AI packages, which will automatically include this core framework.
+**For end users**: Install the [AgentStudio.AI CLI](https://github.com/agentstudio-ai)
+or other AgentStudio.AI packages, which will automatically include this core
+framework.
 
-**For developers**: This package is typically installed as a dependency when building AgentStudio.AI extensions or custom agent implementations.
+**For developers**: This package is typically installed as a dependency when
+building AgentStudio.AI extensions or custom agent implementations.
 
 ## Project Structure
 
@@ -79,22 +85,26 @@ Pre-defined workflow patterns for common scenarios:
 - **Linear Workflows** - Sequential task execution
 - **Iterative Workflows** - Loop-based collaboration
 - **Human Checkpoint Workflows** - Human approval gates
-- **Hybrid Workflows** - Complex multi-pattern orchestration
+- **Hybrid Workflows** - Complex multi-pattern
+  orchestration
 
 ## Shared-Knowledge System
 
-The framework includes a revolutionary shared-knowledge system designed to prevent AI agent context drift and reduce trial-and-error behavior:
+The framework includes a revolutionary shared-knowledge system designed to
+prevent AI agent context drift and reduce trial-and-error behavior:
 
 ### Purpose
 
-- **Tool-Specific Knowledge**: Comprehensive usage guides for common development tools
+- **Tool-Specific Knowledge**: Comprehensive usage guides for common
+  development tools
 - **Context Preservation**: Prevents agents from forgetting tool usage over time
 - **Reduced Errors**: Eliminates trial-and-error approaches to tool usage
 - **Consistent Behavior**: Ensures agents follow best practices consistently
 
 ### Current Knowledge Files
 
-- **GitHub CLI**: Complete usage guide with interactive command warnings and best practices
+- **GitHub CLI**: Complete usage guide with interactive command warnings and
+  best practices
 - **More coming soon**: Docker, Kubernetes, Git, and other development tools
 
 ### Format
@@ -191,7 +201,8 @@ extensions:
 - **XML** (Red Hat) - For `.csproj` file validation and IntelliSense
 - **YAML** (Red Hat) - For template and shared-knowledge file validation and formatting
 - **Prettier** - For consistent code formatting across all file types
-- **markdownlint** - For README, documentation, and agent-generated markdown file validation
+- **markdownlint** - For README, documentation, and agent-generated markdown
+  file validation
 
 These extensions ensure consistent formatting and catch syntax errors early in the
 development process. The markdownlint extension is particularly important as many

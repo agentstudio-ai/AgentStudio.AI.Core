@@ -1,3 +1,4 @@
+---
 metadata:
   tool_name: "GitHub CLI (gh)"
   version: "Latest"
@@ -46,7 +47,8 @@ detailed_usage: |
   # GitHub CLI Detailed Usage Guide
 
   ## Authentication
-  The GitHub CLI requires authentication to access GitHub resources. Use one of these methods:
+  The GitHub CLI requires authentication to access GitHub resources.
+  Use one of these methods:
 
   ### Interactive Login (REQUIRES USER INPUT)
   ```bash
@@ -60,15 +62,18 @@ detailed_usage: |
   - Preferred protocol for Git operations
   - Browser-based authentication or token input
 
-  **Agent must notify the user to complete the authentication process manually.**
+  **Agent must notify the user to complete the authentication
+  process manually.**
 
   ### Non-Interactive Authentication (Recommended for Agents)
-  Set the `GITHUB_TOKEN` environment variable with a personal access token:
+  Set the `GITHUB_TOKEN` environment variable with a personal access
+  token:
   ```bash
   export GITHUB_TOKEN=your_personal_access_token
   ```
 
-  This allows agents to perform GitHub operations without interactive prompts.
+  This allows agents to perform GitHub operations without interactive
+  prompts.
 
   ## Repository Operations
 
@@ -100,8 +105,10 @@ detailed_usage: |
 
   ### Authentication Strategy
   1. **Check existing authentication first**: `gh auth status`
-  2. **If authentication needed**: Use `GITHUB_TOKEN` environment variable when possible
-  3. **If interactive login required**: Notify user to complete `gh auth login` process
+  2. **If authentication needed**: Use `GITHUB_TOKEN` environment
+     variable when possible
+  3. **If interactive login required**: Notify user to complete
+     `gh auth login` process
   4. **Never assume authentication**: Always verify with `gh auth status`
 
   ### Always Check Authentication
@@ -131,11 +138,13 @@ detailed_usage: |
 
 troubleshooting:
   common_issues:
-    - "Authentication required: Run 'gh auth login' (INTERACTIVE - requires user input)"
+    - "Authentication required: Run 'gh auth login'
+      (INTERACTIVE - requires user input)"
     - "Repository not found: Check repository name and permissions"
     - "Permission denied: Verify token has required scopes"
     - "Command not found: Update GitHub CLI to latest version"
-    - "Interactive prompt hanging: Use GITHUB_TOKEN environment variable instead"
+    - "Interactive prompt hanging: Use GITHUB_TOKEN environment
+      variable instead"
 
   verification_commands:
     - "gh --version"
@@ -148,8 +157,10 @@ context_preservation_tips:
   - "Specify branch names explicitly in PR operations"
   - "Include descriptive titles and bodies in all created items"
   - "Verify commands with '--help' flag before execution"
-  - "For interactive commands like 'gh auth login', notify user to complete manually"
-  - "Prefer GITHUB_TOKEN environment variable for non-interactive authentication"
+  - "For interactive commands like 'gh auth login', notify user to
+    complete manually"
+  - "Prefer GITHUB_TOKEN environment variable for non-interactive
+    authentication"
 
 interactive_commands:
   commands_requiring_user_input:
