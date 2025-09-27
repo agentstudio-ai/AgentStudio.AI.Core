@@ -9,10 +9,15 @@ on:
 jobs:
   build-and-validate:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
         
       - name: Make scripts executable
         run: |
@@ -28,7 +33,7 @@ jobs:
         run: |
           echo "Validating package using validate.sh..."
           ./scripts/validate.sh
-          
+
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
@@ -40,17 +45,17 @@ jobs:
     needs: build-and-validate
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main' && startsWith(github.ref, 'refs/tags/')
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        
+
       - name: Download build artifacts
         uses: actions/download-artifact@v4
         with:
           name: nuget-package
           path: dist/
-          
+
       - name: Publish to NuGet
         run: |
           echo "Publishing to NuGet..."
