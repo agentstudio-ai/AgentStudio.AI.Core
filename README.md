@@ -83,10 +83,12 @@ This is an early beta release. The framework is under active development and the
 ### Roadmap
 
 - [ ] Complete cognitive template library (19 templates)
-- [ ] Domain-specific templates (.NET, Python, Java, React, etc.)
-- [ ] Workflow pattern library expansion
+- [ ] Basic domain-specific templates (.NET, Python, Java, React, etc.)
+- [ ] Base workflow pattern templates
 - [ ] Template validation and testing framework
 - [ ] Documentation and examples for all templates
+- [ ] Templates for agent-messages, shared-knowledge, and events
+- [ ] Refinement and inclusion of JARVIS (AI/Prompt Expert)
 
 ## Contributing
 
