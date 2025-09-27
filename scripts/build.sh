@@ -85,7 +85,7 @@ sed -i "s/<version>0\.1\.0<\/version>/<version>$VERSION<\/version>/g" "src/Agent
 
 # Build NuGet package
 echo -e "${YELLOW}Building NuGet package...${NC}"
-dotnet nuget pack "src/AgentStudio.AI.Core.nuspec" -OutputDirectory "$OUTPUT_DIR" -Version "$VERSION"
+nuget pack "src/AgentStudio.AI.Core.nuspec" -OutputDirectory "$OUTPUT_DIR" -Version "$VERSION"
 
 echo -e "${GREEN}Build complete! Package created in $OUTPUT_DIR${NC}"
 echo -e "${CYAN}Package: AgentStudio.AI.Core.$VERSION.nupkg${NC}"
