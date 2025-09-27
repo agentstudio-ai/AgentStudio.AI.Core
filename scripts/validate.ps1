@@ -114,52 +114,31 @@ try {
     exit 1
 }
 
-# Extract package for content validation
-Write-Host "  📦 Extracting package for validation..." -ForegroundColor Cyan
+# Validate package contents without extraction
+Write-Host "  📦 Validating package contents..." -ForegroundColor Cyan
 
-# Try to extract using a different method to avoid permission issues
 try {
-    # Use a unique temp directory to avoid conflicts
-    $UniqueTempDir = "temp-validation-$(Get-Date -Format 'yyyyMMdd-HHmmss')"
-    
-    # Create the directory
-    New-Item -ItemType Directory -Path $UniqueTempDir -Force | Out-Null
-    
-    # Extract using .NET classes with better error handling
+    # Read package contents without extracting
     Add-Type -AssemblyName System.IO.Compression.FileSystem
     $zip = [System.IO.Compression.ZipFile]::OpenRead($PackagePath)
     
+    $hasReadme = $false
+    $hasNuspec = $false
+    
     foreach ($entry in $zip.Entries) {
-        $destinationPath = Join-Path $UniqueTempDir $entry.FullName
-        $destinationDir = Split-Path $destinationPath -Parent
-        
-        # Create directory if it doesn't exist
-        if (-not (Test-Path $destinationDir)) {
-            New-Item -ItemType Directory -Path $destinationDir -Force | Out-Null
+        if ($entry.Name -eq "README.md") {
+            $hasReadme = $true
         }
-        
-        # Extract file if it has content
-        if ($entry.Length -gt 0) {
-            try {
-                $stream = [System.IO.File]::Create($destinationPath)
-                $entryStream = $entry.Open()
-                $entryStream.CopyTo($stream)
-                $stream.Close()
-                $entryStream.Close()
-            } catch {
-                # Skip files that can't be extracted due to permissions
-                Write-Host "  ⚠️  Skipping $($entry.FullName) due to permissions" -ForegroundColor Yellow
-            }
+        if ($entry.Name -like "*.nuspec") {
+            $hasNuspec = $true
         }
     }
     $zip.Dispose()
     
-    Write-Host "  ✅ Package extracted successfully" -ForegroundColor Green
-    
     # Validate package contents
-    Write-Host "  📁 Checking package structure..." -ForegroundColor Cyan
+    Write-Host "  🔍 Checking package structure..." -ForegroundColor Cyan
     $TotalChecks++
-    if (Test-Path "$UniqueTempDir/content/README.md") {
+    if ($hasReadme) {
         Write-Host "  ✅ README.md found" -ForegroundColor Green
         $PassedChecks++
     } else {
@@ -167,18 +146,15 @@ try {
     }
     
     $TotalChecks++
-    if (Test-Path "$UniqueTempDir/AgentStudio.AI.Core.nuspec") {
+    if ($hasNuspec) {
         Write-Host "  ✅ Package metadata found" -ForegroundColor Green
         $PassedChecks++
     } else {
         Write-Host "  ❌ Package metadata missing" -ForegroundColor Red
     }
     
-    # Cleanup
-    Remove-Item $UniqueTempDir -Recurse -Force -ErrorAction SilentlyContinue
-    
 } catch {
-    Write-Host "  ⚠️  Package extraction failed: $($_.Exception.Message)" -ForegroundColor Yellow
+    Write-Host "  ⚠️ Package content validation failed: $($_.Exception.Message)" -ForegroundColor Yellow
     Write-Host "  💡 Skipping package content validation" -ForegroundColor Cyan
     # Count as passed since we can't validate
     $PassedChecks += 2
