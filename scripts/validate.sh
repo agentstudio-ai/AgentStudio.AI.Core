@@ -205,9 +205,10 @@ echo -e "  📦 Extracting package for validation..."
 if [ -d "$TEMP_DIR" ]; then
     rm -rf "$TEMP_DIR"
 fi
-mkdir -p "$TEMP_DIR"
 
 if command_exists unzip; then
+    # Create a fresh temp directory and extract
+    mkdir -p "$TEMP_DIR"
     unzip -o -q "$PACKAGE_PATH" -d "$TEMP_DIR"
     echo -e "  ✅ Package extracted successfully"
 else
