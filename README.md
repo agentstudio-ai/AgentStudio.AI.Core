@@ -99,6 +99,10 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 3. Test changes using the build script: `./build.ps1`
 4. Submit a pull request
 
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for a detailed list of changes, new features, and bug fixes in each version.
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.

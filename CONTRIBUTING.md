@@ -93,6 +93,13 @@ Thank you for your interest in contributing to AgentStudio.AI Core! This documen
 - **Build Testing**: Verify package builds correctly
 - **Cross-Platform**: Test on different operating systems
 
+### 4. Changelog Updates
+
+- **Update CHANGELOG.md**: Add entries for all changes
+- **Follow Format**: Use standard changelog format
+- **Version Entries**: Update version history section
+- **Unreleased Section**: Add changes to Unreleased section
+
 ## Pull Request Process
 
 ### 1. Before Submitting
@@ -102,6 +109,7 @@ Thank you for your interest in contributing to AgentStudio.AI Core! This documen
 - [ ] Tests pass (when implemented)
 - [ ] Build script runs successfully
 - [ ] Version information is updated if needed
+- [ ] Changelog is updated with changes
 
 ### 2. Pull Request Template
 
@@ -121,12 +129,14 @@ Brief description of changes
 - [ ] Templates validate correctly
 - [ ] Documentation is updated
 - [ ] Cross-platform testing (if applicable)
+- [ ] Changelog updated with changes
 
 ## Checklist
 - [ ] Code follows project standards
 - [ ] Self-review completed
 - [ ] Documentation updated
 - [ ] Version updated (if applicable)
+- [ ] Changelog updated with changes
 ```
 
 ### 3. Review Process
@@ -150,9 +160,10 @@ Brief description of changes
 1. Update version in `VERSION` file
 2. Update version in `src/AgentStudio.AI.Core.nuspec`
 3. Update documentation
-4. Create git tag
-5. Build and test package
-6. Release to NuGet
+4. Update `CHANGELOG.md` with release notes
+5. Create git tag
+6. Build and test package
+7. Release to NuGet
 
 ## Guidelines
 
