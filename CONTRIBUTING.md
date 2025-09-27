@@ -13,12 +13,14 @@ Thank you for your interest in contributing to AgentStudio.AI Core! This documen
 ### Getting Started
 
 1. **Fork and Clone**
+
    ```bash
    git clone https://github.com/your-username/AgentStudio.AI.Core.git
    cd AgentStudio.AI.Core
    ```
 
 2. **Create a Development Branch**
+
    ```bash
    git checkout -b feature/your-feature-name
    ```
@@ -59,12 +61,18 @@ Thank you for your interest in contributing to AgentStudio.AI Core! This documen
 ### 1. Making Changes
 
 1. **Work in Development Branch**
+
    - Never work directly on `main`
    - Create feature branches for each change
 
 2. **Test Your Changes**
+
    ```powershell
-   ./build.ps1
+   # Windows
+   ./scripts/build.ps1
+
+   # Linux/macOS
+   ./scripts/build.sh
    ```
 
 3. **Update Documentation**
@@ -75,12 +83,14 @@ Thank you for your interest in contributing to AgentStudio.AI Core! This documen
 ### 2. Code Standards
 
 #### YAML Templates
+
 - Use consistent indentation (2 spaces)
 - Include all required sections
 - Use placeholder variables for customization
 - Add comprehensive comments
 
 #### Documentation
+
 - Use clear, concise language
 - Include examples where helpful
 - Follow existing structure and style
@@ -115,9 +125,11 @@ Thank you for your interest in contributing to AgentStudio.AI Core! This documen
 
 ```markdown
 ## Description
+
 Brief description of changes
 
 ## Type of Change
+
 - [ ] Bug fix
 - [ ] New feature
 - [ ] Documentation update
@@ -125,6 +137,7 @@ Brief description of changes
 - [ ] Other (please describe)
 
 ## Testing
+
 - [ ] Build script runs successfully
 - [ ] Templates validate correctly
 - [ ] Documentation is updated
@@ -132,6 +145,7 @@ Brief description of changes
 - [ ] Changelog updated with changes
 
 ## Checklist
+
 - [ ] Code follows project standards
 - [ ] Self-review completed
 - [ ] Documentation updated
@@ -206,6 +220,7 @@ Brief description of changes
 ## Recognition
 
 Contributors will be recognized in:
+
 - **README**: Contributor list
 - **Release Notes**: Feature acknowledgments
 - **Documentation**: Credit for significant contributions

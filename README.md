@@ -1,14 +1,14 @@
 <div align="center">
-  <img src="/images/logo-all-small.png" alt="AgentStudio.AI Logo" width="400" />
+  <img src="images/logo-all-small.png" alt="AgentStudio.AI Logo" width="400" />
 </div>
 
 # AgentStudio.AI Core
 
 **Human-Centric AI Agent Orchestration Framework**
 
-[![Version](https://img.shields.io/badge/version-0.1.0--beta-blue.svg)](https://github.com/agentstudio-ai/AgentStudio.AI.Core)
+[![Version](https://img.shields.io/badge/version-0.1.0--beta-blue.svg)](https://github.com/agentstudio-ai)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![NuGet](https://img.shields.io/badge/nuget-AgentStudio.AI.Core-blue.svg)](https://www.nuget.org/packages/AgentStudio.AI.Core)
+[![NuGet](https://img.shields.io/badge/nuget-AgentStudio.AI.Core-blue.svg)](https://github.com/agentstudio-ai)
 
 ## Overview
 
@@ -47,9 +47,9 @@ AgentStudio.AI.Core/
 ├── src/                    # Source files and package configuration
 ├── tests/                  # Test files and validation
 ├── docs/                   # Documentation
+├── scripts/                # Build and utility scripts
 ├── images/                 # Logo and assets
 ├── .github/               # GitHub workflows and configuration
-├── build.ps1              # Build script for NuGet package
 ├── VERSION                # Version tracking
 └── README.md              # This file
 ```
@@ -95,8 +95,8 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 ### Development Setup
 
 1. Clone the repository
-2. Review the cognitive templates in `.agentstudio-ai/templates/`
-3. Test changes using the build script: `./build.ps1`
+2. Review the framework files in `src/`
+3. Test changes using the build script: `./scripts/build.ps1`
 4. Submit a pull request
 
 ## Changelog
@@ -109,9 +109,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Related Projects
 
-- [AgentStudio.AI.CLI](https://github.com/agentstudio-ai/AgentStudio.AI.CLI) - Command-line interface
-- [AgentStudio.AI.Agents](https://github.com/agentstudio-ai/AgentStudio.AI.Agents) - Pre-built agent templates
-- [AgentStudio.AI.Workflows](https://github.com/agentstudio-ai/AgentStudio.AI.Workflows) - Workflow patterns
+- [AgentStudio.AI.CLI](https://github.com/agentstudio-ai) - Command-line interface
+- [AgentStudio.AI.Agents](https://github.com/agentstudio-ai) - Pre-built agent templates
+- [AgentStudio.AI.Workflows](https://github.com/agentstudio-ai) - Workflow patterns
 
 ## Support
 

@@ -23,10 +23,12 @@ jobs:
         run: |
           echo "Checking project structure..."
           test -f VERSION
-          test -f build.ps1
+          test -f scripts/build.ps1
+          test -f scripts/build.sh
           test -d src
           test -d tests
           test -d docs
+          test -d scripts
           
       - name: Validate NuGet package spec
         run: |
