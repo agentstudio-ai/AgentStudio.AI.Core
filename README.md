@@ -112,6 +112,19 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [AgentStudio.AI.Agents](https://github.com/agentstudio-ai) - Pre-built agent templates
 - [AgentStudio.AI.Workflows](https://github.com/agentstudio-ai) - Workflow patterns
 
+## Development
+
+### Recommended VS Code Extensions
+
+For contributors working with this codebase, we recommend installing these VS Code extensions:
+
+- **XML** (Red Hat) - For `.nuspec` file validation and IntelliSense
+- **YAML** (Red Hat) - For template file validation and formatting
+- **Prettier** - For consistent code formatting across all file types
+- **markdownlint** - For README and documentation validation
+
+These extensions ensure consistent formatting and catch syntax errors early in the development process.
+
 ## Support
 
 - 📖 [Documentation](docs/)
