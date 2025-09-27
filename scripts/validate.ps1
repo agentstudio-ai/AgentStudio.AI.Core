@@ -78,10 +78,7 @@ if (Test-FileExists "VERSION") { $PassedChecks++ }
 # Check required directories exist
 Write-Host "  📁 Checking required directories..." -ForegroundColor Cyan
 $TotalChecks++
-if (Test-DirectoryExists ".agentstudio-ai") { $PassedChecks++ }
-
-$TotalChecks++
-if (Test-DirectoryExists ".agentstudio-ai/templates") { $PassedChecks++ }
+if (Test-DirectoryExists "src") { $PassedChecks++ }
 
 # Validate file syntax
 Write-Host "  🔍 Validating file syntax..." -ForegroundColor Cyan

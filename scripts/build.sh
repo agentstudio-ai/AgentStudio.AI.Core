@@ -31,27 +31,28 @@ echo -e "${YELLOW}Copying framework files...${NC}"
 CONTENT_DIR="$PACKAGE_DIR/content"
 mkdir -p "$CONTENT_DIR"
 
-# Copy framework files (when they're ready)
-if [ -d ".agentstudio-ai" ]; then
-    echo -e "${YELLOW}Framework files found, copying...${NC}"
+# Copy framework files from src/ (when they're ready)
+if [ -d "src/templates" ]; then
+    echo -e "${YELLOW}Framework files found in src/, copying...${NC}"
     # Copy templates
-    if [ -d ".agentstudio-ai/templates" ]; then
-        cp -r ".agentstudio-ai/templates" "$CONTENT_DIR/templates"
-    fi
+    cp -r "src/templates" "$CONTENT_DIR/templates"
+fi
+if [ -d "src/workflows" ]; then
     # Copy workflows
-    if [ -d ".agentstudio-ai/workflows" ]; then
-        cp -r ".agentstudio-ai/workflows" "$CONTENT_DIR/workflows"
-    fi
+    cp -r "src/workflows" "$CONTENT_DIR/workflows"
+fi
+if [ -d "src/shared_knowledge" ]; then
     # Copy shared knowledge
-    if [ -d ".agentstudio-ai/shared_knowledge" ]; then
-        cp -r ".agentstudio-ai/shared_knowledge" "$CONTENT_DIR/shared_knowledge"
-    fi
+    cp -r "src/shared_knowledge" "$CONTENT_DIR/shared_knowledge"
+fi
+if [ -d "src/agents" ]; then
     # Copy agents
-    if [ -d ".agentstudio-ai/agents" ]; then
-        cp -r ".agentstudio-ai/agents" "$CONTENT_DIR/agents"
-    fi
-else
-    echo -e "${YELLOW}Framework files not found, creating placeholder structure...${NC}"
+    cp -r "src/agents" "$CONTENT_DIR/agents"
+fi
+
+# Create placeholder structure if src/ doesn't have framework files yet
+if [ ! -d "src/templates" ] && [ ! -d "src/workflows" ] && [ ! -d "src/shared_knowledge" ] && [ ! -d "src/agents" ]; then
+    echo -e "${YELLOW}Framework files not found in src/, creating placeholder structure...${NC}"
     # Create placeholder directories
     mkdir -p "$CONTENT_DIR/templates"
     mkdir -p "$CONTENT_DIR/workflows"

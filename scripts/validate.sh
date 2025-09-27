@@ -128,12 +128,7 @@ fi
 # Check required directories exist
 echo -e "  📁 Checking required directories..."
 TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
-if validate_dir_exists ".agentstudio-ai"; then
-    PASSED_CHECKS=$((PASSED_CHECKS + 1))
-fi
-
-TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
-if validate_dir_exists ".agentstudio-ai/templates"; then
+if validate_dir_exists "src"; then
     PASSED_CHECKS=$((PASSED_CHECKS + 1))
 fi
 
@@ -151,7 +146,7 @@ fi
 
 # Validate YAML files
 echo -e "  🔍 Validating YAML files..."
-YAML_FILES=$(find .agentstudio-ai -name "*.yml" -o -name "*.yaml" 2>/dev/null || true)
+YAML_FILES=$(find src -name "*.yml" -o -name "*.yaml" 2>/dev/null || true)
 if [ -n "$YAML_FILES" ]; then
     for yaml_file in $YAML_FILES; do
         TOTAL_CHECKS=$((TOTAL_CHECKS + 1))

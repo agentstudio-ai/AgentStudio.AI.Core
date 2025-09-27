@@ -25,33 +25,34 @@ Write-Host "Copying framework files..." -ForegroundColor Yellow
 $contentDir = Join-Path $packageDir "content"
 New-Item -ItemType Directory -Path $contentDir
 
-# Copy framework files (when they're ready)
-if (Test-Path ".agentstudio-ai") {
-    Write-Host "Framework files found, copying..." -ForegroundColor Yellow
+# Copy framework files from src/ (when they're ready)
+if (Test-Path "src/templates") {
+    Write-Host "Framework files found in src/, copying..." -ForegroundColor Yellow
     # Copy templates
-    if (Test-Path ".agentstudio-ai/templates") {
-        Copy-Item ".agentstudio-ai/templates" -Destination "$contentDir/templates" -Recurse
-    }
+    Copy-Item "src/templates" -Destination "$contentDir/templates" -Recurse
+}
+if (Test-Path "src/workflows") {
     # Copy workflows
-    if (Test-Path ".agentstudio-ai/workflows") {
-        Copy-Item ".agentstudio-ai/workflows" -Destination "$contentDir/workflows" -Recurse
-    }
+    Copy-Item "src/workflows" -Destination "$contentDir/workflows" -Recurse
+}
+if (Test-Path "src/shared_knowledge") {
     # Copy shared knowledge
-    if (Test-Path ".agentstudio-ai/shared_knowledge") {
-        Copy-Item ".agentstudio-ai/shared_knowledge" -Destination "$contentDir/shared_knowledge" -Recurse
-    }
+    Copy-Item "src/shared_knowledge" -Destination "$contentDir/shared_knowledge" -Recurse
+}
+if (Test-Path "src/agents") {
     # Copy agents
-    if (Test-Path ".agentstudio-ai/agents") {
-        Copy-Item ".agentstudio-ai/agents" -Destination "$contentDir/agents" -Recurse
-    }
-} else {
-    Write-Host "Framework files not found, creating placeholder structure..." -ForegroundColor Yellow
+    Copy-Item "src/agents" -Destination "$contentDir/agents" -Recurse
+}
+
+# Create placeholder structure if src/ doesn't have framework files yet
+if (-not (Test-Path "src/templates") -and -not (Test-Path "src/workflows") -and -not (Test-Path "src/shared_knowledge") -and -not (Test-Path "src/agents")) {
+    Write-Host "Framework files not found in src/, creating placeholder structure..." -ForegroundColor Yellow
     # Create placeholder directories
     New-Item -ItemType Directory -Path "$contentDir/templates"
     New-Item -ItemType Directory -Path "$contentDir/workflows"
     New-Item -ItemType Directory -Path "$contentDir/shared_knowledge"
     New-Item -ItemType Directory -Path "$contentDir/agents"
-    
+
     # Create placeholder files
     Set-Content -Path "$contentDir/templates/README.md" -Value "# Templates`n`nTemplates will be added here.`n"
     Set-Content -Path "$contentDir/workflows/README.md" -Value "# Workflows`n`nWorkflows will be added here.`n"
