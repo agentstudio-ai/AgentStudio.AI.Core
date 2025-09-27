@@ -50,7 +50,7 @@ validate_yaml() {
     # Check for VS Code YAML extension or yamllint command
     if command_exists yamllint; then
         echo -e "  🔍 Validating YAML syntax..."
-        if yamllint "$1" >/dev/null 2>&1; then
+        if yamllint "$1" 2>&1; then
             echo -e "  ✅ YAML syntax valid"
             return 0
         else
