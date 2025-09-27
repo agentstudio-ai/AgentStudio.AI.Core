@@ -24,21 +24,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="templates\**\*.yml;templates\**\*.yaml;templates\**\*.md;templates\**\*.txt">
+    <Content Include="templates/**/*.yml;templates/**/*.yaml;templates/**/*.md;templates/**/*.txt">
       <Pack>true</Pack>
-      <PackagePath>content\templates\</PackagePath>
+      <PackagePath>content/templates/</PackagePath>
     </Content>
     <Content Include="../README.md">
       <Pack>true</Pack>
-      <PackagePath>content\</PackagePath>
+      <PackagePath>content/</PackagePath>
     </Content>
     <Content Include="../LICENSE">
       <Pack>true</Pack>
-      <PackagePath>content\</PackagePath>
+      <PackagePath>content/</PackagePath>
     </Content>
     <Content Include="../VERSION">
       <Pack>true</Pack>
-      <PackagePath>content\</PackagePath>
+      <PackagePath>content/</PackagePath>
     </Content>
   </ItemGroup>
 
