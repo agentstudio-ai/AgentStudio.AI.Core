@@ -34,13 +34,13 @@ jobs:
 
       - name: Make scripts executable
         run: |
-          chmod +x scripts/build.sh
           chmod +x scripts/validate.sh
 
       - name: Build NuGet package
         run: |
-          echo "Building NuGet package using build.sh..."
-          ./scripts/build.sh
+          echo "Building NuGet package using dotnet pack..."
+          dotnet pack src/AgentStudio.AI.Core.csproj -c Release -o dist/ --no-build
+          echo "Package built successfully!"
 
       - name: Validate package
         run: |
