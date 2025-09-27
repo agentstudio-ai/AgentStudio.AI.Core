@@ -99,19 +99,20 @@ else
     mkdir -p tools
     
     # Download NuGet CLI directly (most reliable method)
-    if [ ! -f "tools/nuget.exe" ]; then
-        echo -e "${CYAN}Downloading NuGet CLI...${NC}"
-        curl -L -o tools/nuget.exe "https://dist.nuget.org/win-x86-commandline/latest/nuget.exe"
-        chmod +x tools/nuget.exe
+    if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+        # Use dotnet nuget on Linux
+        NUGET_CMD="dotnet nuget"
+    else
+        # Download Windows nuget.exe for other platforms
+        if [ ! -f "tools/nuget.exe" ]; then
+            echo -e "${CYAN}Downloading NuGet CLI...${NC}"
+            curl -L -o tools/nuget.exe "https://dist.nuget.org/win-x86-commandline/latest/nuget.exe"
+            chmod +x tools/nuget.exe
+        fi
+        NUGET_CMD="tools/nuget.exe"
     fi
     
-    # Set the NuGet command path
-    if [ -f "tools/nuget.exe" ]; then
-        NUGET_CMD="tools/nuget.exe"
-    else
-        echo -e "${RED}Error: Failed to download NuGet CLI${NC}"
-        exit 1
-    fi
+    # NUGET_CMD is already set above based on platform
 fi
 
 # Build NuGet package
