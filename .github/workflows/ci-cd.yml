@@ -36,15 +36,10 @@ jobs:
         run: |
           chmod +x scripts/validate.sh
 
-      - name: Restore dependencies
-        run: |
-          echo "Restoring NuGet dependencies..."
-          dotnet restore src/AgentStudio.AI.Core.csproj
-
       - name: Build NuGet package
         run: |
           echo "Building NuGet package using dotnet pack..."
-          dotnet pack src/AgentStudio.AI.Core.csproj -c Release -o dist/ --no-build
+          dotnet pack src/AgentStudio.AI.Core.csproj -c Release -o dist/
           echo "Package built successfully!"
 
       - name: Validate package

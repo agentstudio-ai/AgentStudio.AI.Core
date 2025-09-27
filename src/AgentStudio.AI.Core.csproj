@@ -1,7 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <!-- Framework target (required but won't be used for compilation) -->
+    <TargetFramework>netstandard2.0</TargetFramework>
+    
+    <!-- Key setting: Exclude compiled assemblies from package -->
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    
+    <!-- Package configuration -->
     <PackageId>AgentStudio.AI.Core</PackageId>
     <Version>0.2.0-beta</Version>
     <Authors>AgentStudio.AI</Authors>
@@ -15,17 +21,25 @@
     <PackageTags>ai;agents;orchestration;templates;cognitive;workflow</PackageTags>
     <PackageReadmeFile>content/README.md</PackageReadmeFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="templates/**/*" Pack="true" PackagePath="content/templates" />
-    <Content Include="../README.md" Pack="true" PackagePath="content" />
-    <Content Include="../LICENSE" Pack="true" PackagePath="content" />
-    <Content Include="../VERSION" Pack="true" PackagePath="content" />
+    <Content Include="templates\**\*.yml;templates\**\*.yaml;templates\**\*.md;templates\**\*.txt">
+      <Pack>true</Pack>
+      <PackagePath>content\templates\</PackagePath>
+    </Content>
+    <Content Include="../README.md">
+      <Pack>true</Pack>
+      <PackagePath>content\</PackagePath>
+    </Content>
+    <Content Include="../LICENSE">
+      <Pack>true</Pack>
+      <PackagePath>content\</PackagePath>
+    </Content>
+    <Content Include="../VERSION">
+      <Pack>true</Pack>
+      <PackagePath>content\</PackagePath>
+    </Content>
   </ItemGroup>
 
 </Project>
-
-
