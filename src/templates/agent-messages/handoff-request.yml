@@ -1,0 +1,47 @@
+# Agent Handoff Request Template
+# Structured message for agent-to-agent handoffs
+
+version: "1.0.0"
+message_type: "handoff_request"
+from_agent: "{FROM_AGENT_ROLE}"
+to_agent: "{TO_AGENT_ROLE}"
+workflow_id: "{WORKFLOW_ID}"
+phase: "{CURRENT_PHASE}"
+timestamp: "{TIMESTAMP}"
+
+handoff_context:
+  completed_work:
+    - "{COMPLETED_TASK_1}" # e.g., "Requirements analysis completed"
+    - "{COMPLETED_TASK_2}" # e.g., "Technical design approved"
+
+  deliverables:
+    - "{DELIVERABLE_1}" # e.g., "requirements.md"
+    - "{DELIVERABLE_2}" # e.g., "technical-design.yml"
+
+  status: "{STATUS}" # e.g., "READY_FOR_HANDOFF", "BLOCKED", "IN_PROGRESS"
+
+next_phase_requirements:
+  expected_deliverables:
+    - "{EXPECTED_DELIVERABLE_1}" # e.g., "Implementation"
+    - "{EXPECTED_DELIVERABLE_2}" # e.g., "Unit tests"
+
+  constraints:
+    - "{CONSTRAINT_1}" # e.g., "Must follow architecture patterns"
+    - "{CONSTRAINT_2}" # e.g., "No breaking changes to APIs"
+
+  dependencies:
+    - "{DEPENDENCY_1}" # e.g., "Database schema must be ready"
+    - "{DEPENDENCY_2}" # e.g., "API contracts approved"
+
+  success_criteria:
+    - "{SUCCESS_CRITERIA_1}" # e.g., "All tests pass"
+    - "{SUCCESS_CRITERIA_2}" # e.g., "Code review approved"
+
+priority: "{PRIORITY}" # e.g., "HIGH", "MEDIUM", "LOW"
+estimated_effort: "{EFFORT_ESTIMATE}" # e.g., "2 days", "1 week"
+deadline: "{DEADLINE}" # e.g., "2025-01-30", "End of sprint"
+
+additional_context:
+  notes: "{NOTES}" # e.g., "Special considerations or clarifications"
+  questions: "{QUESTIONS}" # e.g., "Questions for the receiving agent"
+  resources: "{RESOURCES}" # e.g., "Links to documentation or examples"

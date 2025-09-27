@@ -1,0 +1,51 @@
+# Agent Collaboration Request Template
+# Structured message for agent-to-agent collaboration
+
+version: "1.0.0"
+message_type: "collaboration_request"
+from_agent: "{FROM_AGENT_ROLE}"
+to_agent: "{TO_AGENT_ROLE}"
+workflow_id: "{WORKFLOW_ID}"
+collaboration_type: "{COLLABORATION_TYPE}" # e.g., "REVIEW", "CONSULTATION", "COORDINATION"
+timestamp: "{TIMESTAMP}"
+
+collaboration_context:
+  current_task: "{CURRENT_TASK}" # e.g., "Implementing user authentication"
+  phase: "{CURRENT_PHASE}" # e.g., "Implementation", "Testing", "Review"
+
+  request_type: "{REQUEST_TYPE}" # e.g., "TECHNICAL_REVIEW", "DESIGN_VALIDATION", "ARCHITECTURE_CONSULTATION"
+
+  specific_ask:
+    - "{ASK_1}" # e.g., "Review the authentication implementation"
+    - "{ASK_2}" # e.g., "Validate the security approach"
+    - "{ASK_3}" # e.g., "Suggest performance optimizations"
+
+  context_provided:
+    - "{CONTEXT_1}" # e.g., "Current implementation code"
+    - "{CONTEXT_2}" # e.g., "Security requirements"
+    - "{CONTEXT_3}" # e.g., "Performance benchmarks"
+
+  constraints:
+    - "{CONSTRAINT_1}" # e.g., "Must use existing authentication service"
+    - "{CONSTRAINT_2}" # e.g., "No breaking changes to current API"
+
+  success_criteria:
+    - "{SUCCESS_CRITERIA_1}" # e.g., "Security review passed"
+    - "{SUCCESS_CRITERIA_2}" # e.g., "Performance targets met"
+
+urgency: "{URGENCY}" # e.g., "HIGH", "MEDIUM", "LOW"
+response_needed_by: "{RESPONSE_DEADLINE}" # e.g., "2025-01-25 15:00"
+estimated_review_time: "{REVIEW_TIME}" # e.g., "30 minutes", "2 hours"
+
+collaboration_format:
+  preferred_response_type: "{RESPONSE_TYPE}" # e.g., "DETAILED_FEEDBACK", "APPROVAL", "SUGGESTIONS"
+  response_format: "{RESPONSE_FORMAT}" # e.g., "STRUCTURED", "FREE_FORM", "CHECKLIST"
+
+  deliverables_expected:
+    - "{EXPECTED_DELIVERABLE_1}" # e.g., "Security review report"
+    - "{EXPECTED_DELIVERABLE_2}" # e.g., "Performance recommendations"
+
+additional_context:
+  background: "{BACKGROUND}" # e.g., "This is part of the user authentication feature"
+  dependencies: "{DEPENDENCIES}" # e.g., "Depends on database schema changes"
+  risks: "{RISKS}" # e.g., "Security vulnerabilities if not implemented correctly"

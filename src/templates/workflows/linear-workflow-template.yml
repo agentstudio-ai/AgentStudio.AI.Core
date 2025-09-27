@@ -1,0 +1,81 @@
+# AgentStudio.AI Linear Workflow Template
+# Template for creating linear multi-agent workflows
+
+version: "1.0.0"
+template_type: "linear_workflow_template"
+workflow_name: "{WORKFLOW_NAME}"
+created: "2025-01-25"
+description: "Template for {WORKFLOW_DESCRIPTION}"
+
+# Template Variables for Workflows
+# {WORKFLOW_NAME} - e.g., "Feature Development", "Bug Fix", "Code Review"
+# {WORKFLOW_DESCRIPTION} - e.g., "End-to-end feature development workflow"
+# {TRIGGER_CONDITION} - e.g., "New feature request", "Bug report", "Code review request"
+# {SUCCESS_CRITERIA} - e.g., "Feature deployed to production", "Bug resolved", "Code approved"
+
+workflow_definition:
+  trigger:
+    condition: "{TRIGGER_CONDITION}"
+    initiator: "{INITIATOR_ROLE}" # e.g., "Product Manager", "User", "System"
+
+  participants:
+    primary_agent: "{PRIMARY_AGENT}" # e.g., "Backend Engineer", "Frontend Engineer"
+    supporting_agents:
+      - "{SUPPORTING_AGENT_1}" # e.g., "Product Manager", "QA Tester"
+      - "{SUPPORTING_AGENT_2}" # e.g., "Architect", "DevOps Engineer"
+
+  phases:
+    phase_1:
+      name: "{PHASE_1_NAME}" # e.g., "Requirements Analysis", "Design"
+      responsible_agent: "{PHASE_1_AGENT}"
+      deliverables:
+        - "{DELIVERABLE_1}" # e.g., "Requirements document", "Technical design"
+        - "{DELIVERABLE_2}" # e.g., "Acceptance criteria", "Architecture diagram"
+      handoff_to: "{NEXT_PHASE_AGENT}"
+
+    phase_2:
+      name: "{PHASE_2_NAME}" # e.g., "Implementation", "Testing"
+      responsible_agent: "{PHASE_2_AGENT}"
+      deliverables:
+        - "{DELIVERABLE_3}" # e.g., "Working code", "Test results"
+        - "{DELIVERABLE_4}" # e.g., "Documentation", "Performance metrics"
+      handoff_to: "{NEXT_PHASE_AGENT}"
+
+    phase_3:
+      name: "{PHASE_3_NAME}" # e.g., "Review", "Deployment"
+      responsible_agent: "{PHASE_3_AGENT}"
+      deliverables:
+        - "{DELIVERABLE_5}" # e.g., "Code review", "Deployment"
+        - "{DELIVERABLE_6}" # e.g., "Approval", "Monitoring"
+      handoff_to: "COMPLETE"
+
+  success_criteria:
+    - "{SUCCESS_CRITERIA_1}" # e.g., "All tests pass"
+    - "{SUCCESS_CRITERIA_2}" # e.g., "Code review approved"
+    - "{SUCCESS_CRITERIA_3}" # e.g., "Deployed to production"
+
+  failure_handling:
+    escalation_path:
+      - "{ESCALATION_1}" # e.g., "Notify Product Manager"
+      - "{ESCALATION_2}" # e.g., "Notify Architect"
+      - "{ESCALATION_3}" # e.g., "Notify DevOps"
+
+  communication_patterns:
+    status_updates: "{UPDATE_FREQUENCY}" # e.g., "Daily", "Per phase", "On completion"
+    handoff_protocol: "{HANDOFF_METHOD}" # e.g., "Formal handoff", "Async notification"
+    escalation_threshold: "{ESCALATION_TIME}" # e.g., "24 hours", "3 days"
+
+workflow_constraints:
+  scope_limitations:
+    - "{SCOPE_LIMITATION_1}" # e.g., "No production changes without approval"
+    - "{SCOPE_LIMITATION_2}" # e.g., "No breaking changes to APIs"
+
+  quality_gates:
+    - "{QUALITY_GATE_1}" # e.g., "Code review required"
+    - "{QUALITY_GATE_2}" # e.g., "Tests must pass"
+    - "{QUALITY_GATE_3}" # e.g., "Architecture approval required"
+
+notes: |
+  This workflow template provides a structured approach to multi-agent collaboration.
+  Each phase should have clear deliverables and handoff criteria to ensure smooth
+  transitions between agents and maintain quality throughout the process.

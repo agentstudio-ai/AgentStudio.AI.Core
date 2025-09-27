@@ -1,0 +1,132 @@
+# AgentStudio.AI Agent Context Save Template
+# Template for structured agent context saving
+
+version: "1.0.0"
+template_type: "agent_context_save_template"
+created: "2025-01-25"
+modified: "2025-01-25"
+description: "Structured template for agent context saving to ensure consistent state management"
+
+# Template Variables for Context Saving
+# {AGENT_ID} - Unique identifier for this agent instance
+# {AGENT_ROLE} - Role of the agent (e.g., "Backend Engineer", "Product Manager")
+# {WORKFLOW_ID} - Current workflow identifier
+# {SESSION_ID} - Current session identifier
+# {TIMESTAMP} - When context was saved
+
+agent_context:
+  metadata:
+    agent_id: "{AGENT_ID}"
+    agent_role: "{AGENT_ROLE}"
+    agent_type: "{AGENT_TYPE}" # e.g., "department", "domain", "ai_expert"
+    workflow_id: "{WORKFLOW_ID}"
+    session_id: "{SESSION_ID}"
+    context_version: "1.0.0"
+    saved_at: "{TIMESTAMP}"
+    context_type: "{CONTEXT_TYPE}" # e.g., "work_in_progress", "completed", "paused"
+
+  agent_state:
+    current_task: "{CURRENT_TASK}"
+    current_phase: "{CURRENT_PHASE}" # e.g., "analysis", "implementation", "review"
+    progress_percentage: "{PROGRESS_PERCENTAGE}"
+    status: "{STATUS}" # e.g., "active", "blocked", "waiting", "completed"
+
+  work_context:
+    deliverables:
+      completed:
+        - "{COMPLETED_DELIVERABLE_1}"
+        - "{COMPLETED_DELIVERABLE_2}"
+      in_progress:
+        - "{IN_PROGRESS_DELIVERABLE_1}"
+        - "{IN_PROGRESS_DELIVERABLE_2}"
+      pending:
+        - "{PENDING_DELIVERABLE_1}"
+        - "{PENDING_DELIVERABLE_2}"
+
+    decisions_made:
+      - "{DECISION_1}" # e.g., "Chose microservices architecture"
+      - "{DECISION_2}" # e.g., "Selected PostgreSQL database"
+
+    blockers:
+      - "{BLOCKER_1}" # e.g., "Waiting for API specification"
+      - "{BLOCKER_2}" # e.g., "Database migration pending"
+
+    risks:
+      - "{RISK_1}" # e.g., "Performance may not meet targets"
+      - "{RISK_2}" # e.g., "Integration complexity underestimated"
+
+  collaboration_state:
+    handoffs_pending:
+      - "{HANDOFF_1}" # e.g., "Ready to handoff to QA team"
+      - "{HANDOFF_2}" # e.g., "Waiting for architecture review"
+
+    feedback_received:
+      - "{FEEDBACK_1}" # e.g., "Code review feedback from senior engineer"
+      - "{FEEDBACK_2}" # e.g., "Performance optimization suggestions"
+
+    next_actions:
+      - "{NEXT_ACTION_1}" # e.g., "Implement authentication service"
+      - "{NEXT_ACTION_2}" # e.g., "Write unit tests for new endpoints"
+
+    dependencies:
+      - "{DEPENDENCY_1}" # e.g., "Database schema must be ready"
+      - "{DEPENDENCY_2}" # e.g., "API contracts approved"
+
+  quality_metrics:
+    code_quality: "{CODE_QUALITY}" # e.g., "GOOD", "NEEDS_IMPROVEMENT", "EXCELLENT"
+    test_coverage: "{TEST_COVERAGE}" # e.g., "85%", "60%", "95%"
+    performance: "{PERFORMANCE}" # e.g., "MEETS_TARGETS", "BELOW_TARGETS", "EXCEEDS_TARGETS"
+
+    issues_found:
+      - "{ISSUE_1}" # e.g., "Memory leak in authentication service"
+      - "{ISSUE_2}" # e.g., "Slow database queries"
+
+    issues_resolved:
+      - "{RESOLVED_ISSUE_1}" # e.g., "Fixed null reference exception"
+      - "{RESOLVED_ISSUE_2}" # e.g., "Optimized database queries"
+
+  timeline_context:
+    original_estimate: "{ORIGINAL_ESTIMATE}" # e.g., "5 days"
+    current_estimate: "{CURRENT_ESTIMATE}" # e.g., "7 days"
+    variance_reason: "{VARIANCE_REASON}" # e.g., "Additional complexity discovered"
+
+    milestone_dates:
+      - "{MILESTONE_1}" # e.g., "Implementation: 2025-01-28"
+      - "{MILESTONE_2}" # e.g., "Testing: 2025-01-30"
+      - "{MILESTONE_3}" # e.g., "Deployment: 2025-02-01"
+
+  domain_specific_context:
+    # This section varies by agent type
+    # For Backend Engineer:
+    technical_stack: "{TECH_STACK}" # e.g., "C# .NET 8, PostgreSQL, Redis"
+    architecture_patterns: "{ARCH_PATTERNS}" # e.g., "Clean Architecture, CQRS"
+
+    # For Product Manager:
+    user_stories: "{USER_STORIES}" # e.g., "5 completed, 3 in progress"
+    stakeholder_feedback: "{STAKEHOLDER_FEEDBACK}" # e.g., "Positive response to MVP"
+
+    # For AI Expert:
+    insights_generated: "{INSIGHTS}" # e.g., "Identified context saving optimization"
+    recommendations_pending: "{RECOMMENDATIONS}" # e.g., "Implement structured context saving"
+
+  session_context:
+    user_interactions:
+      - "{INTERACTION_1}" # e.g., "User requested feature implementation"
+      - "{INTERACTION_2}" # e.g., "User approved technical approach"
+
+    commands_executed:
+      - "{COMMAND_1}" # e.g., "!save-context", "!start-workflow"
+      - "{COMMAND_2}" # e.g., "!validate", "!handoff"
+
+    context_restoration_notes:
+      - "{RESTORATION_NOTE_1}" # e.g., "Continue from authentication implementation"
+      - "{RESTORATION_NOTE_2}" # e.g., "Focus on performance optimization"
+
+# Context Save Guidelines:
+# 1. Save context at natural breakpoints (phase completion, handoffs, pauses)
+# 2. Include enough detail for seamless continuation
+# 3. Update progress and status accurately
+# 4. Capture all decisions and blockers
+# 5. Maintain quality metrics and timeline context
+# 6. Include domain-specific information relevant to the agent type
+
