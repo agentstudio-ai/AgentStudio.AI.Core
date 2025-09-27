@@ -7,7 +7,8 @@ template_type: "agent_context_save_template"
 created: "2025-01-25"
 modified: "2025-01-25"
 description: |
-  "Structured template for agent context saving to ensure consistent state management"
+  Structured template for agent context saving to ensure consistent
+  state management
 
 # Template Variables for Context Saving
 # {AGENT_ID} - Unique identifier for this agent instance
@@ -25,11 +26,13 @@ agent_context:
     session_id: "{SESSION_ID}"
     context_version: "1.0.0"
     saved_at: "{TIMESTAMP}"
-    context_type: "{CONTEXT_TYPE}" # e.g., "work_in_progress", "completed", "paused"
+    context_type: | # e.g., "work_in_progress", "completed", "paused"
+      "{CONTEXT_TYPE}"
 
   agent_state:
     current_task: "{CURRENT_TASK}"
-    current_phase: "{CURRENT_PHASE}" # e.g., "analysis", "implementation", "review"
+    current_phase: | # e.g., "analysis", "implementation", "review"
+      "{CURRENT_PHASE}"
     progress_percentage: "{PROGRESS_PERCENTAGE}"
     status: "{STATUS}" # e.g., "active", "blocked", "waiting", "completed"
 
@@ -46,52 +49,75 @@ agent_context:
         - "{PENDING_DELIVERABLE_2}"
 
     decisions_made:
-      - "{DECISION_1}" # e.g., "Chose microservices architecture"
-      - "{DECISION_2}" # e.g., "Selected PostgreSQL database"
+      - | # e.g., "Chose microservices architecture"
+        "{DECISION_1}"
+      - | # e.g., "Selected PostgreSQL database"
+        "{DECISION_2}"
 
     blockers:
-      - "{BLOCKER_1}" # e.g., "Waiting for API specification"
-      - "{BLOCKER_2}" # e.g., "Database migration pending"
+      - | # e.g., "Waiting for API specification"
+        "{BLOCKER_1}"
+      - | # e.g., "Database migration pending"
+      - "{BLOCKER_2}"
 
     risks:
-      - "{RISK_1}" # e.g., "Performance may not meet targets"
-      - "{RISK_2}" # e.g., "Integration complexity underestimated"
+      - | # e.g., "Performance may not meet targets"
+        "{RISK_1}"
+      - | # e.g., "Integration complexity underestimated"
+        "{RISK_2}"
 
   collaboration_state:
     handoffs_pending:
-      - "{HANDOFF_1}" # e.g., "Ready to handoff to QA team"
-      - "{HANDOFF_2}" # e.g., "Waiting for architecture review"
+      - | # e.g., "Ready to handoff to QA team"
+        "{HANDOFF_1}"
+      - | # e.g., "Waiting for architecture review"
+        "{HANDOFF_2}"
 
     feedback_received:
-      - "{FEEDBACK_1}" # e.g., "Code review feedback from senior engineer"
-      - "{FEEDBACK_2}" # e.g., "Performance optimization suggestions"
+      - | # e.g., "Code review feedback from senior engineer"
+        "{FEEDBACK_1}"
+      - | # e.g., "Performance optimization suggestions"
+        "{FEEDBACK_2}"
 
     next_actions:
-      - "{NEXT_ACTION_1}" # e.g., "Implement authentication service"
-      - "{NEXT_ACTION_2}" # e.g., "Write unit tests for new endpoints"
+      - | # e.g., "Implement authentication service"
+        "{NEXT_ACTION_1}"
+      - | # e.g., "Write unit tests for new endpoints"
+        "{NEXT_ACTION_2}"
 
     dependencies:
-      - "{DEPENDENCY_1}" # e.g., "Database schema must be ready"
-      - "{DEPENDENCY_2}" # e.g., "API contracts approved"
+      - | # e.g., "Database schema must be ready"
+        "{DEPENDENCY_1}"
+      - | # e.g., "API contracts approved"
+        "{DEPENDENCY_2}"
 
   quality_metrics:
-    code_quality: "{CODE_QUALITY}" # e.g., "GOOD", "NEEDS_IMPROVEMENT", "EXCELLENT"
-    test_coverage: "{TEST_COVERAGE}" # e.g., "85%", "60%", "95%"
-    performance: "{PERFORMANCE}" # e.g., "MEETS_TARGETS", "BELOW_TARGETS", "EXCEEDS_TARGETS"
+    code_quality: | # e.g., "GOOD", "NEEDS_IMPROVEMENT", "EXCELLENT"
+      "{CODE_QUALITY}"
+    test_coverage: | # e.g., "85%", "60%", "95%"
+      "{TEST_COVERAGE}"
+    performance: | # e.g., "MEETS_TARGETS", "BELOW_TARGETS", "EXCEEDS_TARGETS"
+      "{PERFORMANCE}"
 
     issues_found:
-      - "{ISSUE_1}" # e.g., "Memory leak in authentication service"
-      - "{ISSUE_2}" # e.g., "Slow database queries"
+      - | # e.g., "Memory leak in authentication service"
+        "{ISSUE_1}"
+      - | # e.g., "Slow database queries"
+        "{ISSUE_2}"
 
     issues_resolved:
-      - "{RESOLVED_ISSUE_1}" # e.g., "Fixed null reference exception"
-      - "{RESOLVED_ISSUE_2}" # e.g., "Optimized database queries"
+      - | # e.g., "Fixed null reference exception"
+        "{RESOLVED_ISSUE_1}"
+      - | # e.g., "Optimized database queries"
+        "{RESOLVED_ISSUE_2}"
 
   timeline_context:
-    original_estimate: "{ORIGINAL_ESTIMATE}" # e.g., "5 days"
-    current_estimate: "{CURRENT_ESTIMATE}" # e.g., "7 days"
-    variance_reason: "{VARIANCE_REASON}" # e.g., "Additional complexity discovered"
-
+    original_estimate: | # e.g., "5 days"
+      "{ORIGINAL_ESTIMATE}"
+    current_estimate: | # e.g., "7 days"
+      "{CURRENT_ESTIMATE}"
+    variance_reason: | # e.g., "Additional complexity discovered"
+      "{VARIANCE_REASON}"
     milestone_dates:
       - "{MILESTONE_1}" # e.g., "Implementation: 2025-01-28"
       - "{MILESTONE_2}" # e.g., "Testing: 2025-01-30"
@@ -100,29 +126,41 @@ agent_context:
   domain_specific_context:
     # This section varies by agent type
     # For Backend Engineer:
-    technical_stack: "{TECH_STACK}" # e.g., "C# .NET 8, PostgreSQL, Redis"
-    architecture_patterns: "{ARCH_PATTERNS}" # e.g., "Clean Architecture, CQRS"
+    technical_stack: | # e.g., "C# .NET 8, PostgreSQL, Redis"
+      "{TECH_STACK}"
+    architecture_patterns: | # e.g., "Clean Architecture, CQRS"
+      "{ARCH_PATTERNS}"
 
     # For Product Manager:
-    user_stories: "{USER_STORIES}" # e.g., "5 completed, 3 in progress"
-    stakeholder_feedback: "{STAKEHOLDER_FEEDBACK}" # e.g., "Positive response to MVP"
+    user_stories: | # e.g., "5 completed, 3 in progress"
+      "{USER_STORIES}"
+    stakeholder_feedback: | # e.g., "Positive response to MVP"
+      "{STAKEHOLDER_FEEDBACK}"
 
     # For AI Expert:
-    insights_generated: "{INSIGHTS}" # e.g., "Identified context saving optimization"
-    recommendations_pending: "{RECOMMENDATIONS}" # e.g., "Implement structured context saving"
+    insights_generated: | # e.g., "Identified context saving optimization"
+      "{INSIGHTS}"
+    recommendations_pending: | # e.g., "Implement structured context saving"
+      "{RECOMMENDATIONS}"
 
   session_context:
     user_interactions:
-      - "{INTERACTION_1}" # e.g., "User requested feature implementation"
-      - "{INTERACTION_2}" # e.g., "User approved technical approach"
+      - | # e.g., "User requested feature implementation"
+        "{INTERACTION_1}"
+      - | # e.g., "User approved technical approach"
+        "{INTERACTION_2}"
 
     commands_executed:
-      - "{COMMAND_1}" # e.g., "!save-context", "!start-workflow"
-      - "{COMMAND_2}" # e.g., "!validate", "!handoff"
+      - | # e.g., "!save-context", "!start-workflow"
+        "{COMMAND_1}"
+      - | # e.g., "!validate", "!handoff"
+        "{COMMAND_2}"
 
     context_restoration_notes:
-      - "{RESTORATION_NOTE_1}" # e.g., "Continue from authentication implementation"
-      - "{RESTORATION_NOTE_2}" # e.g., "Focus on performance optimization"
+      - | # e.g., "Continue from authentication implementation"
+        "{RESTORATION_NOTE_1}"
+      - | # e.g., "Focus on performance optimization"
+        "{RESTORATION_NOTE_2}"
 
 # Context Save Guidelines:
 # 1. Save context at natural breakpoints (phase completion, handoffs, pauses)

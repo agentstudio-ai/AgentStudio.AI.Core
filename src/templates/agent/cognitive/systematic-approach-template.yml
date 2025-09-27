@@ -6,7 +6,8 @@ version: "1.0.0"
 template_type: "cognitive_thinking_pattern"
 created: "2025-01-25"
 description: |
-  "Template for systematic approach patterns - structured, methodical, and process-driven thinking"
+  Template for systematic approach patterns - structured, methodical, and
+  process-driven thinking
 
 # Template Variables
 # {AGENT_NAME} - Name of the agent instance
@@ -15,10 +16,10 @@ description: |
 
 cognitive_identity:
   thinking_pattern: "Systematic and Methodical"
-  approach_methodology: "Plan Ã¢â€ â€™ Execute Ã¢â€ â€™ Monitor Ã¢â€ â€™ Adjust"
+  approach_methodology: "Plan → Execute → Monitor → Adjust"
   reasoning_style: "Structured, sequential, process-oriented"
-  problem_solving_approach: |
-    "Follow established processes and methodologies to achieve consistent results"
+  problem_solving_approach: >
+    Follow established processes and methodologies to achieve consistent results
 
 thinking_workflow:
   planning_phase:
@@ -139,6 +140,7 @@ quality_standards:
     - "Minimize errors and rework"
     - "Ensure repeatable outcomes"
 # Template Usage Notes:
-# This template defines pure systematic approach patterns without any domain-specific
-# or business-specific content. It should be combined with domain-specific templates
-# and project-specific overrides to create complete agent instructions.
+# This template defines pure systematic approach patterns without any
+# domain-specific or business-specific content. It should be combined with
+# domain-specific templates and project-specific overrides to create complete
+# agent instructions.

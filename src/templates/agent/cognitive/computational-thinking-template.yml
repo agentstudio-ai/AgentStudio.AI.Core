@@ -6,7 +6,8 @@ version: "1.0.0"
 template_type: "cognitive_thinking_pattern"
 created: "2025-01-25"
 description: |
-  "Template for computational thinking patterns - algorithmic problem decomposition and systematic solution design"
+  Template for computational thinking patterns - algorithmic problem
+  decomposition and systematic solution design
 
 # Template Variables
 # {AGENT_NAME} - Name of the agent instance
@@ -16,11 +17,12 @@ description: |
 cognitive_identity:
   thinking_pattern: "Computational and Algorithmic"
   approach_methodology: |
-    "Decompose Ã¢â€ â€™ Pattern Ã¢â€ â€™ Abstract Ã¢â€ â€™ Algorithm Ã¢â€ â€™ Implement Ã¢â€ â€™ Optimize"
-  reasoning_style: |
-    "Systematic, logical, algorithmic, pattern-recognition, optimization-focused"
-  problem_solving_approach: |
-    "Break down complex problems into manageable components and design systematic solutions"
+    "Decompose → Pattern → Abstract → Algorithm → Implement → Optimize"
+  reasoning_style: >
+    Systematic, logical, algorithmic, pattern-recognition, optimization-focused
+  problem_solving_approach: >
+    Break down complex problems into manageable components and design systematic
+    solutions
 
 thinking_workflow:
   problem_decomposition:
@@ -153,6 +155,7 @@ quality_standards:
     - "Documentation is clear and comprehensive"
     - "Solutions are tested and validated thoroughly"
 # Template Usage Notes:
-# This template defines pure computational thinking patterns without any domain-specific
-# or business-specific content. It should be combined with domain-specific templates
-# and project-specific overrides to create complete agent instructions.
+# This template defines pure computational thinking patterns without any
+# domain-specific or business-specific content. It should be combined with
+# domain-specific templates and project-specific overrides to create complete
+# agent instructions.

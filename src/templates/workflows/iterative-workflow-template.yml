@@ -7,13 +7,17 @@ template_type: "iterative_workflow_template"
 workflow_name: "{WORKFLOW_NAME}"
 created: "2025-01-25"
 description: |
-  "Template for {WORKFLOW_DESCRIPTION} with iterative/recursive patterns"
+  Template for {WORKFLOW_DESCRIPTION} with iterative/recursive patterns
 
 # Template Variables for Iterative Workflows
-# {WORKFLOW_NAME} - e.g., "Code Review Cycle", "Design Iteration", "Bug Fix Loop"
-# {WORKFLOW_DESCRIPTION} - e.g., "Iterative code review and improvement workflow"
-# {ITERATION_TRIGGER} - e.g., "Review feedback", "Test failures", "Performance issues"
-# {CONVERGENCE_CRITERIA} - e.g., "All tests pass", "Performance targets met", "Review approved"
+# {WORKFLOW_NAME} - e.g., "Code Review Cycle", "Design Iteration",
+# "Bug Fix Loop"
+# {WORKFLOW_DESCRIPTION} - e.g., "Iterative code review and improvement
+# workflow"
+# {ITERATION_TRIGGER} - e.g., "Review feedback", "Test failures",
+# "Performance issues"
+# {CONVERGENCE_CRITERIA} - e.g., "All tests pass", "Performance targets met",
+# "Review approved"
 
 workflow_definition:
   trigger:
@@ -22,7 +26,8 @@ workflow_definition:
 
   participants:
     primary_agent: "{PRIMARY_AGENT}"
-    review_agent: "{REVIEW_AGENT}" # e.g., "Code Reviewer", "Architect", "QA Tester"
+    review_agent: | # e.g., "Code Reviewer", "Architect", "QA Tester"
+      "{REVIEW_AGENT}"
     supporting_agents:
       - "{SUPPORTING_AGENT_1}"
       - "{SUPPORTING_AGENT_2}"
@@ -36,26 +41,36 @@ workflow_definition:
 
     iteration_phases:
       phase_1_work:
-        name: "{WORK_PHASE_NAME}" # e.g., "Implementation", "Design", "Analysis"
+        name: | # e.g., "Implementation", "Design", "Analysis"
+          "{WORK_PHASE_NAME}"
         responsible_agent: "{WORK_AGENT}"
         deliverables:
-          - "{WORK_DELIVERABLE_1}" # e.g., "Code changes", "Design updates"
-          - "{WORK_DELIVERABLE_2}" # e.g., "Test results", "Documentation"
+          - | # e.g., "Code changes", "Design updates"
+            "{WORK_DELIVERABLE_1}"
+          - | # e.g., "Test results", "Documentation"
+            "{WORK_DELIVERABLE_2}"
 
       phase_2_review:
-        name: "{REVIEW_PHASE_NAME}" # e.g., "Code Review", "Design Review", "Analysis Review"
+        name: | # e.g., "Code Review", "Design Review", "Analysis Review"
+          "{REVIEW_PHASE_NAME}"
         responsible_agent: "{REVIEW_AGENT}"
         review_criteria:
-          - "{REVIEW_CRITERIA_1}" # e.g., "Code quality standards"
-          - "{REVIEW_CRITERIA_2}" # e.g., "Performance requirements"
-          - "{REVIEW_CRITERIA_3}" # e.g., "Security compliance"
+          - | # e.g., "Code quality standards"
+            "{REVIEW_CRITERIA_1}"
+          - | # e.g., "Performance requirements"
+            "{REVIEW_CRITERIA_2}"
+          - | # e.g., "Security compliance"
+            "{REVIEW_CRITERIA_3}"
 
         feedback_types:
-          - "{FEEDBACK_TYPE_1}" # e.g., "APPROVED", "NEEDS_CHANGES", "REJECTED"
-          - "{FEEDBACK_TYPE_2}" # e.g., "MINOR_FIXES", "MAJOR_REWORK", "ARCHITECTURAL_CHANGES"
+          - | # e.g., "APPROVED", "NEEDS_CHANGES", "REJECTED"
+            "{FEEDBACK_TYPE_1}"
+          - | # e.g., "MINOR_FIXES", "MAJOR_REWORK", "ARCHITECTURAL_CHANGES"
+            "{FEEDBACK_TYPE_2}"
 
       phase_3_decision:
-        name: "{DECISION_PHASE_NAME}" # e.g., "Convergence Check", "Quality Gate"
+        name: | # e.g., "Convergence Check", "Quality Gate"
+          "{DECISION_PHASE_NAME}"
         decision_logic:
           if_approved: "EXIT_LOOP"
           if_needs_changes: "CONTINUE_LOOP"
@@ -68,39 +83,56 @@ workflow_definition:
   loop_control:
     iteration_tracking:
       current_iteration: "{CURRENT_ITERATION}"
-      iteration_history: "{ITERATION_HISTORY}" # e.g., "Array of iteration results"
+      iteration_history: | # e.g., "Array of iteration results"
+        "{ITERATION_HISTORY}"
 
     convergence_detection:
-      algorithm: "{CONVERGENCE_ALGORITHM}" # e.g., "ALL_CRITERIA_MET", "MAJORITY_APPROVAL", "PERFORMANCE_THRESHOLD"
-      timeout_handling: "{TIMEOUT_HANDLING}" # e.g., "ESCALATE", "ACCEPT_CURRENT", "REJECT"
+      algorithm: | # e.g., "ALL_CRITERIA_MET", "MAJORITY_APPROVAL",
+        # "PERFORMANCE_THRESHOLD"
+        "{CONVERGENCE_ALGORITHM}"
+      timeout_handling: | # e.g., "ESCALATE", "ACCEPT_CURRENT", "REJECT"
+        "{TIMEOUT_HANDLING}"
 
     quality_gates:
       per_iteration:
-        - "{ITERATION_GATE_1}" # e.g., "No regression in tests"
-        - "{ITERATION_GATE_2}" # e.g., "Performance not degraded"
+        - | # e.g., "No regression in tests"
+          "{ITERATION_GATE_1}"
+        - | # e.g., "Performance not degraded"
+          "{ITERATION_GATE_2}"
 
       final_convergence:
-        - "{FINAL_GATE_1}" # e.g., "All review criteria met"
-        - "{FINAL_GATE_2}" # e.g., "Performance targets achieved"
+        - | # e.g., "All review criteria met"
+          "{FINAL_GATE_1}"
+        - | # e.g., "Performance targets achieved"
+          "{FINAL_GATE_2}"
 
   communication_patterns:
-    iteration_start: "{ITERATION_START_PROTOCOL}" # e.g., "Formal handoff", "Async notification"
-    feedback_delivery: "{FEEDBACK_PROTOCOL}" # e.g., "Structured feedback", "Detailed comments"
-    convergence_notification: "{CONVERGENCE_PROTOCOL}" # e.g., "Success notification", "Escalation alert"
+    iteration_start: | # e.g., "Formal handoff", "Async notification"
+      "{ITERATION_START_PROTOCOL}"
+    feedback_delivery: | # e.g., "Structured feedback", "Detailed comments"
+      "{FEEDBACK_PROTOCOL}"
+    convergence_notification: | # e.g., "Success notification",
+      # "Escalation alert"
+      "{CONVERGENCE_PROTOCOL}"
 
 workflow_constraints:
   iteration_limits:
     max_iterations: "{MAX_ITERATIONS}"
-    timeout_per_iteration: "{ITERATION_TIMEOUT}" # e.g., "2 hours", "1 day"
+    timeout_per_iteration: | # e.g., "2 hours", "1 day"
+      "{ITERATION_TIMEOUT}"
     total_workflow_timeout: "{TOTAL_TIMEOUT}" # e.g., "1 week", "2 weeks"
 
   quality_requirements:
-    - "{QUALITY_REQ_1}" # e.g., "No breaking changes"
-    - "{QUALITY_REQ_2}" # e.g., "Maintain backward compatibility"
+    - | # e.g., "No breaking changes"
+      "{QUALITY_REQ_1}"
+    - | # e.g., "Maintain backward compatibility"
+      "{QUALITY_REQ_2}"
 
   escalation_triggers:
-    - "{ESCALATION_TRIGGER_1}" # e.g., "Max iterations exceeded"
-    - "{ESCALATION_TRIGGER_2}" # e.g., "Quality degradation detected"
+    - | # e.g., "Max iterations exceeded"
+      "{ESCALATION_TRIGGER_1}"
+    - | # e.g., "Quality degradation detected"
+      "{ESCALATION_TRIGGER_2}"
 
 notes: |
   This iterative workflow template supports recursive patterns where agents

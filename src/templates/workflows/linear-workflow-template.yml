@@ -11,35 +11,45 @@ description: "Template for {WORKFLOW_DESCRIPTION}"
 # Template Variables for Workflows
 # {WORKFLOW_NAME} - e.g., "Feature Development", "Bug Fix", "Code Review"
 # {WORKFLOW_DESCRIPTION} - e.g., "End-to-end feature development workflow"
-# {TRIGGER_CONDITION} - e.g., "New feature request", "Bug report", "Code review request"
-# {SUCCESS_CRITERIA} - e.g., "Feature deployed to production", "Bug resolved", "Code approved"
+# {TRIGGER_CONDITION} - e.g., "New feature request", "Bug report",
+# "Code review request"
+# {SUCCESS_CRITERIA} - e.g., "Feature deployed to production", "Bug resolved",
+# "Code approved"
 
 workflow_definition:
   trigger:
     condition: "{TRIGGER_CONDITION}"
-    initiator: "{INITIATOR_ROLE}" # e.g., "Product Manager", "User", "System"
+    initiator: | # e.g., "Product Manager", "User", "System"
+      "{INITIATOR_ROLE}"
 
   participants:
-    primary_agent: "{PRIMARY_AGENT}" # e.g., "Backend Engineer", "Frontend Engineer"
+    primary_agent: | # e.g., "Backend Engineer", "Frontend Engineer"
+      "{PRIMARY_AGENT}"
     supporting_agents:
       - "{SUPPORTING_AGENT_1}" # e.g., "Product Manager", "QA Tester"
       - "{SUPPORTING_AGENT_2}" # e.g., "Architect", "DevOps Engineer"
 
   phases:
     phase_1:
-      name: "{PHASE_1_NAME}" # e.g., "Requirements Analysis", "Design"
+      name: | # e.g., "Requirements Analysis", "Design"
+        "{PHASE_1_NAME}"
       responsible_agent: "{PHASE_1_AGENT}"
       deliverables:
-        - "{DELIVERABLE_1}" # e.g., "Requirements document", "Technical design"
-        - "{DELIVERABLE_2}" # e.g., "Acceptance criteria", "Architecture diagram"
+        - | # e.g., "Requirements document", "Technical design"
+          "{DELIVERABLE_1}"
+        - | # e.g., "Acceptance criteria", "Architecture diagram"
+          "{DELIVERABLE_2}"
       handoff_to: "{NEXT_PHASE_AGENT}"
 
     phase_2:
-      name: "{PHASE_2_NAME}" # e.g., "Implementation", "Testing"
+      name: | # e.g., "Implementation", "Testing"
+        "{PHASE_2_NAME}"
       responsible_agent: "{PHASE_2_AGENT}"
       deliverables:
-        - "{DELIVERABLE_3}" # e.g., "Working code", "Test results"
-        - "{DELIVERABLE_4}" # e.g., "Documentation", "Performance metrics"
+        - | # e.g., "Working code", "Test results"
+          "{DELIVERABLE_3}"
+        - | # e.g., "Documentation", "Performance metrics"
+          "{DELIVERABLE_4}"
       handoff_to: "{NEXT_PHASE_AGENT}"
 
     phase_3:
@@ -51,9 +61,12 @@ workflow_definition:
       handoff_to: "COMPLETE"
 
   success_criteria:
-    - "{SUCCESS_CRITERIA_1}" # e.g., "All tests pass"
-    - "{SUCCESS_CRITERIA_2}" # e.g., "Code review approved"
-    - "{SUCCESS_CRITERIA_3}" # e.g., "Deployed to production"
+    - | # e.g., "All tests pass"
+      "{SUCCESS_CRITERIA_1}"
+    - | # e.g., "Code review approved"
+      "{SUCCESS_CRITERIA_2}"
+    - | # e.g., "Deployed to production"
+      "{SUCCESS_CRITERIA_3}"
 
   failure_handling:
     escalation_path:
@@ -62,8 +75,10 @@ workflow_definition:
       - "{ESCALATION_3}" # e.g., "Notify DevOps"
 
   communication_patterns:
-    status_updates: "{UPDATE_FREQUENCY}" # e.g., "Daily", "Per phase", "On completion"
-    handoff_protocol: "{HANDOFF_METHOD}" # e.g., "Formal handoff", "Async notification"
+    status_updates: | # e.g., "Daily", "Per phase", "On completion"
+      "{UPDATE_FREQUENCY}"
+    handoff_protocol: | # e.g., "Formal handoff", "Async notification"
+      "{HANDOFF_METHOD}"
     escalation_threshold: "{ESCALATION_TIME}" # e.g., "24 hours", "3 days"
 
 workflow_constraints:
@@ -77,6 +92,7 @@ workflow_constraints:
     - "{QUALITY_GATE_3}" # e.g., "Architecture approval required"
 
 notes: |
-  This workflow template provides a structured approach to multi-agent collaboration.
-  Each phase should have clear deliverables and handoff criteria to ensure smooth
-  transitions between agents and maintain quality throughout the process.
+  This workflow template provides a structured approach to multi-agent
+  collaboration. Each phase should have clear deliverables and handoff criteria
+  to ensure smooth transitions between agents and maintain quality throughout
+  the process.

@@ -6,7 +6,8 @@ version: "1.0.0"
 template_type: "cognitive_thinking_pattern"
 created: "2025-01-25"
 description: |
-  "Template for experimental thinking patterns - hypothesis-driven experimentation and empirical validation"
+  Template for experimental thinking patterns - hypothesis-driven
+  experimentation and empirical validation
 
 # Template Variables
 # {AGENT_NAME} - Name of the agent instance
@@ -16,7 +17,7 @@ description: |
 cognitive_identity:
   thinking_pattern: "Experimental and Hypothesis-Driven"
   approach_methodology: |
-    "Hypothesize Ã¢â€ â€™ Design Ã¢â€ â€™ Execute Ã¢â€ â€™ Measure Ã¢â€ â€™ Analyze Ã¢â€ â€™ Iterate"
+    "Hypothesize → Design → Execute → Measure → Analyze → Iterate"
   reasoning_style: |
     "Hypothesis-driven, empirical, iterative, risk-tolerant, data-focused"
   problem_solving_approach: |
@@ -152,8 +153,8 @@ quality_standards:
     - "Build knowledge base of effective approaches"
     - "Share learnings with team and organization"
     - "Continuously improve experimental methodology"
-
 # Template Usage Notes:
-# This template defines pure experimental thinking patterns without any domain-specific
-# or business-specific content. It should be combined with domain-specific templates
-# and project-specific overrides to create complete agent instructions.
+# This template defines pure experimental thinking patterns without any
+# domain-specific or business-specific content. It should be combined with
+# domain-specific templates and project-specific overrides to create complete
+# agent instructions.

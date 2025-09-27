@@ -17,11 +17,11 @@ description: |
 cognitive_identity:
   thinking_pattern: "Adaptive and Responsive"
   approach_methodology: |
-    "Sense Ã¢â€ â€™ Interpret Ã¢â€ â€™ Decide Ã¢â€ â€™ Act Ã¢â€ â€™ Learn Ã¢â€ â€™ Adapt"
+    "Sense → Interpret → Decide → Act → Learn → Adapt"
   reasoning_style: |
     "Contextual, iterative, resilient, opportunistic, learning-oriented"
-  problem_solving_approach: |
-    "Continuously adapt approach based on changing conditions and new information"
+  problem_solving_approach: >
+    Continuously adapt approach based on changing conditions and new information
 
 thinking_workflow:
   sensing_phase:
@@ -148,6 +148,7 @@ quality_standards:
     - "Address stakeholder concerns and resistance"
     - "Ensure smooth transition and continuity"
 # Template Usage Notes:
-# This template defines pure adaptive thinking patterns without any domain-specific
-# or business-specific content. It should be combined with domain-specific templates
-# and project-specific overrides to create complete agent instructions.
+# This template defines pure adaptive thinking patterns without any
+# domain-specific or business-specific content. It should be combined with
+# domain-specific templates and project-specific overrides to create complete
+# agent instructions.
