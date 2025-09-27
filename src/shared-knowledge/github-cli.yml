@@ -92,7 +92,8 @@ detailed_usage: |
   ### Managing Pull Requests
   ```bash
   # Create PR with title and body
-  gh pr create --title "Feature: Add new functionality" --body "Detailed description"
+  gh pr create --title "Feature: Add new functionality" \
+    --body "Detailed description"
 
   # Create PR with specific base branch
   gh pr create --base develop --head feature-branch
