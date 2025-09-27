@@ -100,8 +100,8 @@ else
     
     # Download NuGet CLI directly (most reliable method)
     if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-        # Use dotnet nuget on Linux
-        NUGET_CMD="dotnet nuget"
+        # Use dotnet pack on Linux
+        NUGET_CMD="dotnet pack"
     else
         # Download Windows nuget.exe for other platforms
         if [ ! -f "tools/nuget.exe" ]; then
@@ -117,7 +117,13 @@ fi
 
 # Build NuGet package
 echo -e "${CYAN}Using NuGet command: $NUGET_CMD${NC}"
-$NUGET_CMD pack "src/AgentStudio.AI.Core.nuspec" -OutputDirectory "$OUTPUT_DIR" -Version "$VERSION"
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    # Use dotnet pack for Linux
+    $NUGET_CMD "src/AgentStudio.AI.Core.nuspec" --output "$OUTPUT_DIR" --configuration Release
+else
+    # Use nuget.exe for Windows
+    $NUGET_CMD pack "src/AgentStudio.AI.Core.nuspec" -OutputDirectory "$OUTPUT_DIR" -Version "$VERSION"
+fi
 
 echo -e "${GREEN}Build complete! Package created in $OUTPUT_DIR${NC}"
 echo -e "${CYAN}Package: AgentStudio.AI.Core.$VERSION.nupkg${NC}"
