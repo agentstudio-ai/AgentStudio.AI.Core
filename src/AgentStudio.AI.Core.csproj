@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <PackageId>AgentStudio.AI.Core</PackageId>
-    <Version>0.1.0</Version>
+    <Version>0.2.0-beta</Version>
     <Authors>AgentStudio.AI</Authors>
     <Company>AgentStudio.AI</Company>
     <Product>AgentStudio.AI Core Framework</Product>
@@ -27,4 +27,5 @@
   </ItemGroup>
 
 </Project>
+
 

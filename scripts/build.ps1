@@ -66,7 +66,7 @@ Copy-Item "LICENSE" -Destination "$contentDir/LICENSE"
 
 # Update version in csproj
 $csprojContent = Get-Content "src/AgentStudio.AI.Core.csproj" -Raw
-$csprojContent = $csprojContent -replace '<Version>0\.1\.0</Version>', "<Version>$Version</Version>"
+$csprojContent = $csprojContent -replace '<Version>0\.2\.0-beta</Version>', "<Version>$Version</Version>"
 Set-Content -Path "src/AgentStudio.AI.Core.csproj" -Value $csprojContent
 
 # Build NuGet package

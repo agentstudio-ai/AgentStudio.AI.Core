@@ -82,7 +82,7 @@ cp "README.md" "$CONTENT_DIR/README.md"
 cp "LICENSE" "$CONTENT_DIR/LICENSE"
 
 # Update version in csproj
-sed -i "s/<Version>0\.1\.0<\/Version>/<Version>$VERSION<\/Version>/g" "src/AgentStudio.AI.Core.csproj"
+sed -i "s/<Version>0\.2\.0-beta<\/Version>/<Version>$VERSION<\/Version>/g" "src/AgentStudio.AI.Core.csproj"
 
 # Build NuGet package
 echo -e "${YELLOW}Building NuGet package...${NC}"
