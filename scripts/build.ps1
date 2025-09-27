@@ -2,9 +2,12 @@
 # Builds NuGet package from source files
 
 param(
-    [string]$Version = "0.1.0",
     [string]$OutputDir = "dist"
 )
+
+# Read version from VERSION file
+$Version = Get-Content "VERSION" -Raw
+$Version = $Version.Trim()
 
 Write-Host "Building AgentStudio.AI Core v$Version" -ForegroundColor Green
 

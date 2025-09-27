@@ -2,7 +2,8 @@
 # AgentStudio.AI Core Build Script (Bash version)
 # Builds NuGet package from source files
 
-VERSION="0.1.0"
+# Read version from VERSION file
+VERSION=$(cat VERSION | tr -d '\n\r')
 OUTPUT_DIR="dist"
 
 # Colors for output
@@ -93,7 +94,7 @@ if ! command -v dotnet >/dev/null 2>&1; then
     exit 1
 fi
 
-echo -e "${GREEN}✅ .NET SDK found: $(dotnet --version)${NC}"
+echo -e "${GREEN}✅ .NET SDK found${NC}"
 
 # Build NuGet package using dotnet pack
 echo -e "${CYAN}Using dotnet pack to build package from 'AgentStudio.AI.Core.csproj'.${NC}"

@@ -4,7 +4,8 @@
 
 set -e  # Exit on any error
 
-VERSION="0.1.0"
+# Read version from VERSION file
+VERSION=$(cat VERSION | tr -d '\n\r')
 PACKAGE_NAME="AgentStudio.AI.Core.$VERSION.nupkg"
 PACKAGE_PATH="dist/$PACKAGE_NAME"
 TEMP_DIR="temp-validation"
