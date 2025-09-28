@@ -1,6 +1,4 @@
----
-# Agent Status Update Template
-# Structured message for agent status updates
+---  # Agent Status Update Template  # Structured message for agent status updates
 
 version: "1.0.0"
 message_type: "status_update"
@@ -10,81 +8,81 @@ phase: "{CURRENT_PHASE}"
 timestamp: "{TIMESTAMP}"
 
 status_summary:
-  overall_status: | # e.g., "ON_TRACK", "BLOCKED", "AT_RISK", "COMPLETED"
+  overall_status: |  # e.g., "ON_TRACK", "BLOCKED", "AT_RISK", "COMPLETED"
     {STATUS}
-  progress_percentage: "{PROGRESS}" # e.g., "75%", "50%", "100%"
+  progress_percentage: "{PROGRESS}"  # e.g., "75%", "50%", "100%"
   current_work:
-    - "{CURRENT_TASK_1}" # e.g., "Implementing user authentication"
-    - "{CURRENT_TASK_2}" # e.g., "Writing unit tests"
+    - "{CURRENT_TASK_1}"  # e.g., "Implementing user authentication"
+    - "{CURRENT_TASK_2}"  # e.g., "Writing unit tests"
 
   completed_since_last_update:
-    - "{COMPLETED_TASK_1}" # e.g., "Database schema design"
-    - "{COMPLETED_TASK_2}" # e.g., "API endpoint specification"
+    - "{COMPLETED_TASK_1}"  # e.g., "Database schema design"
+    - "{COMPLETED_TASK_2}"  # e.g., "API endpoint specification"
 
   next_actions:
-    - "{NEXT_ACTION_1}" # e.g., "Complete authentication implementation"
-    - "{NEXT_ACTION_2}" # e.g., "Run integration tests"
+    - "{NEXT_ACTION_1}"  # e.g., "Complete authentication implementation"
+    - "{NEXT_ACTION_2}"  # e.g., "Run integration tests"
 
   blockers:
-    - "{BLOCKER_1}" # e.g., "Waiting for database migration"
-    - "{BLOCKER_2}" # e.g., "Need clarification on requirements"
+    - "{BLOCKER_1}"  # e.g., "Waiting for database migration"
+    - "{BLOCKER_2}"  # e.g., "Need clarification on requirements"
 
   risks:
-    - "{RISK_1}" # e.g., "May not meet deadline due to complexity"
-    - "{RISK_2}" # e.g., "Dependency on external service"
+    - "{RISK_1}"  # e.g., "May not meet deadline due to complexity"
+    - "{RISK_2}"  # e.g., "Dependency on external service"
 
   mitigation_plans:
-    - "{MITIGATION_1}" # e.g., "Working overtime to catch up"
-    - "{MITIGATION_2}" # e.g., "Created fallback implementation"
+    - "{MITIGATION_1}"  # e.g., "Working overtime to catch up"
+    - "{MITIGATION_2}"  # e.g., "Created fallback implementation"
 
 deliverables_status:
   completed_deliverables:
-    - "{DELIVERABLE_1}" # e.g., "requirements.md"
-    - "{DELIVERABLE_2}" # e.g., "technical-design.yml"
+    - "{DELIVERABLE_1}"  # e.g., "requirements.md"
+    - "{DELIVERABLE_2}"  # e.g., "technical-design.yml"
 
   in_progress_deliverables:
-    - "{DELIVERABLE_3}" # e.g., "authentication-service.cs"
-    - "{DELIVERABLE_4}" # e.g., "unit-tests.cs"
+    - "{DELIVERABLE_3}"  # e.g., "authentication-service.cs"
+    - "{DELIVERABLE_4}"  # e.g., "unit-tests.cs"
 
   pending_deliverables:
-    - "{DELIVERABLE_5}" # e.g., "integration-tests.cs"
-    - "{DELIVERABLE_6}" # e.g., "documentation.md"
+    - "{DELIVERABLE_5}"  # e.g., "integration-tests.cs"
+    - "{DELIVERABLE_6}"  # e.g., "documentation.md"
 
 quality_metrics:
-  code_quality: | # e.g., "GOOD", "NEEDS_IMPROVEMENT", "EXCELLENT"
+  code_quality: |  # e.g., "GOOD", "NEEDS_IMPROVEMENT", "EXCELLENT"
     {CODE_QUALITY}
-  test_coverage: "{TEST_COVERAGE}" # e.g., "85%", "60%", "95%"
-  performance: | # e.g., "MEETS_TARGETS", "BELOW_TARGETS", "EXCEEDS_TARGETS"
+  test_coverage: "{TEST_COVERAGE}"  # e.g., "85%", "60%", "95%"
+  performance: |  # e.g., "MEETS_TARGETS", "BELOW_TARGETS", "EXCEEDS_TARGETS"
     {PERFORMANCE}
 
   issues_found:
-    - "{ISSUE_1}" # e.g., "Memory leak in authentication service"
-    - "{ISSUE_2}" # e.g., "Slow database queries"
+    - "{ISSUE_1}"  # e.g., "Memory leak in authentication service"
+    - "{ISSUE_2}"  # e.g., "Slow database queries"
 
   issues_resolved:
-    - "{RESOLVED_ISSUE_1}" # e.g., "Fixed null reference exception"
-    - "{RESOLVED_ISSUE_2}" # e.g., "Optimized database queries"
+    - "{RESOLVED_ISSUE_1}"  # e.g., "Fixed null reference exception"
+    - "{RESOLVED_ISSUE_2}"  # e.g., "Optimized database queries"
 
 timeline_update:
-  original_estimate: "{ORIGINAL_ESTIMATE}" # e.g., "5 days"
-  current_estimate: "{CURRENT_ESTIMATE}" # e.g., "7 days"
-  variance_reason: | # e.g., "Additional complexity discovered"
+  original_estimate: "{ORIGINAL_ESTIMATE}"  # e.g., "5 days"
+  current_estimate: "{CURRENT_ESTIMATE}"  # e.g., "7 days"
+  variance_reason: |  # e.g., "Additional complexity discovered"
     {VARIANCE_REASON}
 
   milestone_dates:
-    - "{MILESTONE_1}" # e.g., "Implementation: 2025-01-28"
-    - "{MILESTONE_2}" # e.g., "Testing: 2025-01-30"
-    - "{MILESTONE_3}" # e.g., "Deployment: 2025-02-01"
+    - "{MILESTONE_1}"  # e.g., "Implementation: 2025-01-28"
+    - "{MILESTONE_2}"  # e.g., "Testing: 2025-01-30"
+    - "{MILESTONE_3}"  # e.g., "Deployment: 2025-02-01"
 
 collaboration_needs:
   help_requested:
-    - "{HELP_1}" # e.g., "Need architecture review"
-    - "{HELP_2}" # e.g., "Need performance optimization advice"
+    - "{HELP_1}"  # e.g., "Need architecture review"
+    - "{HELP_2}"  # e.g., "Need performance optimization advice"
 
   handoff_ready:
-    - "{HANDOFF_1}" # e.g., "Ready to handoff to QA team"
-    - "{HANDOFF_2}" # e.g., "Ready for code review"
+    - "{HANDOFF_1}"  # e.g., "Ready to handoff to QA team"
+    - "{HANDOFF_2}"  # e.g., "Ready for code review"
 
   dependencies:
-    - "{DEPENDENCY_1}" # e.g., "Waiting for database team"
-    - "{DEPENDENCY_2}" # e.g., "Waiting for design approval"
+    - "{DEPENDENCY_1}"  # e.g., "Waiting for database team"
+    - "{DEPENDENCY_2}"  # e.g., "Waiting for design approval"

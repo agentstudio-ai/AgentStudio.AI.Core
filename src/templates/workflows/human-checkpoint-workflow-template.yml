@@ -1,22 +1,11 @@
----
-# AgentStudio.AI Human Checkpoint Workflow Template
-# Template for workflows with human decision points and approvals
+---  # AgentStudio.AI Human Checkpoint Workflow Template  # Template for workflows with human decision points and approvals
 
 version: "1.0.0"
 template_type: "human_checkpoint_workflow_template"
 workflow_name: "{WORKFLOW_NAME}"
 created: "2025-01-25"
 description: |
-  Template for {WORKFLOW_DESCRIPTION} with human checkpoints and approvals
-
-# Template Variables for Human Checkpoint Workflows
-# {WORKFLOW_NAME} - e.g., "Feature Approval", "Architecture Review",
-# "Release Process"
-# {WORKFLOW_DESCRIPTION} - e.g., "Feature development with human approval
-# checkpoints"
-# {HUMAN_ROLE} - e.g., "Product Manager", "Architect", "Release Manager"
-# {APPROVAL_CRITERIA} - e.g., "Business requirements met", "Architecture
-# approved", "Quality gates passed"
+  Template for {WORKFLOW_DESCRIPTION} with human checkpoints and approvals  # Template Variables for Human Checkpoint Workflows  # {WORKFLOW_NAME} - e.g., "Feature Approval", "Architecture Review",  # "Release Process"  # {WORKFLOW_DESCRIPTION} - e.g., "Feature development with human approval  # checkpoints"  # {HUMAN_ROLE} - e.g., "Product Manager", "Architect", "Release Manager"  # {APPROVAL_CRITERIA} - e.g., "Business requirements met", "Architecture  # approved", "Quality gates passed"
 
 workflow_definition:
   trigger:
@@ -25,91 +14,90 @@ workflow_definition:
 
   participants:
     agents:
-      - "{AGENT_1}" # e.g., "Backend Engineer", "Frontend Engineer"
-      - "{AGENT_2}" # e.g., "QA Tester", "DevOps Engineer"
+      - "{AGENT_1}"  # e.g., "Backend Engineer", "Frontend Engineer"
+      - "{AGENT_2}"  # e.g., "QA Tester", "DevOps Engineer"
     human_stakeholders:
-      - "{HUMAN_ROLE_1}" # e.g., "Product Manager", "Architect"
-      - "{HUMAN_ROLE_2}" # e.g., "Release Manager", "Security Officer"
+      - "{HUMAN_ROLE_1}"  # e.g., "Product Manager", "Architect"
+      - "{HUMAN_ROLE_2}"  # e.g., "Release Manager", "Security Officer"
 
   workflow_phases:
     phase_1_preparation:
-      name: "{PREP_PHASE_NAME}" # e.g., "Requirements Analysis", "Design Phase"
+      name: "{PREP_PHASE_NAME}"  # e.g., "Requirements Analysis", "Design Phase"
       responsible_agent: "{PREP_AGENT}"
       deliverables:
-        - | # e.g., "Requirements document", "Technical design"
+        - |  # e.g., "Requirements document", "Technical design"
           {PREP_DELIVERABLE_1}
-        - | # e.g., "Acceptance criteria", "Architecture diagram"
+        - |  # e.g., "Acceptance criteria", "Architecture diagram"
           {PREP_DELIVERABLE_2}
-        - | # e.g., "Requirements document", "Technical design"
+        - |  # e.g., "Requirements document", "Technical design"
           {PREP_DELIVERABLE_2}
 
       human_checkpoint_1:
-        checkpoint_name: | # e.g., "Requirements Approval", "Design Approval"
-          {CHECKPOINT_1_NAME}
-          # "Design Approval"
+        checkpoint_name: |  # e.g., "Requirements Approval", "Design Approval"
+          {CHECKPOINT_1_NAME}  # "Design Approval"
         human_role: "{HUMAN_ROLE_1}"
         approval_criteria:
-          - "{APPROVAL_CRITERIA_1}" # e.g., "Requirements complete and clear"
-          - "{APPROVAL_CRITERIA_2}" # e.g., "Design aligns with business goals"
+          - "{APPROVAL_CRITERIA_1}"  # e.g., "Requirements complete and clear"
+          - "{APPROVAL_CRITERIA_2}"  # e.g., "Design aligns with business goals"
 
         decision_options:
-          - "APPROVED" # Continue to next phase
-          - "NEEDS_REVISION" # Return to preparation phase
-          - "REJECTED" # Terminate workflow
+          - "APPROVED"  # Continue to next phase
+          - "NEEDS_REVISION"  # Return to preparation phase
+          - "REJECTED"  # Terminate workflow
 
         escalation_path:
-          - "{ESCALATION_1}" # e.g., "Notify Director", "Notify CTO"
+          - "{ESCALATION_1}"  # e.g., "Notify Director", "Notify CTO"
 
         timeout_handling:
-          timeout_duration: "{TIMEOUT_1}" # e.g., "48 hours", "3 days"
-          timeout_action: | # e.g., "ESCALATE", "AUTO_APPROVE", "REJECT"
+          timeout_duration: "{TIMEOUT_1}"  # e.g., "48 hours", "3 days"
+          timeout_action: |  # e.g., "ESCALATE", "AUTO_APPROVE", "REJECT"
             {TIMEOUT_ACTION_1}
 
     phase_2_implementation:
-      name: "{IMPL_PHASE_NAME}" # e.g., "Implementation", "Development"
+      name: "{IMPL_PHASE_NAME}"  # e.g., "Implementation", "Development"
       responsible_agent: "{IMPL_AGENT}"
       deliverables:
-        - "{IMPL_DELIVERABLE_1}" # e.g., "Working code", "Test results"
-        - "{IMPL_DELIVERABLE_2}" # e.g., "Documentation", "Performance metrics"
+        - "{IMPL_DELIVERABLE_1}"  # e.g., "Working code", "Test results"
+        - "{IMPL_DELIVERABLE_2}"  # e.g., "Documentation", "Performance metrics"
 
       human_checkpoint_2:
-        checkpoint_name: | # e.g., "Implementation Review", "Quality Gate"
+        checkpoint_name: |  # e.g., "Implementation Review", "Quality Gate"
           {CHECKPOINT_2_NAME}
         human_role: "{HUMAN_ROLE_2}"
         approval_criteria:
-          - "{APPROVAL_CRITERIA_3}" # e.g., "Code quality standards met"
-          - "{APPROVAL_CRITERIA_4}" # e.g., "Performance requirements satisfied"
+          - "{APPROVAL_CRITERIA_3}"  # e.g., "Code quality standards met"
+          - "{APPROVAL_CRITERIA_4}"  # e.g., "Performance requirements  # satisfied"
 
         decision_options:
-          - "APPROVED" # Continue to next phase
-          - "NEEDS_REVISION" # Return to implementation phase
-          - "REJECTED" # Terminate workflow
+          - "APPROVED"  # Continue to next phase
+          - "NEEDS_REVISION"  # Return to implementation phase
+          - "REJECTED"  # Terminate workflow
 
         timeout_handling:
           timeout_duration: "{TIMEOUT_2}"
           timeout_action: "{TIMEOUT_ACTION_2}"
 
     phase_3_deployment:
-      name: "{DEPLOY_PHASE_NAME}" # e.g., "Deployment", "Release"
+      name: "{DEPLOY_PHASE_NAME}"  # e.g., "Deployment", "Release"
       responsible_agent: "{DEPLOY_AGENT}"
       deliverables:
-        - | # e.g., "Deployed application", "Monitoring setup"
+        - |  # e.g., "Deployed application", "Monitoring setup"
           {DEPLOY_DELIVERABLE_1}
-        - | # e.g., "Release notes", "Rollback plan"
+        - |  # e.g., "Release notes", "Rollback plan"
           {DEPLOY_DELIVERABLE_2}
 
       human_checkpoint_3:
-        checkpoint_name: | # e.g., "Release Approval", "Go-Live Decision"
+        checkpoint_name: |  # e.g., "Release Approval", "Go-Live Decision"
           {CHECKPOINT_3_NAME}
         human_role: "{HUMAN_ROLE_3}"
         approval_criteria:
-          - "{APPROVAL_CRITERIA_5}" # e.g., "All tests passed"
-          - "{APPROVAL_CRITERIA_6}" # e.g., "Rollback plan verified"
+          - "{APPROVAL_CRITERIA_5}"  # e.g., "All tests passed"
+          - "{APPROVAL_CRITERIA_6}"  # e.g., "Rollback plan verified"
 
         decision_options:
-          - "APPROVED" # Complete workflow
-          - "NEEDS_REVISION" # Return to deployment phase
-          - "REJECTED" # Terminate workflow
+          - "APPROVED"  # Complete workflow
+          - "NEEDS_REVISION"  # Return to deployment phase
+          - "REJECTED"  # Terminate workflow
 
         timeout_handling:
           timeout_duration: "{TIMEOUT_3}"
@@ -117,67 +105,66 @@ workflow_definition:
 
   human_interaction_patterns:
     notification_methods:
-      - "{NOTIFICATION_1}" # e.g., "Email", "Slack", "Teams"
-      - "{NOTIFICATION_2}" # e.g., "Dashboard", "Mobile app"
+      - "{NOTIFICATION_1}"  # e.g., "Email", "Slack", "Teams"
+      - "{NOTIFICATION_2}"  # e.g., "Dashboard", "Mobile app"
 
     approval_interface:
-      interface_type: | # e.g., "Web dashboard", "Email response", "API"
+      interface_type: |  # e.g., "Web dashboard", "Email response", "API"
         {INTERFACE_TYPE}
       required_actions:
-        - "{ACTION_1}" # e.g., "Review deliverables", "Provide feedback"
-        - | # e.g., "Approve or reject", "Set conditions"
+        - "{ACTION_1}"  # e.g., "Review deliverables", "Provide feedback"
+        - |  # e.g., "Approve or reject", "Set conditions"
           {ACTION_2}
 
     feedback_collection:
-      feedback_format: | # e.g., "Structured form", "Free text", "Checklist"
+      feedback_format: |  # e.g., "Structured form", "Free text", "Checklist"
         {FEEDBACK_FORMAT}
       required_feedback:
-        - | # e.g., "Approval decision", "Revision requirements"
+        - |  # e.g., "Approval decision", "Revision requirements"
           {FEEDBACK_1}
-        - | # e.g., "Additional conditions", "Risk assessment"
-        - "{FEEDBACK_2}" # e.g., "Additional conditions", "Risk assessment"
+        - |  # e.g., "Additional conditions", "Risk assessment"
+        - "{FEEDBACK_2}"  # e.g., "Additional conditions", "Risk assessment"
 
   workflow_control:
     checkpoint_dependencies:
-      - | # e.g., "Checkpoint 2 requires Checkpoint 1 approval"
+      - |  # e.g., "Checkpoint 2 requires Checkpoint 1 approval"
         {DEPENDENCY_1}
-      - | # e.g., "Checkpoint 3 requires Checkpoint 2 approval"
+      - |  # e.g., "Checkpoint 3 requires Checkpoint 2 approval"
         {DEPENDENCY_2}
 
     parallel_approvals:
-      enabled: "{PARALLEL_ENABLED}" # e.g., "true", "false"
+      enabled: "{PARALLEL_ENABLED}"  # e.g., "true", "false"
       parallel_checkpoints:
-        - | # e.g., "Security review", "Performance review"
+        - |  # e.g., "Security review", "Performance review"
           {PARALLEL_CHECKPOINT_1}
-        - | # e.g., "Business review", "Technical review"
-          {PARALLEL_CHECKPOINT_2}
-          # "Technical review"
+        - |  # e.g., "Business review", "Technical review"
+          {PARALLEL_CHECKPOINT_2}  # "Technical review"
 
     rollback_capability:
       rollback_triggers:
-        - | # e.g., "Human rejection", "Quality failure"
+        - |  # e.g., "Human rejection", "Quality failure"
           {ROLLBACK_TRIGGER_1}
-        - | # e.g., "Timeout exceeded", "Escalation required"
+        - |  # e.g., "Timeout exceeded", "Escalation required"
           {ROLLBACK_TRIGGER_2}
 
       rollback_actions:
-        - | # e.g., "Revert to previous phase", "Terminate workflow"
+        - |  # e.g., "Revert to previous phase", "Terminate workflow"
           {ROLLBACK_ACTION_1}
-        - | # e.g., "Notify stakeholders", "Create incident report"
+        - |  # e.g., "Notify stakeholders", "Create incident report"
           {ROLLBACK_ACTION_2}
 
 workflow_constraints:
   human_availability:
-    business_hours: "{BUSINESS_HOURS}" # e.g., "9 AM - 5 PM EST", "24/7"
-    response_sla: "{RESPONSE_SLA}" # e.g., "24 hours", "48 hours"
+    business_hours: "{BUSINESS_HOURS}"  # e.g., "9 AM - 5 PM EST", "24/7"
+    response_sla: "{RESPONSE_SLA}"  # e.g., "24 hours", "48 hours"
 
   approval_authority:
-    - "{AUTHORITY_1}" # e.g., "Product Manager can approve features"
-    - "{AUTHORITY_2}" # e.g., "Architect can approve technical changes"
+    - "{AUTHORITY_1}"  # e.g., "Product Manager can approve features"
+    - "{AUTHORITY_2}"  # e.g., "Architect can approve technical changes"
 
   escalation_matrix:
-    - "{ESCALATION_LEVEL_1}" # e.g., "Team Lead", "Manager", "Director"
-    - "{ESCALATION_LEVEL_2}" # e.g., "CTO", "VP Engineering", "CEO"
+    - "{ESCALATION_LEVEL_1}"  # e.g., "Team Lead", "Manager", "Director"
+    - "{ESCALATION_LEVEL_2}"  # e.g., "CTO", "VP Engineering", "CEO"
 
 notes: |
   This human checkpoint workflow template supports workflows that require

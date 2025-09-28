@@ -5,6 +5,13 @@ param(
     [string]$OutputDir = "dist"
 )
 
+# Get the script directory and project root
+$ScriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+$ProjectRoot = Split-Path -Parent $ScriptDir
+
+# Change to project root directory
+Set-Location $ProjectRoot
+
 # Read version from VERSION file
 $Version = Get-Content "VERSION" -Raw
 $Version = $Version.Trim()
