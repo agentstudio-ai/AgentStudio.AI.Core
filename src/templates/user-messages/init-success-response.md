@@ -16,11 +16,7 @@ modified: "2025-01-23"
 
 **Context Status**: {context-status}
 
-**Available Commands**:
-
-- !save-context - Save current work state
-- !start-workflow {workflow-name} - Begin a workflow
-- !validate - Run framework validation
+**Ready for Work**: Agent is initialized and ready to assist with development tasks
 
 **Current Status**: Ready for work
 **Next Steps**: {next-steps}

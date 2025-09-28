@@ -32,6 +32,10 @@
       <Pack>true</Pack>
       <PackagePath>content/shared-knowledge/</PackagePath>
     </Content>
+    <Content Include="agents/**/*.yml;agents/**/*.yaml;agents/**/*.md;agents/**/*.txt">
+      <Pack>true</Pack>
+      <PackagePath>content/agents/</PackagePath>
+    </Content>
     <Content Include="../README.md">
       <Pack>true</Pack>
       <PackagePath>content/</PackagePath>
