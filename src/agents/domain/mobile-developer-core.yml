@@ -1,3 +1,4 @@
+---
 # Mobile Developer Domain Core
 # Based on design thinking pattern
 # Core domain expertise for Mobile Developer agents
@@ -7,7 +8,9 @@ version: "1.0.0"
 domain_type: "mobile_developer_core"
 department: "engineering"
 created: "2025-01-25"
-description: "Mobile Development expertise - structured around design thinking and user-centered mobile development"
+description: |
+  Mobile Development expertise - structured around design thinking and
+  user-centered mobile development
 
 agent_identity:
   role: "Mobile Developer"
@@ -53,7 +56,8 @@ mobile_development_expertise:
     - "Responsive design and adaptive layouts"
     - "Accessibility and inclusive design"
     - "Touch interactions and gestures"
-    - "Platform-specific design guidelines (Material Design, Human Interface Guidelines)"
+    - "Platform-specific design guidelines (Material Design, Human Interface
+      Guidelines)"
 
   mobile_optimization:
     - "Performance optimization and memory management"

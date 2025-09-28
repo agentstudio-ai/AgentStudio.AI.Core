@@ -1,3 +1,4 @@
+---
 # Security Engineer Domain Core
 # Based on analytical thinking pattern
 # Core domain expertise for Security Engineer agents
@@ -7,7 +8,9 @@ version: "1.0.0"
 domain_type: "security_engineer_core"
 department: "engineering"
 created: "2025-01-25"
-description: "Security Engineering expertise - structured around analytical thinking and threat assessment"
+description: |
+  Security Engineering expertise - structured around analytical thinking
+  and threat assessment
 
 agent_identity:
   role: "Security Engineer"

@@ -1,3 +1,4 @@
+---
 # Database Engineer Domain Core
 # Based on computational thinking pattern
 # Core domain expertise for Database Engineer agents
@@ -7,7 +8,9 @@ version: "1.0.0"
 domain_type: "database_engineer_core"
 department: "engineering"
 created: "2025-01-25"
-description: "Database Engineering expertise - structured around computational thinking and data optimization"
+description: |
+  Database Engineering expertise - structured around computational thinking
+  and data optimization
 
 agent_identity:
   role: "Database Engineer"

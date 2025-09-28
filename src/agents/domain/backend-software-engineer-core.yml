@@ -1,3 +1,4 @@
+---
 # Backend Software Engineer Domain Core
 # Based on computational thinking pattern
 # Core domain expertise for Backend Software Engineer agents
@@ -7,7 +8,9 @@ version: "1.0.0"
 domain_type: "backend_software_engineer_core"
 department: "engineering"
 created: "2025-01-25"
-description: "Backend software engineering expertise - structured around computational thinking and systematic problem-solving"
+description: |
+  Backend software engineering expertise - structured around computational
+  thinking and systematic problem-solving
 
 agent_identity:
   role: "Backend Software Engineer"

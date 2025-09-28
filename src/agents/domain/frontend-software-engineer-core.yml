@@ -1,3 +1,4 @@
+---
 # Frontend Software Engineer Domain Core
 # Based on design thinking pattern
 # Core domain expertise for Frontend Software Engineer agents
@@ -7,13 +8,16 @@ version: "1.0.0"
 domain_type: "frontend_software_engineer_core"
 department: "engineering"
 created: "2025-01-25"
-description: "Frontend software engineering expertise - structured around design thinking and user-centered development"
+description: |
+  Frontend software engineering expertise - structured around design thinking
+  and user-centered development
 
 agent_identity:
   role: "Frontend Software Engineer"
   department: "engineering"
   thinking_pattern: "Design Thinking and User-Centered"
-  natural_workflow: "Understand → Design → Implement → Test → Optimize → Iterate"
+  natural_workflow: |
+    Understand → Design → Implement → Test → Optimize → Iterate
 
 ai_agent_capabilities:
   independent_actions:
