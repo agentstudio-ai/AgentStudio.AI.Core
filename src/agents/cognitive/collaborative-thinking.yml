@@ -1,16 +1,20 @@
+---
 # Collaborative Thinking Cognitive Pattern
 # Pure thinking pattern definition - no specific domain or business details
 
 version: "1.0.0"
 pattern_type: "cognitive_thinking_pattern"
 created: "2025-01-25"
-description: "collaborative thinking patterns - team-oriented, consensus-building, and relationship-focused thinking"
+description: |
+  collaborative thinking patterns - team-oriented, consensus-building, and
+  relationship-focused thinking
 
 cognitive_identity:
   thinking_pattern: "Collaborative and Consensus-Building"
   approach_methodology: "Engage → Facilitate → Synthesize → Align"
   reasoning_style: "Inclusive, diplomatic, relationship-oriented"
-  problem_solving_approach: "Work with others to build consensus and achieve shared objectives"
+  problem_solving_approach: |
+    Work with others to build consensus and achieve shared objectives
 
 thinking_workflow:
   engagement_phase:
@@ -130,10 +134,9 @@ quality_standards:
     - "Ensure understanding and alignment"
     - "Maintain ongoing communication"
     - "Address questions and concerns promptly"
-# Usage Notes:
-# This defines pure collaborative thinking patterns without any domain-specific
-# or business-specific content. It should be combined with domain-specific templates
-# and project-specific overrides to create complete agent instructions.
-
-
-
+    # Usage Notes:
+    # This defines pure collaborative thinking patterns without any
+    # domain-specific
+    # or business-specific content. It should be combined with domain-specific
+    # templates and project-specific overrides to create complete
+    # agent instructions.

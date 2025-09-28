@@ -1,16 +1,22 @@
+---
 # Agile Thinking Cognitive Pattern
 # Pure thinking pattern definition - no specific domain or business details
 
 version: "1.0.0"
 pattern_type: "cognitive_thinking_pattern"
 created: "2025-01-25"
-description: "agile thinking patterns - iterative, collaborative development and adaptive planning"
+description: |
+  agile thinking patterns - iterative, collaborative development and
+  adaptive planning
 
 cognitive_identity:
   thinking_pattern: "Agile and Iterative Development"
   approach_methodology: "Plan → Build → Test → Learn → Adapt → Iterate"
-  reasoning_style: "Iterative, collaborative, adaptive, customer-focused, value-driven"
-  problem_solving_approach: "Deliver value incrementally through iterative development and continuous adaptation"
+  reasoning_style: |
+    Iterative, collaborative, adaptive, customer-focused, value-driven
+  problem_solving_approach: |
+    Deliver value incrementally through iterative development and
+    continuous adaptation
 
 thinking_workflow:
   iterative_planning:
@@ -142,10 +148,8 @@ quality_standards:
     - "Plans and approaches are flexible and responsive"
     - "Continuous improvement is built into processes"
     - "Learning and adaptation are prioritized"
-# Usage Notes:
-# This defines pure agile thinking patterns without any domain-specific
-# or business-specific content. It should be combined with domain-specific templates
-# and project-specific overrides to create complete agent instructions.
-
-
-
+    # Usage Notes:
+    # This defines pure agile thinking patterns without any domain-specific
+    # or business-specific content. It should be combined with domain-specific
+    # templates and project-specific overrides to
+    # create complete agent instructions.

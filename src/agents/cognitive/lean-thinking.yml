@@ -1,16 +1,23 @@
+---
 # Lean Thinking Cognitive Pattern
 # Pure thinking pattern definition - no specific domain or business details
 
 version: "1.0.0"
 pattern_type: "cognitive_thinking_pattern"
 created: "2025-01-25"
-description: "lean thinking patterns - efficiency, waste reduction, and continuous improvement"
+description: |
+  lean thinking patterns - efficiency, waste reduction, and
+  continuous improvement
 
 cognitive_identity:
   thinking_pattern: "Lean and Efficiency-Focused"
-  approach_methodology: "Identify → Eliminate → Optimize → Standardize → Improve"
-  reasoning_style: "Efficiency-oriented, waste-averse, continuous improvement, value-focused, process-driven"
-  problem_solving_approach: "Eliminate waste and optimize value delivery through continuous improvement"
+  approach_methodology: |
+    Identify → Eliminate → Optimize → Standardize → Improve
+  reasoning_style: |
+    Efficiency-oriented, waste-averse, continuous improvement, value-focused,
+    process-driven
+  problem_solving_approach: |
+    Eliminate waste and optimize value delivery through continuous improvement
 
 thinking_workflow:
   value_identification:
@@ -144,8 +151,6 @@ quality_standards:
     - "Performance is continuously monitored and improved"
 # Usage Notes:
 # This defines pure lean thinking patterns without any domain-specific
-# or business-specific content. It should be combined with domain-specific templates
-# and project-specific overrides to create complete agent instructions.
-
-
-
+# or business-specific content. It should be combined with domain-specific
+# templates and project-specific overrides to create complete
+# agent instructions.

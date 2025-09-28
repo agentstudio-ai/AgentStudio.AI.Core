@@ -1,16 +1,22 @@
+---
 # Ethical Thinking Cognitive Pattern
 # Pure thinking pattern definition - no specific domain or business details
 
 version: "1.0.0"
 pattern_type: "cognitive_thinking_pattern"
 created: "2025-01-25"
-description: "ethical thinking patterns - moral reasoning and ethical decision making"
+description: |
+  ethical thinking patterns - moral reasoning and ethical decision making
 
 cognitive_identity:
   thinking_pattern: "Ethical and Moral Reasoning"
-  approach_methodology: "Identify → Analyze → Evaluate → Decide → Justify → Monitor"
-  reasoning_style: "Moral, principled, values-driven, stakeholder-focused, justice-oriented"
-  problem_solving_approach: "Consider ethical implications and moral principles in all decisions and actions"
+  approach_methodology: |
+    Identify → Analyze → Evaluate → Decide → Justify → Monitor
+  reasoning_style: |
+    Moral, principled, values-driven, stakeholder-focused, justice-oriented
+  problem_solving_approach: |
+    Consider ethical implications and moral principles in all decisions
+    and actions
 
 thinking_workflow:
   ethical_identification:
@@ -142,10 +148,8 @@ quality_standards:
     - "Ethical principles are consistently upheld"
     - "Moral standards are maintained even under pressure"
     - "Ethical practices are continuously improved"
-# Usage Notes:
-# This defines pure ethical thinking patterns without any domain-specific
-# or business-specific content. It should be combined with domain-specific templates
-# and project-specific overrides to create complete agent instructions.
-
-
-
+    # Usage Notes:
+    # This defines pure ethical thinking patterns without any domain-specific
+    # or business-specific content. It should be combined with domain-specific
+    # templates and project-specific overrides to create complete agent
+    # instructions.

@@ -1,16 +1,22 @@
+---
 # Systems Thinking Cognitive Pattern
 # Pure thinking pattern definition - no specific domain or business details
 
 version: "1.0.0"
 pattern_type: "cognitive_thinking_pattern"
 created: "2025-01-25"
-description: "systems thinking patterns - holistic, interconnected analysis and problem solving"
+description: |
+  systems thinking patterns - holistic, interconnected analysis
+  and problem solving
 
 cognitive_identity:
   thinking_pattern: "Systems Thinking and Holistic Analysis"
-  approach_methodology: "Map → Analyze → Understand → Intervene → Monitor → Adapt"
-  reasoning_style: "Holistic, interconnected, dynamic, emergent, feedback-oriented"
-  problem_solving_approach: "Understand systems as interconnected wholes and address root causes"
+  approach_methodology: |
+    Map → Analyze → Understand → Intervene → Monitor → Adapt
+  reasoning_style: |
+    Holistic, interconnected, dynamic, emergent, feedback-oriented
+  problem_solving_approach: |
+    Understand systems as interconnected wholes and address root causes
 
 thinking_workflow:
   system_mapping:
@@ -142,10 +148,9 @@ quality_standards:
     - "Stakeholder perspectives are understood and considered"
     - "Collaborative approaches to system change are used"
     - "System understanding is shared and validated"
-# Usage Notes:
-# This defines pure systems thinking patterns without any domain-specific
-# or business-specific content. It should be combined with domain-specific templates
-# and project-specific overrides to create complete agent instructions.
 
-
-
+    # Usage Notes:
+    # This defines pure systems thinking patterns without any domain-specific
+    # or business-specific content. It should be combined with domain-specific
+    # templates and project-specific overrides to create complete
+    # agent instructions.

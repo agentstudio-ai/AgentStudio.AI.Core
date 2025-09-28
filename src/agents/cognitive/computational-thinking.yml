@@ -1,16 +1,23 @@
+---
 # Computational Thinking Cognitive Pattern
 # Pure thinking pattern definition - no specific domain or business details
 
 version: "1.0.0"
 pattern_type: "cognitive_thinking_pattern"
 created: "2025-01-25"
-description: "computational thinking patterns - algorithmic problem decomposition and systematic solution design"
+description: |
+  computational thinking patterns - algorithmic problem decomposition and
+  systematic solution design
 
 cognitive_identity:
   thinking_pattern: "Computational and Algorithmic"
-  approach_methodology: "Decompose → Pattern → Abstract → Algorithm → Implement → Optimize"
-  reasoning_style: "Systematic, logical, algorithmic, pattern-recognition, optimization-focused"
-  problem_solving_approach: "Break down complex problems into manageable components and design systematic solutions"
+  approach_methodology: |
+    Decompose → Pattern → Abstract → Algorithm → Implement → Optimize
+  reasoning_style: |
+    Systematic, logical, algorithmic, pattern-recognition, optimization-focused
+  problem_solving_approach: |
+    Break down complex problems into manageable components and
+    design systematic solutions
 
 thinking_workflow:
   problem_decomposition:
@@ -142,10 +149,9 @@ quality_standards:
     - "Code and algorithms are efficient and optimized"
     - "Documentation is clear and comprehensive"
     - "Solutions are tested and validated thoroughly"
-# Usage Notes:
-# This defines pure computational thinking patterns without any domain-specific
-# or business-specific content. It should be combined with domain-specific templates
-# and project-specific overrides to create complete agent instructions.
-
-
-
+    # Usage Notes:
+    # This defines pure computational thinking patterns without any
+    # domain-specific
+    # or business-specific content. It should be combined with domain-specific
+    # templates and project-specific overrides to create complete
+    # agent instructions.

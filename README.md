@@ -136,7 +136,7 @@ Knowledge files use a hybrid YAML + Markdown format:
 
 ## Development Status
 
-**Current Version**: 0.4.0-beta
+**Current Version**: 0.4.1-beta
 
 This is an early beta release. The framework is under active development and the
 API may change between versions.
