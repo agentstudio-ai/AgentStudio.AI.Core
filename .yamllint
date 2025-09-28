@@ -9,6 +9,10 @@ rules:
   document-start:
     present: true
   new-lines: disable
+  # Alternative: Allow both Unix and Windows line endings
+  # new-lines:
+  #   type: unix
+  #   check-missing: false
 
 ignore: |
   README.md

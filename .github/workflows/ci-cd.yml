@@ -24,7 +24,7 @@ jobs:
         run: |
           # Use cache to speed up package installation
           sudo apt-get update -qq
-          sudo apt-get install -y libxml2-utils yamllint
+          sudo apt-get install -y libxml2-utils yamllint dos2unix
           # Use npm cache and install markdownlint-cli
           npm install -g markdownlint-cli --cache /tmp/.npm
         env:
@@ -32,6 +32,11 @@ jobs:
           NPM_CONFIG_PROGRESS: false
           NPM_CONFIG_SPIN: false
           NPM_CONFIG_CACHE: /tmp/.npm
+
+      - name: Normalize line endings
+        run: |
+          # Convert Windows line endings to Unix for YAML files
+          find . -name "*.yml" -o -name "*.yaml" | xargs dos2unix
 
       - name: Make scripts executable
         run: |
