@@ -4,7 +4,7 @@
 
 ## Human-Centric AI Agent Orchestration Framework
 
-[![Version](https://img.shields.io/badge/version-0.4.0--beta-blue.svg)](https://github.com/agentstudio-ai)
+[![Version](https://img.shields.io/badge/version-0.4.2--beta-blue.svg)](https://github.com/agentstudio-ai)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 [![NuGet](https://img.shields.io/badge/nuget-AgentStudio.AI.Core-blue.svg)](https://github.com/agentstudio-ai)
 

@@ -5,6 +5,23 @@ All notable changes to AgentStudio.AI Core will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.2-beta] - 2025-01-27
+
+### Added
+
+- Agents folder content inclusion in NuGet package
+- All cognitive and domain agent templates now properly packaged
+
+### Changed
+
+- Updated package configuration to include `agents/**/*` content in NuGet package
+- Improved YAML formatting across template files for better readability
+
+### Fixed
+
+- Resolved missing agents folder in NuGet package distribution
+- Enhanced template consistency and maintainability
+
 ## [0.4.1-beta] - 2025-01-27
 
 ### Changed
