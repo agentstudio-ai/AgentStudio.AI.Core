@@ -11,9 +11,9 @@ description: |
 
 # Template Variables for Hybrid Workflows
 # {WORKFLOW_NAME} - e.g., "Feature Development Cycle", "Architecture Evolution",
-  # "Quality Improvement"
+# "Quality Improvement"
 # {WORKFLOW_DESCRIPTION} - e.g., "Feature development with iterative improvement
-  # and human approvals"
+# and human approvals"
 # {ITERATION_LIMIT} - e.g., "3", "5", "unlimited"
 # {HUMAN_ROLE} - e.g., "Product Manager", "Architect", "Release Manager"
 
@@ -35,22 +35,25 @@ workflow_definition:
       max_iterations: "{MAX_ITERATIONS}" # e.g., "5", "10", "unlimited"
       iteration_phases:
         phase_1_work:
-          name: "{WORK_PHASE_NAME}" # e.g., "Implementation", "Design",
-            # "Analysis"
+          name:
+            # e.g., "Implementation", "Design", "Analysis"
+            "{WORK_PHASE_NAME}"
           responsible_agent: "{WORK_AGENT}"
           deliverables:
-            - "{WORK_DELIVERABLE_1}" # e.g., "Code changes",
-              # "Design updates"
+            - | # e.g., "Code changes", "Design updates"
+              {WORK_DELIVERABLE_1}
             - "{WORK_DELIVERABLE_2}" # e.g., "Test results", "Documentation"
 
           human_checkpoint_1:
-            checkpoint_name: "{CHECKPOINT_1_NAME}" # e.g., "Work Review",
-              # "Quality Gate"
+            checkpoint_name:
+              # e.g., "Work Review", "Quality Gate"
+              "{CHECKPOINT_1_NAME}"
             human_role: "{HUMAN_ROLE_1}"
             approval_criteria:
-              - "{APPROVAL_CRITERIA_1}" # e.g., "Code quality standards met"
-              - "{APPROVAL_CRITERIA_2}" # e.g., "Performance requirements
-                # satisfied"
+              - | # e.g., "Code quality standards met"
+                {APPROVAL_CRITERIA_1}
+              - | # e.g., "Performance requirements satisfied"
+                {APPROVAL_CRITERIA_2}
 
             decision_options:
               - "APPROVED" # Continue to review phase
@@ -59,12 +62,14 @@ workflow_definition:
 
             timeout_handling:
               timeout_duration: "{TIMEOUT_1}" # e.g., "24 hours", "2 days"
-              timeout_action: "{TIMEOUT_ACTION_1}" # e.g., "ESCALATE",
-                # "AUTO_APPROVE", "REJECT"
+              timeout_action:
+                # e.g., "ESCALATE", "AUTO_APPROVE", "REJECT"
+                "{TIMEOUT_ACTION_1}"
 
         phase_2_review:
-          name: "{REVIEW_PHASE_NAME}" # e.g., "Code Review", "Design Review",
-            # "Analysis Review"
+          name:
+            # e.g., "Code Review", "Design Review", "Analysis Review"
+            "{REVIEW_PHASE_NAME}"
           responsible_agent: "{REVIEW_AGENT}"
           review_criteria:
             - "{REVIEW_CRITERIA_1}" # e.g., "Code quality standards"
@@ -72,13 +77,16 @@ workflow_definition:
             - "{REVIEW_CRITERIA_3}" # e.g., "Security compliance"
 
           feedback_types:
-            - "{FEEDBACK_TYPE_1}" # e.g., "APPROVED", "NEEDS_CHANGES",
-              # "REJECTED"
-            - "{FEEDBACK_TYPE_2}" # e.g., "MINOR_FIXES", "MAJOR_REWORK",
-              # "ARCHITECTURAL_CHANGES"
+            - | # e.g., "APPROVED", "NEEDS_CHANGES", "REJECTED"
+              {FEEDBACK_TYPE_1}
+            - | # e.g., "MINOR_FIXES", "MAJOR_REWORK", "ARCHITECTURAL_CHANGES"
+              {FEEDBACK_TYPE_2}
+            - | # e.g., "MINOR_FIXES", "MAJOR_REWORK", "ARCHITECTURAL_CHANGES"
+              {FEEDBACK_TYPE_2}
 
         phase_3_convergence:
-          name: "{CONVERGENCE_PHASE_NAME}" # e.g., "Convergence Check",
+          name:
+            "{CONVERGENCE_PHASE_NAME}" # e.g., "Convergence Check",
             # "Quality Gate"
           convergence_criteria:
             - "{CONVERGENCE_CRITERIA_1}" # e.g., "All tests pass"
@@ -91,7 +99,8 @@ workflow_definition:
             if_max_iterations: "ESCALATE"
 
           human_checkpoint_2:
-            checkpoint_name: "{CHECKPOINT_2_NAME}" # e.g., "Final Approval",
+            checkpoint_name:
+              "{CHECKPOINT_2_NAME}" # e.g., "Final Approval",
               # "Go-Live Decision"
             human_role: "{HUMAN_ROLE_2}"
             approval_criteria:
@@ -115,8 +124,8 @@ workflow_definition:
         - "{FINAL_DELIVERABLE_2}" # e.g., "Release notes", "Documentation"
 
       human_checkpoint_3:
-        checkpoint_name: "{CHECKPOINT_3_NAME}" # e.g., "Release Approval",
-          # "Final Sign-off"
+        checkpoint_name: | # e.g., "Release Approval", "Final Sign-off"
+          {CHECKPOINT_3_NAME}
         human_role: "{HUMAN_ROLE_3}"
         approval_criteria:
           - "{APPROVAL_CRITERIA_5}" # e.g., "All requirements met"
@@ -137,37 +146,54 @@ workflow_definition:
       iteration_history: "{ITERATION_HISTORY}"
 
     convergence_detection:
-      algorithm: "{CONVERGENCE_ALGORITHM}" # e.g., "ALL_CRITERIA_MET",
-        # "MAJORITY_APPROVAL", "PERFORMANCE_THRESHOLD"
-      timeout_handling: "{TIMEOUT_HANDLING}" # e.g., "ESCALATE",
-        # "ACCEPT_CURRENT", "REJECT"
+      algorithm:
+        # e.g., "ALL_CRITERIA_MET", "MAJORITY_APPROVAL", "PERFORMANCE_THRESHOLD"
+        "{CONVERGENCE_ALGORITHM}"
+      timeout_handling: | # e.g., "ESCALATE", "ACCEPT_CURRENT", "REJECT"
+        {TIMEOUT_HANDLING}
 
     quality_gates:
       per_iteration:
-        - "{ITERATION_GATE_1}" # e.g., "No regression in tests"
+        - | # e.g., "No regression in tests"
+          {ITERATION_GATE_1}
+        - | # e.g., "Performance not degraded"
+          {ITERATION_GATE_2}
         - "{ITERATION_GATE_2}" # e.g., "Performance not degraded"
 
       final_convergence:
-        - "{FINAL_GATE_1}" # e.g., "All review criteria met"
+        - | # e.g., "All review criteria met"
+          {FINAL_GATE_1}
+        - | # e.g., "Performance targets achieved"
+          {FINAL_GATE_2}
         - "{FINAL_GATE_2}" # e.g., "Performance targets achieved"
 
   human_interaction_patterns:
     notification_methods:
-      - "{NOTIFICATION_1}" # e.g., "Email", "Slack", "Teams"
+      - | # e.g., "Email", "Slack", "Teams"
+        {NOTIFICATION_1}
+      - | # e.g., "Dashboard", "Mobile app"
+        {NOTIFICATION_2}
       - "{NOTIFICATION_2}" # e.g., "Dashboard", "Mobile app"
 
     approval_interface:
-      interface_type: "{INTERFACE_TYPE}" # e.g., "Web dashboard",
+      interface_type: | # e.g., "Web dashboard", "Email response", "API"
+        {INTERFACE_TYPE}
         # "Email response", "API"
       required_actions:
-        - "{ACTION_1}" # e.g., "Review deliverables", "Provide feedback"
+        - | # e.g., "Review deliverables", "Provide feedback"
+          {ACTION_1}
+        - | # e.g., "Approve or reject", "Set conditions"
+          {ACTION_2}
         - "{ACTION_2}" # e.g., "Approve or reject", "Set conditions"
 
     feedback_collection:
-      feedback_format: "{FEEDBACK_FORMAT}" # e.g., "Structured form",
-        # "Free text", "Checklist"
+      feedback_format: | # e.g., "Structured form", "Free text", "Checklist"
+        {FEEDBACK_FORMAT}
       required_feedback:
-        - "{FEEDBACK_1}" # e.g., "Approval decision", "Revision requirements"
+        - | # e.g., "Approval decision", "Revision requirements"
+          {FEEDBACK_1}
+        - | # e.g., "Additional conditions", "Risk assessment"
+          {FEEDBACK_2}
         - "{FEEDBACK_2}" # e.g., "Additional conditions", "Risk assessment"
 
   workflow_control:
@@ -178,23 +204,25 @@ workflow_definition:
     parallel_approvals:
       enabled: "{PARALLEL_ENABLED}" # e.g., "true", "false"
       parallel_checkpoints:
-        - "{PARALLEL_CHECKPOINT_1}" # e.g., "Security review",
+        - | # e.g., "Security review", "Performance review"
+          {PARALLEL_CHECKPOINT_1}
           # "Performance review"
-        - "{PARALLEL_CHECKPOINT_2}" # e.g., "Business review",
+        - | # e.g., "Business review", "Technical review"
+          {PARALLEL_CHECKPOINT_2}
           # "Technical review"
 
     rollback_capability:
       rollback_triggers:
-        - "{ROLLBACK_TRIGGER_1}" # e.g., "Human rejection",
-          # "Quality failure"
-        - "{ROLLBACK_TRIGGER_2}" # e.g., "Timeout exceeded",
-          # "Escalation required"
+        - | # e.g., "Human rejection", "Quality failure"
+          {ROLLBACK_TRIGGER_1}
+        - | # e.g., "Timeout exceeded", "Escalation required"
+          {ROLLBACK_TRIGGER_2}
 
       rollback_actions:
-        - "{ROLLBACK_ACTION_1}" # e.g., "Revert to previous phase",
-          # "Terminate workflow"
-        - "{ROLLBACK_ACTION_2}" # e.g., "Notify stakeholders",
-          # "Create incident report"
+        - | # e.g., "Revert to previous phase", "Terminate workflow"
+          {ROLLBACK_ACTION_1}
+        - | # e.g., "Notify stakeholders", "Create incident report"
+          {ROLLBACK_ACTION_2}
 
 workflow_constraints:
   iteration_limits:

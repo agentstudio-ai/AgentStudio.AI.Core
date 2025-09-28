@@ -10,10 +10,9 @@ phase: "{CURRENT_PHASE}"
 timestamp: "{TIMESTAMP}"
 
 status_summary:
-  overall_status: "{STATUS}" # e.g., "ON_TRACK", "BLOCKED", "AT_RISK",
-    # "COMPLETED"
+  overall_status: | # e.g., "ON_TRACK", "BLOCKED", "AT_RISK", "COMPLETED"
+    {STATUS}
   progress_percentage: "{PROGRESS}" # e.g., "75%", "50%", "100%"
-
   current_work:
     - "{CURRENT_TASK_1}" # e.g., "Implementing user authentication"
     - "{CURRENT_TASK_2}" # e.g., "Writing unit tests"
@@ -52,11 +51,11 @@ deliverables_status:
     - "{DELIVERABLE_6}" # e.g., "documentation.md"
 
 quality_metrics:
-  code_quality: "{CODE_QUALITY}" # e.g., "GOOD", "NEEDS_IMPROVEMENT",
-    # "EXCELLENT"
+  code_quality: | # e.g., "GOOD", "NEEDS_IMPROVEMENT", "EXCELLENT"
+    {CODE_QUALITY}
   test_coverage: "{TEST_COVERAGE}" # e.g., "85%", "60%", "95%"
-  performance: "{PERFORMANCE}" # e.g., "MEETS_TARGETS", "BELOW_TARGETS",
-    # "EXCEEDS_TARGETS"
+  performance: | # e.g., "MEETS_TARGETS", "BELOW_TARGETS", "EXCEEDS_TARGETS"
+    {PERFORMANCE}
 
   issues_found:
     - "{ISSUE_1}" # e.g., "Memory leak in authentication service"
@@ -69,8 +68,8 @@ quality_metrics:
 timeline_update:
   original_estimate: "{ORIGINAL_ESTIMATE}" # e.g., "5 days"
   current_estimate: "{CURRENT_ESTIMATE}" # e.g., "7 days"
-  variance_reason: "{VARIANCE_REASON}" # e.g., "Additional complexity
-    # discovered"
+  variance_reason: | # e.g., "Additional complexity discovered"
+    {VARIANCE_REASON}
 
   milestone_dates:
     - "{MILESTONE_1}" # e.g., "Implementation: 2025-01-28"

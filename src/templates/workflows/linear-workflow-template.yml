@@ -11,20 +11,22 @@ description: "Template for {WORKFLOW_DESCRIPTION}"
 # Template Variables for Workflows
 # {WORKFLOW_NAME} - e.g., "Feature Development", "Bug Fix", "Code Review"
 # {WORKFLOW_DESCRIPTION} - e.g., "End-to-end feature development
-  # workflow"
+# workflow"
 # {TRIGGER_CONDITION} - e.g., "New feature request", "Bug report",
-  # "Code review request"
+# "Code review request"
 # {SUCCESS_CRITERIA} - e.g., "Feature deployed to production", "Bug
-  # resolved", "Code approved"
+# resolved", "Code approved"
 
 workflow_definition:
   trigger:
     condition: "{TRIGGER_CONDITION}"
-    initiator: "{INITIATOR_ROLE}" # e.g., "Product Manager", "User",
+    initiator:
+      "{INITIATOR_ROLE}" # e.g., "Product Manager", "User",
       # "System"
 
   participants:
-    primary_agent: "{PRIMARY_AGENT}" # e.g., "Backend Engineer",
+    primary_agent:
+      "{PRIMARY_AGENT}" # e.g., "Backend Engineer",
       # "Frontend Engineer"
     supporting_agents:
       - "{SUPPORTING_AGENT_1}" # e.g., "Product Manager", "QA Tester"
@@ -32,14 +34,15 @@ workflow_definition:
 
   phases:
     phase_1:
-      name: "{PHASE_1_NAME}" # e.g., "Requirements Analysis",
+      name:
+        "{PHASE_1_NAME}" # e.g., "Requirements Analysis",
         # "Design"
       responsible_agent: "{PHASE_1_AGENT}"
       deliverables:
-        - "{DELIVERABLE_1}" # e.g., "Requirements document",
-          # "Technical design"
-        - "{DELIVERABLE_2}" # e.g., "Acceptance criteria",
-          # "Architecture diagram"
+        - | # e.g., "Requirements document", "Technical design"
+          {DELIVERABLE_1}
+        - | # e.g., "Acceptance criteria", "Architecture diagram"
+          {DELIVERABLE_2}
       handoff_to: "{NEXT_PHASE_AGENT}"
 
     phase_2:
@@ -70,17 +73,20 @@ workflow_definition:
       - "{ESCALATION_3}" # e.g., "Notify DevOps"
 
   communication_patterns:
-    status_updates: "{UPDATE_FREQUENCY}" # e.g., "Daily", "Per phase",
+    status_updates:
+      "{UPDATE_FREQUENCY}" # e.g., "Daily", "Per phase",
       # "On completion"
-    handoff_protocol: "{HANDOFF_METHOD}" # e.g., "Formal handoff",
+    handoff_protocol:
+      "{HANDOFF_METHOD}" # e.g., "Formal handoff",
       # "Async notification"
     escalation_threshold: "{ESCALATION_TIME}" # e.g., "24 hours", "3 days"
 
 workflow_constraints:
   scope_limitations:
-    - "{SCOPE_LIMITATION_1}" # e.g., "No production changes without
-      # approval"
-    - "{SCOPE_LIMITATION_2}" # e.g., "No breaking changes to APIs"
+    - | # e.g., "No production changes without approval"
+      {SCOPE_LIMITATION_1}
+    - | # e.g., "No breaking changes to APIs"
+      {SCOPE_LIMITATION_2}
 
   quality_gates:
     - "{QUALITY_GATE_1}" # e.g., "Code review required"
