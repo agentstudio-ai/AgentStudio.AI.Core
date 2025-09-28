@@ -17,7 +17,8 @@ collaboratively with humans rather than replacing them.
 
 ## Key Features
 
-- **Cognitive Templates**: 19+ thinking patterns for different agent behaviors
+- **Cognitive Templates**: 19 thinking patterns for different agent behaviors
+- **Domain Templates**: 12 domain-specific agent templates for common roles
 - **Workflow Orchestration**: Pre-defined patterns for multi-agent collaboration
 - **Shared-Knowledge System**: Tool-specific knowledge files to prevent agent
   context drift
@@ -53,12 +54,15 @@ AgentStudio.AI.Core/
 │   ├── full-build-test.ps1/.sh   # Complete build and test pipeline
 │   └── validate.ps1/.sh          # Package validation scripts
 ├── src/                          # Source files and package configuration
-│   ├── templates/                # Cognitive and workflow templates
-│   │   ├── agent-messages/       # Agent communication templates
+│   ├── agents/                   # Agent templates and patterns
 │   │   ├── cognitive/            # 19 cognitive thinking patterns
+│   │   └── domain/               # 12 domain-specific agent templates
+│   ├── templates/                # Workflow and communication templates
+│   │   ├── agent-messages/       # Agent communication templates
 │   │   └── workflows/            # Workflow orchestration patterns
 │   ├── shared-knowledge/         # Tool-specific knowledge files
-│   │   └── github-cli.yml        # GitHub CLI usage knowledge
+│   │   ├── github-cli.yml        # GitHub CLI usage knowledge
+│   │   └── docker-cli.yml        # Docker CLI usage knowledge
 │   └── AgentStudio.AI.Core.csproj # NuGet package configuration
 ├── CHANGELOG.md                  # Change history
 ├── CONTRIBUTING.md               # Contribution guidelines
@@ -67,7 +71,9 @@ AgentStudio.AI.Core/
 └── VERSION                       # Version tracking
 ```
 
-## Cognitive Templates
+## Agent Templates
+
+### Cognitive Templates
 
 The framework includes 19 cognitive thinking patterns:
 
@@ -77,6 +83,18 @@ The framework includes 19 cognitive thinking patterns:
 - **Systems Thinking** - Holistic, interconnected analysis
 - **Agile Thinking** - Iterative, collaborative development
 - **And 14 more...**
+
+### Domain Templates
+
+The framework includes 12 domain-specific agent templates for common roles:
+
+- **Backend Software Engineer** - Server-side development and architecture
+- **Frontend Software Engineer** - User interface and client-side development
+- **DevOps Engineer** - Infrastructure, deployment, and automation
+- **Data Science Engineer** - Data analysis, ML, and statistical modeling
+- **Product Owner** - Product management and stakeholder coordination
+- **Security Engineer** - Security architecture and vulnerability management
+- **And 6 more specialized roles...**
 
 ## Workflow Patterns
 
@@ -105,7 +123,8 @@ prevent AI agent context drift and reduce trial-and-error behavior:
 
 - **GitHub CLI**: Complete usage guide with interactive command warnings and
   best practices
-- **More coming soon**: Docker, Kubernetes, Git, and other development tools
+- **Docker CLI**: Comprehensive Docker command reference with container lifecycle management
+- **More coming soon**: Kubernetes, Git, and other development tools
 
 ### Format
 
@@ -117,7 +136,7 @@ Knowledge files use a hybrid YAML + Markdown format:
 
 ## Development Status
 
-**Current Version**: 0.3.1-beta
+**Current Version**: 0.4.0-beta
 
 This is an early beta release. The framework is under active development and the
 API may change between versions.
@@ -125,13 +144,14 @@ API may change between versions.
 ### Roadmap
 
 - [x] Complete cognitive template library (19 templates)
-- [ ] Basic domain-specific templates (.NET, Python, Java, React, etc.)
+- [x] Basic domain-specific templates (12 core domain templates)
 - [x] Base workflow pattern templates
 - [ ] Template validation and testing framework
 - [ ] Documentation and examples for all templates
 - [x] Templates for agent-messages, shared-knowledge, and events
 - [ ] Refinement and inclusion of JARVIS (AI/Prompt Expert)
-- [ ] Additional shared-knowledge files (Docker, Kubernetes, Git, etc.)
+- [x] Docker shared-knowledge file
+- [ ] Additional shared-knowledge files (Kubernetes, Git, etc.)
 - [ ] Enhanced CI/CD pipeline with automated testing
 
 ## Contributing
@@ -150,7 +170,8 @@ for details.
 
 2. **Review the framework files** in `src/` directory:
 
-   - `templates/` - Cognitive and workflow templates
+   - `agents/` - Cognitive and domain-specific agent templates
+   - `templates/` - Workflow and communication templates
    - `shared-knowledge/` - Tool-specific knowledge files
    - `AgentStudio.AI.Core.csproj` - NuGet package configuration
 
