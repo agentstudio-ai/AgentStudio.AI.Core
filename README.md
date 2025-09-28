@@ -123,7 +123,8 @@ prevent AI agent context drift and reduce trial-and-error behavior:
 
 - **GitHub CLI**: Complete usage guide with interactive command warnings and
   best practices
-- **Docker CLI**: Comprehensive Docker command reference with container lifecycle management
+- **Docker CLI**: Comprehensive Docker command reference with container
+  lifecycle management
 - **More coming soon**: Kubernetes, Git, and other development tools
 
 ### Format
