@@ -7,14 +7,16 @@ message_type: "collaboration_request"
 from_agent: "{FROM_AGENT_ROLE}"
 to_agent: "{TO_AGENT_ROLE}"
 workflow_id: "{WORKFLOW_ID}"
-collaboration_type: "{COLLABORATION_TYPE}" # e.g., "REVIEW", "CONSULTATION", "COORDINATION"
+collaboration_type: "{COLLABORATION_TYPE}" # e.g., "REVIEW", "CONSULTATION",
+  # "COORDINATION"
 timestamp: "{TIMESTAMP}"
 
 collaboration_context:
   current_task: "{CURRENT_TASK}" # e.g., "Implementing user authentication"
   phase: "{CURRENT_PHASE}" # e.g., "Implementation", "Testing", "Review"
 
-  request_type: "{REQUEST_TYPE}" # e.g., "TECHNICAL_REVIEW", "DESIGN_VALIDATION", "ARCHITECTURE_CONSULTATION"
+  request_type: "{REQUEST_TYPE}" # e.g., "TECHNICAL_REVIEW",
+    # "DESIGN_VALIDATION", "ARCHITECTURE_CONSULTATION"
 
   specific_ask:
     - "{ASK_1}" # e.g., "Review the authentication implementation"
@@ -39,14 +41,18 @@ response_needed_by: "{RESPONSE_DEADLINE}" # e.g., "2025-01-25 15:00"
 estimated_review_time: "{REVIEW_TIME}" # e.g., "30 minutes", "2 hours"
 
 collaboration_format:
-  preferred_response_type: "{RESPONSE_TYPE}" # e.g., "DETAILED_FEEDBACK", "APPROVAL", "SUGGESTIONS"
-  response_format: "{RESPONSE_FORMAT}" # e.g., "STRUCTURED", "FREE_FORM", "CHECKLIST"
+  preferred_response_type: "{RESPONSE_TYPE}" # e.g., "DETAILED_FEEDBACK",
+    # "APPROVAL", "SUGGESTIONS"
+  response_format: "{RESPONSE_FORMAT}" # e.g., "STRUCTURED", "FREE_FORM",
+    # "CHECKLIST"
 
   deliverables_expected:
     - "{EXPECTED_DELIVERABLE_1}" # e.g., "Security review report"
     - "{EXPECTED_DELIVERABLE_2}" # e.g., "Performance recommendations"
 
 additional_context:
-  background: "{BACKGROUND}" # e.g., "This is part of the user authentication feature"
+  background: "{BACKGROUND}" # e.g., "This is part of the user authentication
+    # feature"
   dependencies: "{DEPENDENCIES}" # e.g., "Depends on database schema changes"
-  risks: "{RISKS}" # e.g., "Security vulnerabilities if not implemented correctly"
+  risks: "{RISKS}" # e.g., "Security vulnerabilities if not implemented
+    # correctly"

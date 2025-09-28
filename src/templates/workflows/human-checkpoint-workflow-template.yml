@@ -6,13 +6,17 @@ version: "1.0.0"
 template_type: "human_checkpoint_workflow_template"
 workflow_name: "{WORKFLOW_NAME}"
 created: "2025-01-25"
-description: "Template for {WORKFLOW_DESCRIPTION} with human checkpoints and approvals"
+description: |
+  Template for {WORKFLOW_DESCRIPTION} with human checkpoints and approvals
 
 # Template Variables for Human Checkpoint Workflows
-# {WORKFLOW_NAME} - e.g., "Feature Approval", "Architecture Review", "Release Process"
-# {WORKFLOW_DESCRIPTION} - e.g., "Feature development with human approval checkpoints"
-# {HUMAN_ROLE} - e.g., "Product Manager", "Architect", "Release Manager"
-# {APPROVAL_CRITERIA} - e.g., "Business requirements met", "Architecture approved", "Quality gates passed"
+# {WORKFLOW_NAME} - e.g., "Feature Approval", "Architecture Review",
+  # "Release Process"
+  # {WORKFLOW_DESCRIPTION} - e.g., "Feature development with human approval
+  # checkpoints"
+  # {HUMAN_ROLE} - e.g., "Product Manager", "Architect", "Release Manager"
+  # {APPROVAL_CRITERIA} - e.g., "Business requirements met", "Architecture
+  # approved", "Quality gates passed"
 
 workflow_definition:
   trigger:
@@ -32,11 +36,14 @@ workflow_definition:
       name: "{PREP_PHASE_NAME}" # e.g., "Requirements Analysis", "Design Phase"
       responsible_agent: "{PREP_AGENT}"
       deliverables:
-        - "{PREP_DELIVERABLE_1}" # e.g., "Requirements document", "Technical design"
-        - "{PREP_DELIVERABLE_2}" # e.g., "Acceptance criteria", "Architecture diagram"
+        - "{PREP_DELIVERABLE_1}" # e.g., "Requirements document",
+          # "Technical design"
+        - "{PREP_DELIVERABLE_2}" # e.g., "Acceptance criteria",
+          # "Architecture diagram"
 
       human_checkpoint_1:
-        checkpoint_name: "{CHECKPOINT_1_NAME}" # e.g., "Requirements Approval", "Design Approval"
+        checkpoint_name: "{CHECKPOINT_1_NAME}" # e.g., "Requirements Approval",
+          # "Design Approval"
         human_role: "{HUMAN_ROLE_1}"
         approval_criteria:
           - "{APPROVAL_CRITERIA_1}" # e.g., "Requirements complete and clear"
