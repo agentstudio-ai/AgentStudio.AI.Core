@@ -9,7 +9,7 @@
     
     <!-- Package configuration -->
     <PackageId>AgentStudio.AI.Core</PackageId>
-    <Version>0.3.1-beta</Version>
+    <Version>0.4.0-beta</Version>
     <Authors>AgentStudio.AI</Authors>
     <Company>AgentStudio.AI</Company>
     <Product>AgentStudio.AI Core Framework</Product>

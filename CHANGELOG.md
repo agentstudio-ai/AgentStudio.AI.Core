@@ -5,6 +5,51 @@ All notable changes to AgentStudio.AI Core will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.0-beta] - 2025-09-28
+
+### Added
+
+- New `src/agents/` directory structure with improved organization
+- 19 cognitive thinking templates in `src/agents/cognitive/`
+- 12 domain-specific agent templates in `src/agents/domain/`
+- Docker CLI shared-knowledge file with comprehensive command reference
+- Enhanced template organization separating cognitive and domain patterns
+
+### Changed
+
+- Moved cognitive templates from `src/templates/agent/cognitive/` to `src/agents/cognitive/`
+- Moved domain templates from `src/templates/agent/domain/` to `src/agents/domain/`
+- Improved directory structure for better agent template organization
+- Enhanced shared-knowledge system with Docker CLI integration
+
+### Fixed
+
+- Resolved YAML linting issues in shared-knowledge files
+- Fixed line ending and document start marker issues
+- Improved cross-platform compatibility for shared-knowledge files
+
+## [0.3.1-beta] - 2025-09-27
+
+### Added
+
+- Shared-knowledge system for tool-specific AI agent guidance
+- GitHub CLI shared-knowledge file with comprehensive command reference
+- YAML linter shared-knowledge file with cross-platform validation
+- Markdown linter shared-knowledge file with best practices
+- Context management system for agent session state preservation
+
+### Changed
+
+- Enhanced package configuration to include shared-knowledge files
+- Improved build process with better error handling
+- Updated validation scripts for comprehensive file checking
+
+### Fixed
+
+- Resolved build validation errors in CI/CD pipeline
+- Fixed YAML linting errors across template files
+- Improved line length and formatting consistency
+
 ## [0.2.0-beta] - 2025-09-27
 
 ### Added

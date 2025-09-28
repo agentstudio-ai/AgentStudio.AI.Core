@@ -1,0 +1,229 @@
+---
+# Docker CLI Shared Knowledge
+# Comprehensive reference for Docker Command Line Interface
+# Source: https://docs.docker.com/reference/cli/docker/
+
+version: "1.0.0"
+tool_type: "command_line_interface"
+category: "containerization"
+created: "2025-01-25"
+last_updated: "2025-01-25"
+source_url: "https://docs.docker.com/reference/cli/docker/"
+
+overview: |
+  Docker CLI is the primary command-line interface for interacting with Docker
+  containers, images, networks, and volumes. It provides comprehensive container
+  lifecycle management, image operations, networking, and orchestration
+  capabilities through a unified command structure with extensive configuration
+  options.
+
+key_capabilities:
+  container_management:
+    - "Create, start, stop, and remove containers"
+    - "Execute commands inside running containers"
+    - "Manage container lifecycle and state"
+    - "Monitor container performance and statistics"
+    - "Copy files to/from containers"
+
+  image_operations:
+    - "Build images from Dockerfiles"
+    - "Pull and push images to/from registries"
+    - "Tag, inspect, and manage image metadata"
+    - "Remove and prune unused images"
+    - "Export and import image archives"
+
+  networking:
+    - "Create and manage Docker networks"
+    - "Connect containers to networks"
+    - "Configure network drivers and options"
+    - "Manage network isolation and connectivity"
+
+  orchestration:
+    - "Docker Compose for multi-container applications"
+    - "Docker Swarm for container orchestration"
+    - "Stack deployment and service management"
+    - "Node and service scaling"
+
+  security:
+    - "Registry authentication and authorization"
+    - "Image signing and verification"
+    - "Secrets management"
+    - "TLS/SSL configuration"
+
+configuration:
+  client_config:
+    location: "/root/.docker (default)"
+    config_file: "config.json"
+    environment_variables:
+      - "DOCKER_HOST: Daemon socket to connect to"
+      - "DOCKER_CONFIG: Location of client config files"
+      - "DOCKER_CONTEXT: Name of context to use"
+
+  connection_protocols:
+    unix_socket: "unix:///var/run/docker.sock (Linux/macOS)"
+    tcp_connection: "tcp://host:port"
+    ssh_connection: "ssh://user@host"
+    named_pipe: "npipe:////./pipe/docker_engine (Windows)"
+
+  security_options:
+    tls_verification: "--tlsverify"
+    tls_certificate: "--tlscert"
+    tls_key: "--tlskey"
+    ca_certificate: "--tlscacert"
+
+core_commands:
+  container_commands:
+    - "docker run: Create and start a container"
+    - "docker create: Create a container without starting"
+    - "docker start: Start a stopped container"
+    - "docker stop: Stop a running container"
+    - "docker restart: Restart a container"
+    - "docker kill: Force kill a container"
+    - "docker rm: Remove containers"
+    - "docker exec: Execute commands in running containers"
+    - "docker logs: View container logs"
+    - "docker ps: List containers"
+    - "docker inspect: Inspect container details"
+
+  image_commands:
+    - "docker build: Build an image from Dockerfile"
+    - "docker pull: Pull an image from registry"
+    - "docker push: Push an image to registry"
+    - "docker images: List images"
+    - "docker rmi: Remove images"
+    - "docker tag: Tag an image"
+    - "docker save: Save image to tar archive"
+    - "docker load: Load image from tar archive"
+
+  network_commands:
+    - "docker network create: Create a network"
+    - "docker network ls: List networks"
+    - "docker network connect: Connect container to network"
+    - "docker network disconnect: Disconnect container from network"
+    - "docker network rm: Remove networks"
+
+  volume_commands:
+    - "docker volume create: Create a volume"
+    - "docker volume ls: List volumes"
+    - "docker volume inspect: Inspect volume details"
+    - "docker volume rm: Remove volumes"
+
+advanced_features:
+  docker_compose:
+    - "docker compose up: Start multi-container application"
+    - "docker compose down: Stop and remove containers"
+    - "docker compose build: Build services"
+    - "docker compose logs: View service logs"
+    - "docker compose ps: List service containers"
+    - "docker compose exec: Execute commands in service containers"
+
+  docker_buildx:
+    - "Multi-platform image building"
+    - "Advanced build features and options"
+    - "Build cache management"
+    - "Build history and debugging"
+
+  docker_scout:
+    - "Image vulnerability scanning"
+    - "Security assessment and recommendations"
+    - "Compliance checking"
+    - "Supply chain analysis"
+
+  experimental_features:
+    - "Docker Model Runner for AI/ML models"
+    - "Docker Desktop integration"
+    - "Advanced debugging capabilities"
+    - "Offload functionality for resource optimization"
+
+common_usage_patterns:
+  development_workflow:
+    - "docker build -t myapp ."
+    - "docker run -p 8080:80 myapp"
+    - "docker exec -it container_name bash"
+    - "docker logs -f container_name"
+
+  production_deployment:
+    - "docker pull production_image:latest"
+    - "docker run -d --name app --restart unless-stopped production_image"
+    - "docker compose -f docker-compose.prod.yml up -d"
+
+  debugging_and_monitoring:
+    - "docker ps -a (list all containers)"
+    - "docker logs container_name (view logs)"
+    - "docker stats (monitor resource usage)"
+    - "docker inspect container_name (detailed info)"
+
+  cleanup_and_maintenance:
+    - "docker system prune (clean up unused resources)"
+    - "docker image prune (remove unused images)"
+    - "docker container prune (remove stopped containers)"
+    - "docker volume prune (remove unused volumes)"
+
+best_practices:
+  security:
+    - "Use specific image tags instead of 'latest'"
+    - "Regularly scan images for vulnerabilities"
+    - "Implement proper secrets management"
+    - "Use non-root users in containers"
+
+  performance:
+    - "Optimize Dockerfile layers and caching"
+    - "Use multi-stage builds for smaller images"
+    - "Implement proper resource limits"
+    - "Monitor container resource usage"
+
+  maintenance:
+    - "Regular cleanup of unused resources"
+    - "Keep Docker and images updated"
+    - "Implement proper logging and monitoring"
+    - "Use Docker Compose for complex applications"
+
+troubleshooting:
+  common_issues:
+    - "Permission denied errors (Docker daemon access)"
+    - "Port binding conflicts"
+    - "Volume mount issues"
+    - "Network connectivity problems"
+    - "Out of disk space errors"
+
+  debugging_commands:
+    - "docker info: System information and configuration"
+    - "docker version: Version information"
+    - "docker system df: Disk usage statistics"
+    - "docker system events: Real-time events"
+
+integration_examples:
+  ci_cd_pipeline:
+    - "docker build --no-cache -t app:$BUILD_NUMBER ."
+    - "docker run --rm -v $(pwd)/tests:/tests app:$BUILD_NUMBER npm test"
+    - "docker push registry.com/app:$BUILD_NUMBER"
+
+  development_environment:
+    - "docker compose up -d (start development stack)"
+    - "docker compose exec app npm install"
+    - "docker compose logs -f app (follow logs)"
+
+  production_deployment:
+    - "docker stack deploy -c docker-compose.yml myapp"
+    - "docker service scale myapp_web=3"
+    - "docker service update --image myapp:v2 myapp_web"
+
+related_tools:
+  docker_compose: "Multi-container application management"
+  docker_desktop: "GUI application for Docker management"
+  docker_machine: "Docker host provisioning"
+  docker_swarm: "Container orchestration"
+  kubernetes: "Alternative container orchestration"
+
+references:
+  official_documentation: "https://docs.docker.com/reference/cli/docker/"
+  docker_compose_reference: "https://docs.docker.com/compose/"
+  dockerfile_reference: "https://docs.docker.com/engine/reference/builder/"
+  best_practices: "https://docs.docker.com/develop/dev-best-practices/"
+  security_guide: "https://docs.docker.com/engine/security/"
+
+  # Usage Notes:
+  # This shared knowledge provides comprehensive Docker CLI reference for
+  # AgentStudio.AI agents working with containerized applications. It covers
+  # all major commands, configuration options, and best practices for
+  # effective Docker usage in development and production environments.
